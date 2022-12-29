@@ -1,22 +1,8 @@
 {
   "hosting": [
     {
-      "public": "public",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "llc",
-      "public": "dist/llc",
+      "source": "dist/llc",
       "ignore": [
         "**/.*"
       ],
