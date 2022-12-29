@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "llc-cheap"
+  },
+  "targets": {
+    "llc-cheap": {
+      "hosting": {
+        "llc": [
+          "llc-cheap"
+        ]
+      }
+    }
+  }
+}
