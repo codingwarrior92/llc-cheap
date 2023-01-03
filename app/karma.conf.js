@@ -39,6 +39,14 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    check: {
+      global: {
+        statements: 81,
+        branches: 81,
+        functions: 81,
+        lines: 81
+      }
+    },
   });
 };

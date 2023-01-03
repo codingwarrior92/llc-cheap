@@ -7,7 +7,10 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { providePerformance, getPerformance } from '@angular/fire/performance';
-import { AppModules } from './modules/modules';
+
+import { HomeModule } from './modules';
+import { HeaderModule } from './shared/modules/header/header.module';
+import { FooterModule } from './shared/modules/footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { AppModules } from './modules/modules';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppModules,
+    HeaderModule,
+    FooterModule,
+    HomeModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     providePerformance(() => getPerformance())
