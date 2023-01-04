@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class SurveyService {
-  data: EventEmitter<any> = new EventEmitter(null);
+  data: EventEmitter<any> = new EventEmitter();
 
   private _api = environment.api;
 

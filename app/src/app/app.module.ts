@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
-import { providePerformance, getPerformance } from '@angular/fire/performance';
 
+// FIREBASE
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirePerformanceModule, PerformanceMonitoringService } from '@angular/fire/compat/performance';
+
+// MODULES
 import { HomeModule } from './modules';
 import { HeaderModule } from './shared/modules/header/header.module';
 import { FooterModule } from './shared/modules/footer/footer.module';
@@ -22,12 +25,13 @@ import { FooterModule } from './shared/modules/footer/footer.module';
     HeaderModule,
     FooterModule,
     HomeModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    providePerformance(() => getPerformance())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
+    AngularFirePerformanceModule
   ],
   providers: [
-    ScreenTrackingService, UserTrackingService
+    PerformanceMonitoringService
   ],
   bootstrap: [AppComponent]
 })
