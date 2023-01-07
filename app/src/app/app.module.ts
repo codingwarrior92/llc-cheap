@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
+// STRIPE
+import { NgxStripeModule } from 'ngx-stripe';
+
 // FIREBASE
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
@@ -20,11 +23,12 @@ import { FooterModule } from './shared/modules/footer/footer.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'llc-cheap' }),
     AppRoutingModule,
     HeaderModule,
     FooterModule,
     HomeModule,
+    NgxStripeModule.forRoot(environment.stripe),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,

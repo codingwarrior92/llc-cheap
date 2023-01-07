@@ -52,7 +52,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "vendorChunk": true,
+              "namedChunks": true
             },
             "development": {
               "buildOptimizer": false,
