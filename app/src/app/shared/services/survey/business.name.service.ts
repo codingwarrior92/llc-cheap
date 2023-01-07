@@ -6,10 +6,8 @@ import { map, catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class SurveyService {
+export class BusinessNameService {
   data: EventEmitter<any> = new EventEmitter();
-
-  private _api = environment.api;
 
   /**
    * Creates an instance of SurveyService.
@@ -24,17 +22,20 @@ export class SurveyService {
    * @return {*}  {Observable<Survey>}
    * @memberof SurveyService
    */
-  // getSurvey(playlistId: string): Observable<Welcome> {
-  //     // const URL = `${this._api}template=commercial-banking`;
-  //     const URL = 'playlist/invite/'+ playlistId;
-  //     const LOCAL = 'assets/json/welcome.json';
-  //     const API = environment.local ? LOCAL : this._api + URL;
+  getBusinessName(term: string, state: string): Observable<any> {
+    const URL = environment.cobalt.api + '?searchQuery=' + term + '&state=' + state;
 
-  //     return this._http.get<Response>(API).pipe(
-  //       map(this._extractData),
-  //       catchError((res: any) => this._handleError(res)),
-  //     );
-  //   }
+    const options = {
+      headers: {
+        'x-api-key': environment.cobalt.key
+      }
+    };
+
+    return this._http.get<Response>(URL, options).pipe(
+      map(this._extractData),
+      catchError((res: any) => this._handleError(res)),
+    );
+  }
 
   /**
    * @private

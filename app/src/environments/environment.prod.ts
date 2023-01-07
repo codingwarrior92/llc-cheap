@@ -8,5 +8,10 @@ export const environment = {
     messagingSenderId: '561277295382',
     measurementId: 'G-0GFLNFTX74',
   },
-  production: true
+  production: true,
+  cobalt: {
+    api: 'https://apigateway.cobaltintelligence.com/v1/search',
+    key: 'dGAKgkYegi8XgrqJSnAZgNmMwmT6rZqXzAF96C10'
+  },
+  stripe: 'pk_live_51MNOFpLE6JgchawP7fpvta0rSCCtVHOSEuhsNO4rrWM2as1UMUJwhQmQuDuoNAnYbq9RJASBa7l758fxPwk2Za4Q00tHbox2Kr'
 };
