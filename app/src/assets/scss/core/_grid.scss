@@ -1,6 +1,6 @@
 /* stylelint-disable number-max-precision */
 
-@import '../mixins';
+@import "../mixins";
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -616,7 +616,7 @@
 
 @media only screen and (min-width: 75em) {
   .container {
-    width: 76rem;
+    width: 120rem;
   }
 
   .col-lg,
@@ -819,6 +819,6 @@
 .row::after,
 .u-cf {
   clear: both;
-  content: '';
+  content: "";
   display: table;
 }

@@ -1,2 +1,121 @@
-@import '../../../../assets/scss/variables';
-@import '../../../../assets/scss/mixins';
+@import "../../../../assets/scss/variables";
+@import "../../../../assets/scss/mixins";
+
+.hidden {
+  display: none;
+}
+
+header {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .logo {
+    font-size: 16px;
+    font-family: "Open Sans";
+  }
+
+  nav {
+    font-size: 15px;
+    position: relative;
+    margin: 0 auto;
+
+    > ul {
+      padding: 0px;
+      display: inline-flex;
+      margin-top: 25px;
+
+      > li {
+        display: inline-block;
+        margin: 0 25px;
+        position: relative;
+        font-family: "Roboto";
+        font-weight: 300;
+
+        span {
+          display: block;
+          padding-bottom: 15px;
+        }
+
+        .dropdown {
+          left: -250px;
+          width: 600px;
+          padding: 15px;
+          background: #333;
+          border-radius: 6px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border: 5px solid transparent;
+            border-bottom-color: #333;
+            left: 280px;
+            top: -10px;
+            margin-left: -5px;
+          }
+
+          a {
+            margin-bottom: 14px;
+            display: block;
+            color: #fff;
+            font-weight: bold;
+          }
+
+          ul {
+            margin: 0px;
+            list-style: none;
+            padding: 0px;
+            font-family: "Roboto";
+
+            li {
+              font-size: 14px;
+              padding-bottom: 10px;
+              letter-spacing: 0px;
+
+              &.hr {
+                margin-top: 15px;
+
+                &:before {
+                  content: "";
+                  border-top: 2px solid #fff;
+                  width: 30px;
+                  padding-top: 15px;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+
+        .dropdown,
+        .regular {
+          display: none;
+          position: absolute;
+        }
+
+        .regular {
+          left: 0px;
+        }
+
+        &:hover {
+          .dropdown,
+          .regular {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    font-size: 14px;
+    border: 1px solid #ddd;
+    background: #333;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+}
