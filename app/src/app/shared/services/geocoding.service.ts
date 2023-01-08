@@ -6,7 +6,7 @@ import { map, catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class BusinessNameService {
+export class GeocodingService {
   data: EventEmitter<any> = new EventEmitter();
 
   /**
@@ -22,16 +22,10 @@ export class BusinessNameService {
    * @return {*}  {Observable<Survey>}
    * @memberof SurveyService
    */
-  getBusinessName(term: string, state: string): Observable<any> {
-    const URL = environment.cobalt.api + '?searchQuery=' + term + '&state=' + state;
+  getState(lat: number, lng: number): Observable<any> {
+    const URL = environment.google.api + 'geocode/json?latlng=' + lat + ',' + lng + '&key=' + environment.google.key + '&sensor=false';
 
-    const options = {
-      headers: {
-        'x-api-key': environment.cobalt.key
-      }
-    };
-
-    return this._http.get<Response>(URL, options).pipe(
+    return this._http.get<Response>(URL).pipe(
       map(this._extractData),
       catchError((res: any) => this._handleError(res)),
     );

@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="search-bar" [formGroup]="search">
+  <input
+    formControlName="input"
+    placeholder="Search your business name"
+    type="text"
+    class="main-input main-name"
+  />
+
+  <select formControlName="select">
+    <option *ngFor="let i of stateList" [ngValue]="i.appr">
+      {{ i.name }}
+    </option>
+  </select>
+  <button id="main-submit" (click)="searchEntity()" [disabled]="!search.valid">
+    Search
+  </button>
+</div>
