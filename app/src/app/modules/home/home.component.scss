@@ -130,11 +130,19 @@
     top: 250px;
     z-index: 1;
 
-    img {
+    .monitor {
       width: 350px;
       right: 0px;
       top: 150px;
       position: relative;
+    }
+
+    .man {
+      width: 22px;
+      position: relative;
+      top: 160px;
+      right: 340px;
+      z-index: 3;
     }
   }
 
