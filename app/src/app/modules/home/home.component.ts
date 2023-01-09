@@ -106,6 +106,7 @@ export class HomeComponent {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         lastValueFrom(this._geolocation.getState(position.coords.latitude, position.coords.longitude)).then((res) => {
+          console.log(res);
           let a = res.results.find((x: any) => x.formatted_address);
           a = a.formatted_address.split(' ');
           this.stateList.filter(y => {

@@ -1,23 +1,21 @@
 @import "../../../../assets/scss/variables";
 @import "../../../../assets/scss/mixins";
 
-.hidden {
-  display: none;
-}
-
 header {
   padding: 15px 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
+  z-index: 1;
 
   .logo {
-    font-size: 16px;
+    font-size: 17px;
     font-family: "Open Sans";
   }
 
   nav {
-    font-size: 15px;
+    font-size: 16px;
     position: relative;
     margin: 0 auto;
 
@@ -32,18 +30,47 @@ header {
         position: relative;
         font-family: "Roboto";
         font-weight: 300;
+        letter-spacing: 0.5px;
 
         span {
           display: block;
           padding-bottom: 15px;
         }
 
+        .dropdown,
+        .regular {
+          background: #333;
+          border-radius: 6px;
+        }
+
+        .regular {
+          padding: 15px;
+          list-style: none;
+          width: 125px;
+          top: 40px;
+
+          li {
+            margin-bottom: 10px;
+            font-size: 14px;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border: 5px solid transparent;
+            border-bottom-color: #333;
+            left: 26px;
+            top: -10px;
+            margin-left: -5px;
+          }
+        }
+
         .dropdown {
           left: -250px;
           width: 600px;
-          padding: 15px;
-          background: #333;
-          border-radius: 6px;
+          padding: 25px;
 
           &:before {
             content: "";
@@ -62,6 +89,8 @@ header {
             display: block;
             color: #fff;
             font-weight: bold;
+            font-family: 15px;
+            letter-spacing: 0px;
           }
 
           ul {
@@ -77,6 +106,7 @@ header {
 
               &.hr {
                 margin-top: 15px;
+                padding-bottom: 0px;
 
                 &:before {
                   content: "";
@@ -110,12 +140,18 @@ header {
     }
   }
 
-  button {
+  .login {
     font-size: 14px;
-    border: 1px solid #ddd;
-    background: #333;
+    border: none;
+    background: rgba(58, 57, 68, 0.06);
     color: #fff;
     border-radius: 20px;
     padding: 5px 15px;
+    font-family: "Roboto";
+    text-decoration: none;
+
+    &:hover {
+      background: rgba(58, 57, 68, 0.26);
+    }
   }
 }

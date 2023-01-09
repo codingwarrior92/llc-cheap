@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,8 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'llc';
 
-  constructor(private _meta: Meta) {
+  constructor(private _meta: Meta, public location: Location) {
     this._meta.addTag({ name: 'REVISIT-AFTER', content: "1 DAYS" });
     this._meta.addTag({ name: 'RATING', content: "GENERAL" });
     this._meta.addTag({ name: 'RESOURCE-TYPE', content: "DOCUMENT" });
