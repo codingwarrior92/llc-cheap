@@ -18,7 +18,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent {
   search = new FormGroup({
-    input: new FormControl(''),
+    input: new FormControl('', [Validators.required]),
     select: new FormControl('', [Validators.required]),
   });
 

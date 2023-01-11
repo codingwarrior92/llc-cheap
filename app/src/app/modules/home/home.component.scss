@@ -1,136 +1,233 @@
-.slogan-text {
-  position: absolute;
-  z-index: 1;
-  top: 150px;
-  width: 650px;
-
-  h1 {
-    font-size: 80px;
-    letter-spacing: 0px;
-    line-height: 80px;
-    font-family: "Roboto";
-    margin-bottom: 40px;
-  }
-
-  h5 {
-    font-size: 20px;
-    font-family: "Roboto";
-    font-weight: 200;
-    width: 550px;
-  }
-}
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1;
+.splash {
+  z-index: 0;
+  width: 100%;
+  height: 1000px;
   position: relative;
-  margin-top: 40px;
 
-  .main-input {
-    background: #fff;
-    height: 48px;
-    color: #a7b1ab;
-    border: 1px solid #cccccc;
-    margin-bottom: 0px;
-    -webkit-appearance: none;
-    border-radius: 4px 0px 0px 4px;
-    -moz-border-radius: 4px 0px 0px 4px;
-    -webkit-border-radius: 4px 0px 0px 4px;
-    display: inline-block;
-    text-align: left;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0px 0px 0px 57px;
-    font-size: 16px;
-    border-right: 0px;
-    background: #ffffff
-      url("http://seodesigns.com/projects/TD/images/search.png") 18px 15px
-      no-repeat;
-    background-size: 18px 18px;
-    width: 75%;
-  }
+  .slogan-text {
+    z-index: 1;
+    width: 650px;
 
-  #main-submit {
-    background: #3cb13c;
-    color: #fff;
-    display: inline-block;
-    font-size: 19px;
-    font-weight: 500;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 0px;
-    -webkit-appearance: none;
-    border-radius: 0px 4px 4px 0px;
-    -moz-border-radius: 0px 4px 4px 0px;
-    -webkit-border-radius: 0px 4px 4px 0px;
-    width: 141px;
-    height: 50px;
-    border: 0px;
-    padding-top: 0px;
-    float: left;
+    h1 {
+      font-size: 80px;
+      letter-spacing: 0px;
+      line-height: 80px;
+      font-family: "Roboto";
+      margin-bottom: 40px;
+      color: #fefefe;
 
-    &:hover {
-      background: #00a221;
-      color: #fff !important;
-      -webkit-appearance: none;
+      .scrolling-text-line-wrapper {
+        display: inline-flex;
+        justify-self: center;
+        align-items: center;
+        position: relative;
+        top: -12px;
+
+        .scrolling-text-wrapper {
+          height: 100px;
+          margin: auto;
+          overflow: hidden;
+          display: inline-block;
+          padding-left: 15px;
+
+          .scrolling-text {
+            list-style: none;
+            padding: 0px;
+            margin: 0 0.625rem;
+            animation: scrollUp 20s infinite;
+
+            li {
+              display: flex;
+              align-items: center;
+              height: 100px;
+              justify-content: flex-start;
+            }
+          }
+        }
+      }
     }
 
-    &[disabled] {
-      opacity: 0.6;
+    h5 {
+      font-size: 20px;
+      font-family: "Roboto";
+      font-weight: 200;
+      width: 550px;
+      color: #ddd;
     }
   }
-
-  select {
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    font-size: 16px;
-    border: 1px solid #cccccc;
-    padding: 0px 20px;
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
     position: relative;
-    width: 200px;
-    border-right: 0px;
-    background: #ffffff;
-    cursor: pointer;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    apperance: none;
-    background: #ffffff
-      url(http://seodesigns.com/projects/TD/images/main-bullet.png) 150px 22px
-      no-repeat;
-    background-size: 7px 7px;
+    margin-top: 40px;
 
-    option {
-      font-size: 15px;
-      color: #4a4a4a;
-      padding: 6px 0px;
-      display: block;
-      padding: 5px 0 16px 5px;
+    .main-input {
+      background: #fff;
+      height: 48px;
+      color: #a7b1ab;
+      border: 1px solid #cccccc;
+      margin-bottom: 0px;
+      -webkit-appearance: none;
+      border-radius: 4px 0px 0px 4px;
+      -moz-border-radius: 4px 0px 0px 4px;
+      -webkit-border-radius: 4px 0px 0px 4px;
+      display: inline-block;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 0px 0px 0px 57px;
+      font-size: 16px;
+      border-right: 0px;
+      background: #ffffff
+        url("http://seodesigns.com/projects/TD/images/search.png") 18px 15px
+        no-repeat;
+      background-size: 18px 18px;
+      width: 75%;
+    }
+
+    #main-submit {
+      background: #3cb13c;
+      color: #fff;
+      display: inline-block;
+      font-size: 19px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 0px;
+      -webkit-appearance: none;
+      border-radius: 0px 4px 4px 0px;
+      -moz-border-radius: 0px 4px 4px 0px;
+      -webkit-border-radius: 0px 4px 4px 0px;
+      width: 141px;
+      height: 50px;
+      border: 0px;
+      padding-top: 0px;
+      float: left;
 
       &:hover {
-        background: #f8f8f8;
+        background: #00a221;
+        color: #fff !important;
+        -webkit-appearance: none;
+      }
+
+      &[disabled] {
+        opacity: 0.6;
+      }
+    }
+
+    select {
+      display: inline-block;
+      width: 150px;
+      height: 50px;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      padding: 0px 20px;
+      position: relative;
+      width: 200px;
+      border-right: 0px;
+      background: #ffffff;
+      cursor: pointer;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      apperance: none;
+      background: #ffffff
+        url(http://seodesigns.com/projects/TD/images/main-bullet.png) 150px 22px
+        no-repeat;
+      background-size: 7px 7px;
+
+      option {
+        font-size: 15px;
+        color: #4a4a4a;
+        padding: 6px 0px;
+        display: block;
+        padding: 5px 0 16px 5px;
+
+        &:hover {
+          background: #f8f8f8;
+        }
       }
     }
   }
-}
-
-.splash {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 0;
-  overflow: hidden;
-  width: 100%;
-  height: 1000px;
 
   .monitor {
     position: absolute;
-    right: 200px;
-    top: 250px;
+    right: -50px;
+    top: 0px;
     z-index: 1;
 
-    .monitor {
+    .website {
+      background: #333;
+      border: 3px solid #f1f1f1;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      transform: rotate3d(1.1, -4, -0.3, 45deg);
+      position: absolute;
+      top: 181px;
+      left: -53px;
+      width: 431px;
+      z-index: 3;
+      .holder {
+        padding: 10px;
+        background: #f1f1f1;
+        display: flex;
+        height: 19px;
+      }
+      .column {
+        float: left;
+      }
+
+      .left {
+        width: 15%;
+      }
+
+      .right {
+        width: 10%;
+      }
+
+      .middle {
+        width: 75%;
+      }
+
+      /* Three dots */
+      .dot {
+        margin-top: 4px;
+        height: 12px;
+        width: 12px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* Style the input field */
+      input[type="text"] {
+        width: 100%;
+        border-radius: 3px;
+        border: none;
+        background-color: white;
+        margin-top: -8px;
+        height: 25px;
+        color: #666;
+        padding: 5px;
+      }
+
+      /* Three bars (hamburger menu) */
+      .bar {
+        width: 17px;
+        height: 3px;
+        background-color: #aaa;
+        margin: 3px 0;
+        display: block;
+      }
+
+      .content {
+        padding: 10px;
+        height: 131px;
+      }
+    }
+
+    .screen {
       width: 350px;
       right: 0px;
       top: 150px;
@@ -149,7 +246,6 @@
   .background-floor {
     width: 2000px;
     height: 500px;
-    transform-origin: 1800px -1200px;
     transform: rotate(4.4deg);
     background: -webkit-linear-gradient(116deg, #f4fefe, #cfdad9);
     background: -moz-linear-gradient(116deg, #f4fefe, #cfdad9);
@@ -157,12 +253,17 @@
     background: -o-linear-gradient(116deg, #f4fefe, #cfdad9);
     background: linear-gradient(116deg, #f4fefe, #cfdad9);
     z-index: -1;
+    position: absolute;
+    left: -300px;
+    top: 500px;
   }
 
   .wall {
+    position: absolute;
     width: 2000px;
     height: 800px;
-    transform-origin: 1763px -1200px;
+    left: -300px;
+    top: -300px;
     transform: rotate(4.4deg);
     background: -webkit-linear-gradient(116deg, #edfcfd, #74af64);
     background: -moz-linear-gradient(116deg, #edfcfd, #74af64);

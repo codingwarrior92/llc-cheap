@@ -1,40 +1,269 @@
-<div class="slogan-text">
-  <h1>Legal infrastructure for your business</h1>
-  <h5>
-    We make is super convienent, fast, and affordable to start and or grow your
-    business. Cheap never sounded so good.
-  </h5>
-
-  <div class="search-bar" [formGroup]="search">
-    <input
-      formControlName="input"
-      placeholder="Search your business name"
-      type="text"
-      class="main-input main-name"
-    />
-
-    <select formControlName="select">
-      <option *ngFor="let i of stateList" [ngValue]="i.appr">
-        {{ i.name }}
-      </option>
-    </select>
-    <button
-      id="main-submit"
-      (click)="searchEntity()"
-      [disabled]="!search.valid"
-    >
-      Search
-    </button>
-  </div>
-</div>
-
 <div class="splash">
+  <div class="slogan-text mt-80">
+    <h1>
+      Legal infrastructure for
+      <div class="scrolling-text-line-wrapper">
+        your
+        <div class="scrolling-text-wrapper">
+          <ul class="scrolling-text">
+            <li>business.</li>
+            <li>family.</li>
+            <li>property.</li>
+            <li>brand.</li>
+            <li>corporation.</li>
+          </ul>
+        </div>
+      </div>
+    </h1>
+    <h5>
+      We make is super convienent, fast, and affordable to start and or grow
+      your business. Cheap never sounded so good.
+    </h5>
+
+    <div class="search-bar" [formGroup]="search">
+      <input
+        formControlName="input"
+        placeholder="Search your business name"
+        type="text"
+        class="main-input main-name"
+      />
+
+      <select formControlName="select">
+        <option *ngFor="let i of stateList" [ngValue]="i.appr">
+          {{ i.name }}
+        </option>
+      </select>
+      <button
+        id="main-submit"
+        (click)="searchEntity()"
+        [disabled]="!search.valid"
+      >
+        Search
+      </button>
+    </div>
+  </div>
   <div class="monitor">
-    <div class="website tile"></div>
-    <img class="monitor" src="./assets/img/monitor.png" />
+    <div class="website">
+      <div class="holder">
+        <div class="column left">
+          <span class="dot" style="background: #ed594a"></span>
+          <span class="dot" style="background: #fdd800"></span>
+          <span class="dot" style="background: #5ac05a"></span>
+        </div>
+        <div class="column middle">
+          <input type="text" value="http://www.w3schools.com" />
+        </div>
+        <div class="column right">
+          <div style="float: right">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+      <div class="content"></div>
+    </div>
+    <img class="screen" src="./assets/img/monitor.png" />
     <img class="man" src="./assets/img/man.png" />
   </div>
 
   <div class="wall"></div>
   <div class="background-floor"></div>
+</div>
+
+<div class="container mt-7">
+  <div class="grid md:grid-cols-6 md:gap-x-5">
+    <p class="hero-2 text-center col-start-2 col-span-4 !md:text-6xl">
+      Legal help for every part of your life
+    </p>
+  </div>
+</div>
+
+<div class="relative flex-initial md:w-5/6 lg:w-full xl:w-5/12">
+  <img
+    src="https://www.legalzoom.com/resources/img/lzr/homepage/for-your-bussiness.jpg"
+    loading="lazy"
+    alt="Woodworker wearing goggles while sanding a piece of wood"
+    class="w-full md:w-4/5 lg:w-full xl:w-5/6 md:mr-auto"
+  />
+  <div
+    class="flex flex-col -mt-5 md:mt-0 w-5/6 md:w-1/2 p-4 bg-white md:absolute ml-auto md:right-0 md:top-0 drop-shadow-lg"
+  >
+    <img
+      src="/resources/img/lzr/homepage/lightbulb.svg"
+      loading="lazy"
+      alt="Woodworker wearing goggles while sanding a piece of wood"
+      class="w-4 h-4 mb-2"
+      aria-hidden="true"
+    />
+    <p class="text-sm leading-2 font-bold">
+      We've made dreams a reality for 3M+ entrepreneurs.
+    </p>
+  </div>
+</div>
+
+<div class="mt-6 md:mt-7">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row gap-x-4 lg:flex-row-reverse">
+      <div class="relative flex-initial md:w-5/6 lg:w-full xl:w-5/12">
+        <img
+          src="https://www.legalzoom.com/resources/img/lzr/homepage/for-you-and-your-family.jpg"
+          loading="lazy"
+          alt="Mom and dad smiling on the couch with their kids as they create their estate plan on a smartphone"
+          class="w-full md:w-4/5 lg:w-full xl:w-5/6 md:ml-auto"
+        />
+        <div
+          class="flex flex-col -mt-5 md:mt-0 w-5/6 md:w-1/2 p-4 bg-white md:absolute mr-auto md:left-0 md:top-0 drop-shadow-lg"
+        >
+          <img
+            src="/resources/img/lzr/homepage/shield.svg"
+            loading="lazy"
+            alt="Mom and dad smiling on the couch with their kids as they create their estate plan on a smartphone"
+            class="w-4 h-4 mb-2"
+            aria-hidden="true"
+          />
+          <p class="text-sm leading-2 font-bold">
+            Every 2 minutes someone created an estate plan document with us to
+            protect their family’s future.*
+          </p>
+        </div>
+      </div>
+      <div
+        class="mt-[60px] md:mt-[84px] lg:mt-9 flex relative flex-col gap-4 md:w-5/6 lg:w-full xl:w-5/12"
+      >
+        <h2 class="text-2xl font-extrabold leading-7 tracking-tightest">
+          For you and your family
+        </h2>
+        <p class="">
+          From wills to powers of attorney, the right estate planning documents
+          can safeguard you and your loved ones—both now, and later.
+        </p>
+        <p class="">
+          <a
+            href="/personal/estate-planning"
+            class="inline-block font-bold border-2 rounded-full px-4.1 py-1.5 border-action-medium hover:border-action-action text-white bg-action-medium hover:bg-action-action j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_csr_start_my_estate_plan"
+          >
+            Start my Estate Plan
+          </a>
+        </p>
+        <p class="flex flex-wrap gap-3">
+          <a
+            href="/personal/estate-planning/last-will-and-testament-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_csr_last_will"
+          >
+            Last will
+          </a>
+
+          <a
+            href="/personal/estate-planning/living-trust-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_csr_lt"
+          >
+            Living trust
+          </a>
+
+          <a
+            href="/personal/estate-planning/power-of-attorney-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_csr_poa"
+          >
+            Power of attorney
+          </a>
+
+          <a
+            href="/personal/estate-planning"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_csr_get_legal_help"
+          >
+            Get legal help
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-6 md:mt-7">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row gap-x-4">
+      <div class="relative flex-initial md:w-5/6 lg:w-full xl:w-5/12">
+        <img
+          src="https://www.legalzoom.com/resources/img/lzr/homepage/for-your-intellectual-property.jpg"
+          loading="lazy"
+          alt="Songwriter with a guitar writes lyrics in her notebook"
+          class="w-full md:w-4/5 lg:w-full xl:w-5/6 md:mr-auto"
+        />
+        <div
+          class="flex flex-col -mt-5 md:mt-0 w-5/6 md:w-1/2 p-4 bg-white md:absolute ml-auto md:right-0 md:top-0 drop-shadow-lg"
+        >
+          <img
+            src="/resources/img/lzr/homepage/idea.svg"
+            loading="lazy"
+            alt="Songwriter with a guitar writes lyrics in her notebook"
+            class="w-4 h-4 mb-2"
+            aria-hidden="true"
+          />
+          <p class="text-sm leading-2 font-bold">
+            6% of all trademark registration applications in the US were made
+            through us.*
+          </p>
+        </div>
+      </div>
+      <div
+        class="mt-[60px] md:mt-[84px] lg:mt-9 flex relative flex-col gap-4 md:w-5/6 lg:w-full xl:w-5/12"
+      >
+        <h2 class="text-2xl font-extrabold leading-7 tracking-tightest">
+          For your intellectual property
+        </h2>
+        <p class="">
+          Need to trademark your logo, copyright a creative work, or patent an
+          invention? Protect yourself against copycats.
+        </p>
+        <p class="">
+          <a
+            href="/business/intellectual-property/"
+            class="inline-block font-bold border-2 rounded-full px-4.1 py-1.5 border-action-medium hover:border-action-action text-white bg-action-medium hover:bg-action-action j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_ip_view_all_options"
+          >
+            View all options
+          </a>
+        </p>
+        <p class="flex flex-wrap gap-3">
+          <a
+            href="/business/intellectual-property/trademark-registration-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_ip_trademarks"
+          >
+            Trademarks
+          </a>
+
+          <a
+            href="/business/intellectual-property/copyright-registration-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_ip_copyrights"
+          >
+            Copyrights
+          </a>
+
+          <a
+            href="/business/intellectual-property/provisional-application-for-patents-overview.html"
+            class="font-bold border-2 rounded-full px-4.1 py-1.5 border-disabled j-ga-hook"
+            data-ga-category="home_page_v1"
+            data-ga-label="for_ip_patents"
+          >
+            Patents
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
