@@ -1,7 +1,7 @@
 .splash {
   z-index: 0;
   width: 100%;
-  height: 1000px;
+  height: 550px;
   position: relative;
 
   .slogan-text {
@@ -271,5 +271,52 @@
     background: -o-linear-gradient(116deg, #edfcfd, #74af64);
     background: linear-gradient(116deg, #edfcfd, #74af64);
     z-index: -2;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.legal-blurbs {
+  h2 {
+    font-family: "Roboto";
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    width: 400px;
+  }
+  .blurb-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
+    h3 {
+      font-family: "Roboto";
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        display: inline-block;
+        padding: 0.5rem 1.75rem;
+        font-weight: 700;
+        border-radius: 25px;
+        border: 2px solid rgb(67, 66, 60);
+        margin: 0 20px 20px 0;
+        background: transparent;
+        font-size: 16px;
+
+        a {
+          text-decoration: none;
+          color: #eee;
+        }
+      }
+    }
   }
 }
