@@ -8,9 +8,9 @@ describe('AnnualReportComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AnnualReportComponent]
+      declarations: [ AnnualReportComponent ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(AnnualReportComponent);
     component = fixture.componentInstance;

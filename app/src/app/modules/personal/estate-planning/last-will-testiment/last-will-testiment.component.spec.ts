@@ -8,9 +8,9 @@ describe('LastWillTestimentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LastWillTestimentComponent]
+      declarations: [ LastWillTestimentComponent ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(LastWillTestimentComponent);
     component = fixture.componentInstance;

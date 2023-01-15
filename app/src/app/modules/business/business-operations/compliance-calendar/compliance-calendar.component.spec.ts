@@ -8,9 +8,9 @@ describe('ComplianceCalendarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ComplianceCalendarComponent]
+      declarations: [ ComplianceCalendarComponent ]
     })
-      .compileComponents();
+    .compileComponents();
 
     fixture = TestBed.createComponent(ComplianceCalendarComponent);
     component = fixture.componentInstance;

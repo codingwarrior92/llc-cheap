@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RegisteredAgentComponent } from './registered-agent.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RegisteredAgentComponent
+  ],
   imports: [
     CommonModule
   ]

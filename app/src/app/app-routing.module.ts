@@ -12,15 +12,16 @@ import { LlcComponent } from './modules/business/business-formation/llc/llc.comp
 import { NonprofitComponent } from './modules/business/business-formation/nonprofit/nonprofit.component';
 import { SoleProprietorshipComponent } from './modules/business/business-formation/sole-proprietorship/sole-proprietorship.component';
 import { StateTaxIdComponent } from './modules/business/business-formation/state-tax-id/state-tax-id.component';
-import { AnnualReportComponent } from './modules/business/business-operations/annual-report/annual-report-overview.component';
+import { AnnualReportComponent } from './modules/business/business-operations/annual-report/annual-report.component';
 import { BusinessAdvisoryPlanComponent } from './modules/business/business-operations/business-advisory-plan/business-advisory-plan.component';
 import { BusinessOperationsComponent } from './modules/business/business-operations/business-operations.component';
 import { CertificateGoodStandingComponent } from './modules/business/business-operations/certificate-good-standing/certificate-good-standing.component';
-import { ComplianceCalendarComponent } from './modules/business/business-operations/compliance-calendar/compliance-calendar-overview.component';
+import { ComplianceCalendarComponent } from './modules/business/business-operations/compliance-calendar/compliance-calendar.component';
+import { CorporateAmendmentComponent } from './modules/business/business-operations/corporate-amendment/corporate-amendment.component';
 import { CorporateNameChangeComponent } from './modules/business/business-operations/corporate-name-change/corporate-name-change.component';
 import { ForeignQualificationComponent } from './modules/business/business-operations/foreign-qualification/foreign-qualification.component';
 import { MinutesManagerComponent } from './modules/business/business-operations/minutes-manager/minutes-manager.component';
-import { RegisteredAgentComponent } from './modules/business/business-operations/registered-agent/registered-agent-overview.component';
+import { RegisteredAgentComponent } from './modules/business/business-operations/registered-agent/registered-agent.component';
 import { BusinessComponent } from './modules/business/business.component';
 import { CopyrightRegistrationComponent } from './modules/business/intellectual-property/copyright-registration/copyright-registration.component';
 import { IntellectualPropertyComponent } from './modules/business/intellectual-property/intellectual-property.component';
@@ -31,6 +32,10 @@ import { UtilityPatentComponent } from './modules/business/intellectual-property
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { HomeComponent } from './modules/home/home.component';
 import { EstatePlanningComponent } from './modules/personal/estate-planning/estate-planning.component';
+import { LastWillTestimentComponent } from './modules/personal/estate-planning/last-will-testiment/last-will-testiment.component';
+import { LivingTrustComponent } from './modules/personal/estate-planning/living-trust/living-trust.component';
+import { LivingWillComponent } from './modules/personal/estate-planning/living-will/living-will.component';
+import { PowerAttorneyComponent } from './modules/personal/estate-planning/power-attorney/power-attorney.component';
 import { FinancialPoaComponent } from './modules/personal/financial-poa/financial-poa.component';
 import { MarriageDivorceComponent } from './modules/personal/marriage-divorce/marriage-divorce.component';
 import { NameChangeComponent } from './modules/personal/name-change/name-change.component';
@@ -47,21 +52,22 @@ const routes: Routes = [
     path: 'business', component: BusinessComponent, children: [
       {
         path: 'business-formation', component: BusinessFormationComponent, children: [
-          { path: 'dba-overview', component: DbaComponent },
-          { path: 'ein-federal-tax-identification-overview', component: EinFederalTaxIdentificationComponent },
-          { path: 'inc-overview', component: IncComponent },
-          { path: 'llc-overview', component: LlcComponent },
-          { path: 'nonprofit-overview', component: NonprofitComponent },
+          { path: 'dba', component: DbaComponent },
+          { path: 'ein-federal-tax-identification', component: EinFederalTaxIdentificationComponent },
+          { path: 'inc', component: IncComponent },
+          { path: 'llc', component: LlcComponent },
+          { path: 'nonprofit', component: NonprofitComponent },
           { path: 'sole-proprietorship', component: SoleProprietorshipComponent },
-          { path: 'state-tax-id-overview', component: StateTaxIdComponent }
+          { path: 'state-tax-id', component: StateTaxIdComponent }
         ]
       },
       {
         path: 'business-operations', component: BusinessOperationsComponent, children: [
-          { path: 'annual-report-overview', component: AnnualReportComponent },
-          { path: 'business-advisory-plan-overview', component: BusinessAdvisoryPlanComponent },
-          { path: 'certificate-good-standing-overview', component: CertificateGoodStandingComponent },
+          { path: 'annual-report', component: AnnualReportComponent },
+          { path: 'business-advisory-plan', component: BusinessAdvisoryPlanComponent },
+          { path: 'certificate-good-standing', component: CertificateGoodStandingComponent },
           { path: 'compliance-calender', component: ComplianceCalendarComponent },
+          { path: 'corporate-amendment', component: CorporateAmendmentComponent },
           { path: 'corporate-name-change', component: CorporateNameChangeComponent },
           { path: 'foreign-qualification', component: ForeignQualificationComponent },
           { path: 'minutes-manager', component: MinutesManagerComponent },
@@ -82,7 +88,15 @@ const routes: Routes = [
   },
   {
     path: 'personal', component: PersonalComponent, children: [
-      { path: 'estate-planning', component: EstatePlanningComponent },
+      {
+        path: 'estate-planning', component: EstatePlanningComponent,
+        children: [
+          { path: 'last-will-testiment', component: LastWillTestimentComponent },
+          { path: 'living-trust', component: LivingTrustComponent },
+          { path: 'living-will', component: LivingWillComponent },
+          { path: 'power-of-attorney', component: PowerAttorneyComponent }
+        ]
+      },
       { path: 'marriage-or-divorce', component: MarriageDivorceComponent },
       { path: 'real-estate', component: RealEstateComponent },
       { path: 'financial-power-of-attorey', component: FinancialPoaComponent },
