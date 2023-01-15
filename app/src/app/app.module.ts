@@ -17,6 +17,9 @@ import { AngularFirePerformanceModule, PerformanceMonitoringService } from '@ang
 import { HomeModule } from './modules';
 import { HeaderModule } from './shared/modules/header/header.module';
 import { FooterModule } from './shared/modules/footer/footer.module';
+import { BusinessModule } from './modules/business/business.module';
+import { PersonalModule } from './modules/personal/personal.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { FooterModule } from './shared/modules/footer/footer.module';
     HeaderModule,
     FooterModule,
     HomeModule,
+    BusinessModule,
+    PersonalModule,
+    DashboardModule,
     NgxStripeModule.forRoot(environment.stripe),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
