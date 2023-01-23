@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container">
   <h3>Your in great company, join us!</h3>
   <div class="social" *ngIf="social.reviews">
     <div class="social__box" *ngFor="let a of social?.reviews">
-      <img class="social__box-img social__box-img-one" alt="testimonial" />
+      <span [class]="'social__box-img social__box-img-' + a.image"></span>
 
       <p>{{ a.review }}</p>
       <h6 class="mt-15">{{ a.name }}</h6>

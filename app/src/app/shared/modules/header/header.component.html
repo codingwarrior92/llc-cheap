@@ -1,13 +1,19 @@
 <header class="container">
-  <span class="logo">cheap</span>
+  <img
+    class="logo"
+    alt="LLC.Cheap"
+    src="./assets/favicon/android-chrome-192x192.png"
+  />
   <nav>
     <ul>
       <li>
         <a routerLink="/business">Business</a>
         <div class="dropdown one">
-          <div class="row">
-            <div class="col col-xs-4">
-              <a routerLink="business-formation">Register your business</a>
+          <div class="dropdown-row">
+            <div class="dropdown-column">
+              <a class="dropdown-title" routerLink="business-formation"
+                >Register your business</a
+              >
               <ul>
                 <li>
                   <a routerLink="business-formation/llc">
@@ -37,8 +43,10 @@
                 </li>
               </ul>
             </div>
-            <div class="col col-xs-4">
-              <a routerLink="business-operations">Run your business</a>
+            <div class="dropdown-column">
+              <a class="dropdown-title" routerLink="business-operations"
+                >Run your business</a
+              >
               <ul>
                 <li>
                   <a routerLink="business-operations/registered-agent">
@@ -68,8 +76,10 @@
                 <li class="hr">View All</li>
               </ul>
             </div>
-            <div class="col col-xs-4">
-              <a routerLink="intellectual-property">Protect your brand</a>
+            <div class="dropdown-column">
+              <a class="dropdown-title" routerLink="intellectual-property"
+                >Protect your brand</a
+              >
               <ul>
                 <li>
                   <a routerLink="intellectual-property/trademark-registration">
@@ -105,9 +115,11 @@
       <li>
         <a routerLink="/personal">Personal</a>
         <div class="dropdown two">
-          <div class="row">
-            <div class="col col-xs-4">
-              <a routerLink="personal/estate-planning">Wills & Trusts</a>
+          <div class="dropdown-row">
+            <div class="dropdown-column">
+              <a class="dropdown-title" routerLink="personal/estate-planning"
+                >Wills & Trusts</a
+              >
               <ul>
                 <li>
                   <a routerLink="personal/estate-planning/last-will-testiment">
@@ -133,8 +145,12 @@
                 </li>
               </ul>
             </div>
-            <div class="col col-xs-4">
-              <a routerLink="personal/marriage-or-divorce">Family</a>
+            <div class="dropdown-column">
+              <a
+                class="dropdown-title"
+                routerLink="personal/marriage-or-divorce"
+                >Family</a
+              >
               <ul>
                 <li>
                   <a routerLink="personal/marriage-or-divorce">Divorce</a>
@@ -142,8 +158,10 @@
                 <li><a routerLink="personal/name-change">Name Change</a></li>
               </ul>
             </div>
-            <div class="col col-xs-4">
-              <a routerLink="personal/real-estate">Real Estate</a>
+            <div class="dropdown-column">
+              <a class="dropdown-title" routerLink="personal/real-estate"
+                >Real Estate</a
+              >
               <ul>
                 <li>
                   <a routerLink="personal/residential-lease"

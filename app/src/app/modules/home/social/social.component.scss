@@ -29,10 +29,10 @@
     animation: moveSideways 20s linear infinite;
     &__box {
       background: #fff;
-      padding: 24px 42px 18px 56px;
+      padding: 24px 42px 24px 56px;
       border-radius: 16px;
       display: inline-block;
-      margin: 0 0 60px 0;
+      margin: 0 0 60px;
       position: relative;
       font-family: "Roboto";
 
@@ -44,23 +44,88 @@
 
       &-img {
         background-image: url("^/assets/img/reviews.png");
-        height: 56px !important;
-        width: 56px !important;
+        height: 50px;
+        width: 50px;
         border-radius: 50%;
         position: absolute;
         left: -28px;
         top: 24px;
+
+        &-1 {
+          background-position: 50px 0px;
+        }
+
+        &-2 {
+          background-position: 100px 0px;
+        }
+
+        &-3 {
+          background-position: 150px 0px;
+        }
+
+        &-4 {
+          background-position: 200px 0px;
+        }
+
+        &-5 {
+          background-position: 250px 0px;
+        }
+
+        &-6 {
+          background-position: 300px 0px;
+        }
+
+        &-7 {
+          background-position: 350px 0px;
+        }
+
+        &-8 {
+          background-position: 400px 0px;
+        }
+
+        &-9 {
+          background-position: 450px 0px;
+        }
+
+        &-10 {
+          background-position: 500px 0px;
+        }
+
+        &-11 {
+          background-position: 550px 0px;
+        }
+
+        &-12 {
+          background-position: 600px 0px;
+        }
+
+        &-13 {
+          background-position: 650px 0px;
+        }
+
+        &-14 {
+          background-position: 700px 0px;
+        }
+
+        &-15 {
+          background-position: 750px 0px;
+        }
+
+        &-16 {
+          background-position: 800px 0px;
+        }
       }
 
       &-company {
         color: #4a596a;
         opacity: 0.7;
-        margin-top: 8px;
+        margin: 0;
         font-size: 14px;
       }
 
       h6 {
         font-weight: 500;
+        margin-bottom: 0px;
       }
     }
   }

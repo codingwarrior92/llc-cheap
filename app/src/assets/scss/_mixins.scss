@@ -276,6 +276,17 @@
   transform: translateX($pos);
 }
 
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
 @mixin list-loop($className, $styleName) {
   $max: 100;
   $offset: 5;
