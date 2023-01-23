@@ -13,14 +13,14 @@ export const environment = {
     measurementId: 'G-0GFLNFTX74',
   },
   production: false,
-  cobalt: {
-    api: 'https://apigateway.cobaltintelligence.com/v1/search',
-    key: 'dGAKgkYegi8XgrqJSnAZgNmMwmT6rZqXzAF96C10'
-  },
   stripe: 'pk_test_51MNOFpLE6JgchawPahk5ehVPkjixlIMajhDW7e1HDfcl1K88BktfF4OnIjIzWY6iWFp3YETpSp3coAWZhycebSIH00t5cxZkGr',
   google: {
     api: 'https://maps.googleapis.com/maps/api/',
     key: 'AIzaSyApXEkj7l2hEM4oo_59v-kpTEZI8jg03SE'
+  },
+  legalinc: {
+    secret: 'MvfgueLiOycMcp',
+    api: 'https://orders-uat.legalinc.com/api/v2/'
   }
 };
 

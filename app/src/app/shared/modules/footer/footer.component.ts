@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,12 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-
+  date = new Date();
   /**
    * Creates an instance of FooterComponent.
    * @memberof FooterComponent
    */
   constructor() {
+  }
+
+  scroll() {
+    window.scroll(0, 0);
   }
 
 }

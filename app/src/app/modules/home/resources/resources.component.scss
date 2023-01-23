@@ -1,0 +1,100 @@
+:host {
+  position: relative;
+  background: #eaf8fd;
+  height: 580px;
+  display: block;
+  z-index: 1;
+
+  .resources-background {
+    transform: skewY(4deg);
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    background: #eaf8fd;
+    top: -80px;
+  }
+
+  .documentation {
+    z-index: 1;
+    position: relative;
+
+    h6 {
+      color: #a960ee;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 38px;
+      width: 400px;
+    }
+
+    h2,
+    h5,
+    h6 {
+      font-family: "Roboto";
+    }
+
+    button {
+      background: transparent;
+      border: 2px solid #333;
+      padding: 0.5rem 1.75rem;
+      font-weight: 700;
+      border-radius: 25px;
+      font-size: 16px;
+      &:hover {
+        background: #a960ee;
+        border-color: transparent;
+        color: #fff;
+      }
+    }
+
+    p {
+      font-family: "Open Sans";
+      font-size: 16px;
+    }
+
+    &-blurb {
+      a {
+        font-size: 16px;
+        margin: 0 0 15px;
+        color: #a960ee;
+        display: block;
+        font-weight: 700;
+        font-family: "Open Sans";
+        line-height: 21px;
+        &:hover {
+          color: #333;
+        }
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &-list {
+      padding: 0px;
+      margin: 0px;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      flex: 1 0 30%;
+
+      a {
+        font-family: "Roboto";
+        background: #fff;
+        padding: 10px 30px;
+        font-weight: 700;
+        border-radius: 25px;
+        font-size: 16px;
+        text-decoration: none;
+        color: #333;
+
+        &:hover {
+          background: #a960ee;
+          border-color: transparent;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

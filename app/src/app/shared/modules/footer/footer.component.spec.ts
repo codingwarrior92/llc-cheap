@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { FooterComponent } from './footer.component';
-import { SurveyService } from '../../services/business.name.service';
+import { SurveyService } from '../../services/legalinc.service';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;

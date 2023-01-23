@@ -6,7 +6,11 @@ import { map, catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class BusinessNameService {
+export class LegalIncService {
+  accessToken = '';
+  expiresIn = 0;
+  refreshToken = '';
+
   data: EventEmitter<any> = new EventEmitter();
 
   /**
@@ -17,17 +21,34 @@ export class BusinessNameService {
   constructor(private _http: HttpClient) {
   }
 
+  authToken() {
+    const URL = environment.legalinc.api + 'oauth/access_token';
+
+    const body = {
+      "grant_type": "password",
+      "client_id": 1,
+      "client_secret": "MvfgueLiOycMcp",
+      "username": "accounts@llc.cheap",
+      "password": "10261988)_P"
+    }
+
+    return this._http.post<Response>(URL, body).pipe(
+      map(this._extractData),
+      catchError((res: any) => this._handleError(res)),
+    );
+  }
+
   /**
    * @param {string} playlistId
    * @return {*}  {Observable<Survey>}
    * @memberof SurveyService
    */
   getBusinessName(term: string | null, state: string | null): Observable<any> {
-    const URL = environment.cobalt.api + '?searchQuery=' + term + '&state=' + state;
+    const URL = environment.legalinc.api + 'name-check?entityName=' + term + '&entityState=' + state;
 
     const options = {
       headers: {
-        'x-api-key': environment.cobalt.key
+        'Authorization': 'Bearer #' + this.accessToken
       }
     };
 

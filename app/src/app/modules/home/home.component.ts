@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // SERVICES
-import { BusinessNameService } from 'src/app/shared/services/business.name.service';
+import { LegalIncService } from 'src/app/shared/services/legalinc.service';
 import { GeocodingService } from 'src/app/shared/services/geocoding.service';
 
 // SOCIAL
@@ -80,7 +80,7 @@ export class HomeComponent {
     { appr: "WY", name: "Wyoming" }
   ]
 
-  constructor(private _business: BusinessNameService, private _meta: Meta, private _title: Title, private _geolocation: GeocodingService) {
+  constructor(private _legalService: LegalIncService, private _meta: Meta, private _title: Title, private _geolocation: GeocodingService) {
     this._title.setTitle("LLC Cheap - Grow or start your business today!");
     this._meta.updateTag({ name: 'description', content: "LegalZoom is the nation's leading provider of personalized, online legal solutions and legal documents for small businesses and families. Form an LLC, incorporate a business, make a will, register a trademark, get legal advice, and more online." });
 
@@ -100,6 +100,10 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getUserLocation();
+
+    this._legalService.authToken().subscribe((res) => {
+      console.log(res);
+    })
   }
 
   getUserLocation() {
@@ -123,8 +127,8 @@ export class HomeComponent {
 
 
   searchEntity() {
-    // this._business.getBusinessName(this.search.controls.input.value, this.search.controls.select.value).subscribe((res) => {
-    //   console.log(res);
-    // })
+    this._legalService.getBusinessName(this.search.controls.input.value, this.search.controls.select.value).subscribe((res) => {
+      console.log(res);
+    })
   }
 }

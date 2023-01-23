@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  height: 600px;
+  overflow: hidden;
+  background: #2a2836;
+  padding: 0 40px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  h3 {
+    z-index: 1;
+    position: relative;
+    background: #ffcb57;
+    color: #fff;
+    padding: 10px 30px;
+    font-family: "Roboto";
+    width: 300px;
+    top: 40px;
+    margin-right: a;
+    font-weight: bold;
+    padding-right: 50px;
+    text-align: center;
+    margin: 0px auto;
+  }
+
+  .social {
+    columns: 5 200px;
+    column-gap: 60px;
+    animation: moveSideways 20s linear infinite;
+    &__box {
+      background: #fff;
+      padding: 24px 42px 18px 56px;
+      border-radius: 16px;
+      display: inline-block;
+      margin: 0 0 60px 0;
+      position: relative;
+      font-family: "Roboto";
+
+      p {
+        font-size: 14px;
+        font-weight: 200;
+        font-family: "Roboto";
+      }
+
+      &-img {
+        background-image: url("^/assets/img/reviews.png");
+        height: 56px !important;
+        width: 56px !important;
+        border-radius: 50%;
+        position: absolute;
+        left: -28px;
+        top: 24px;
+      }
+
+      &-company {
+        color: #4a596a;
+        opacity: 0.7;
+        margin-top: 8px;
+        font-size: 14px;
+      }
+
+      h6 {
+        font-weight: 500;
+      }
+    }
+  }
+}

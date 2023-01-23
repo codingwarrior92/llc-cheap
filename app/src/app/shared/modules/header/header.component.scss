@@ -10,8 +10,10 @@ header {
   z-index: 2;
 
   .logo {
-    font-size: 17px;
+    font-size: 22px;
     font-family: "Open Sans";
+    font-weight: bold;
+    color: #fff;
   }
 
   nav {
@@ -32,9 +34,10 @@ header {
         font-weight: 300;
         letter-spacing: 0.5px;
 
-        span {
+        > a {
           display: block;
-          padding-bottom: 15px;
+          color: #fff;
+          text-decoration: none;
         }
 
         .dropdown,

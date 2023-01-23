@@ -1,0 +1,106 @@
+{
+  "reviews": [
+    {
+      "name": "Robert Johnsson",
+      "review": "I found LLC Cheap to be a great resource for information on forming an LLC. The site was easy to navigate and had a ton of great information. The customer service was also great. I would definitely recommend this site to anyone looking for information on forming an LLC.",
+      "company": "Valley Ventures",
+      "image": "1"
+    },
+    {
+      "name": "Sophie Martin",
+      "review": "LLC Cheap is a great resource for those looking to form a limited liability company. The website is user-friendly and provides a ton of information on the process. The prices are also very reasonable. I would definitely recommend LLC Cheap to anyone looking to form an LLC.",
+      "company": "Stellar Services",
+      "image": "2"
+    },
+    {
+      "name": "John Smith",
+      "review": "The legal services were exceptional, I received great guidance and support.",
+      "company": "A&R Will",
+      "image": "16"
+    },
+    {
+      "name": "John Fink",
+      "review": "If you are in need of cheap and reliable legal services, then LLC Cheap is the website for you. They offer a wide range of services, all of which are designed to help you with your legal needs. From LLC formation to contract drafting, they can help you with everything you need. They also have a team of experienced attorneys on staff who can help you with any legal issues you may have.",
+      "company": "Grand Design",
+      "image": "3"
+    },
+    {
+      "name": "Juan O' Reiley",
+      "review": "If you are in need of legal services, LLC Cheap is a great option. They offer a variety of legal services at an affordable price, and they are always available to help you with any legal issues you may have. I would definitely recommend LLC Cheap to anyone in need of legal services.",
+      "company": "Wacky Widgets",
+      "image": "4"
+    },
+    {
+      "name": "David W. Patel",
+      "review": "I found the LLC Cheap website to be very user-friendly and helpful. The process was very straightforward and I was able to get my LLC set up quickly and easily. The customer service was also excellent - they were always available to answer my questions and help me out. Overall, I was very pleased with the service and would definitely recommend it to anyone looking to set up an LLC.",
+      "company": "Bright Beginnings",
+      "image": "5"
+    },
+    {
+      "name": "Elissa Grant",
+      "review": "I received fast and positive service from the legal team. Highly recommend!",
+      "company": "Random Creations",
+      "image": "15"
+    },
+    {
+      "name": "Melissa Brown",
+      "review": " Their team is efficient in handling LLC formation and related tasks. Highly recommend for any business looking for affordable and quality legal assistance.",
+      "company": "Creative Compounds",
+      "image": "6"
+    },
+    {
+      "name": "Emiko Nakamura",
+      "review": "I was impressed with the speed and quality of service provided by LLC.Cheap. Their team was knowledgeable and helpful in guiding me through the LLC formation process. I highly recommend them for any legal needs.",
+      "company": "Brainy Builders",
+      "image": "7"
+    },
+    {
+      "name": "Mei Wang",
+      "review": "Their services are both affordable and efficient. I highly recommend them for anyone in need of assistance with LLC formation and other legal matters.",
+      "company": "Jetstream Technologies",
+      "image": "8"
+    },
+    {
+      "name": "Hans Mueller",
+      "review": "I had a great experience working with LLC.Cheap. Their team provided fast and helpful legal services, making the LLC formation process easy and stress-free. Highly recommend.",
+      "company": "Flux Systems",
+      "image": "9"
+    },
+    {
+      "name": "Juan Gomez",
+      "review": "LLC.Cheap exceeded my expectations. Their legal services were fast, helpful and affordable. I highly recommend them for any business looking to form an LLC or for any other legal needs.",
+      "company": "Silverlight Solutions",
+      "image": "10"
+    },
+    {
+      "name": "N Conner",
+      "review": "I used LLC.Cheap for my business formation and was extremely impressed with their service. The team was very knowledgeable and efficient, and helped me navigate the process with ease. Their guidance was invaluable and I highly recommend LLC.Cheap for any business looking for legal assistance.",
+      "company": "Violet Visions",
+      "image": "11"
+    },
+    {
+      "name": "Ricardo Makoto",
+      "review": "LLC.Cheap provided expert guidance on protecting my brand through trademark registration. Their team was very professional and efficient, and I was impressed with their knowledge in the field. I highly recommend LLC.Cheap for any business looking for legal assistance in intellectual property protection.",
+      "company": "Perfectly Polished",
+      "image": "12"
+    },
+    {
+      "name": "Charles Travors",
+      "review": "I had a great experience working with LLC.Cheap for my real estate legal needs. Their team was very knowledgeable and provided helpful guidance throughout the process. I would highly recommend LLC.Cheap for any business looking for assistance in real estate law.",
+      "company": "Cloud 9 Innovations",
+      "image": "13"
+    },
+    {
+      "name": "Paul Kidis",
+      "review": "I used LLC.Cheap for assistance with my will and estate planning. The team was very professional and provided clear and helpful guidance. I would highly recommend LLC.Cheap for any business looking for legal assistance in will and estate planning.",
+      "company": "Happy Helpers",
+      "image": "14"
+    },
+    {
+      "name": "L Cramer",
+      "review": "LLC.Cheap provided exceptional service for my business formation. Their team was knowledgeable and efficient, guiding me through the process with ease. I highly recommend LLC.Cheap for any business looking for legal assistance with business formation.",
+      "company": "Out of the Box Solutions",
+      "image": "15"
+    }
+  ]
+}
