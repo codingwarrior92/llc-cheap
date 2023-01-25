@@ -1,0 +1,47 @@
+<ng-template #changelabel>
+  <ng-container *ngFor="let i of message">
+    <alert *ngIf="i" [type]="i.type"
+    (onClosed)="close(i)" [dismissOnTimeout]="8000" [dismissible]="true">
+      {{ i.value }}
+    </alert>
+  </ng-container>
+  <ng-container *ngIf="!loadingData; else skeleton">
+    <form [formGroup]="form" (ngSubmit)="done()">
+      <div class="modal-header">
+        <h1>Change Labels</h1>
+      </div>
+      <div class="modal-body">
+        <div class="search">
+          <input focused placeholder="Enter label name" type="text" class="form-control" formControlName="name">
+          <img src="assets/svg/search.svg" alt="Search" />
+        </div>
+
+        <ng-container formArrayName="label">
+          <ul>
+            <ng-container *ngFor="let control of form.controls.label.controls; let idx = index;" [formGroupName]="idx">
+              <li *ngIf="!control.get('disabled').value">
+                <label [for]="control.get('name').value"><input type="checkbox" formControlName="selected">
+                  {{control.get('name').value}}</label>
+              </li>
+            </ng-container>
+          </ul>
+        </ng-container>
+      </div>
+      <div class="modal-footer">
+        <button [disabled]="!form.valid || loading" type="button" class="btn btn-secondary"
+          (click)="resetUserLabels()">Reset</button>
+
+        <button *ngIf="isCreateLabel" [disabled]="loading" type="button" class="btn btn-primary"
+          (click)="createListLabel()">+
+          Create "{{form.get('name').value}}"</button>
+
+        <button *ngIf="!isCreateLabel" type="submit" class="btn btn-primary"
+          [disabled]="!form.valid || loading">Done</button>
+
+      </div>
+    </form>
+  </ng-container>
+  <ng-template #skeleton>
+    <h1>Please wait</h1>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,63 @@
+<section class="search">
+  <div class="search-wrapper">
+    <div class="wrapper" [class.no-bottom-left-radius]="foods.length != 0">
+      <div class="inner-wrapper">
+        <label *ngIf="!mobile">Find</label>
+        <span class="overflow">
+          <input (click)="nodropdown()"
+            (keydown)="search($event)"
+            [maxlength]="searchBarCurrentMaxLength"
+            [placeholder]="searchbarPlaceholder"
+            aria-autocomplete="list"
+            tabindex="2"
+            [formControl]="queryField"
+            (focus)="onSearchbarFocused()"
+            (blur)="onSearchbarBlured()"
+            (keypress)="text($event)"
+            (keydown.enter)="$event.target.blur(); gEvent('enter')"
+            [ngClass]="(isTypeUPC === true)?'upc-placeholder':'categories-placeholder'"
+            (input)="food($event.target.value)" area-label="search-list">
+          <img  class="loader" [class.hidden]="icon != true" src="assets/svg/oval.svg" width="20" alt="">
+          <img  class="closed" (click)='close()' [class.hidden]="!closed" src="assets/svg/close.svg" width="15" alt="">
+        </span>
+        <ul class="food-dropdown" [class.hidden]="foods=='' || hide==true" *ngIf='foods; let items'>
+
+          <li *ngFor='let i of items'>
+            <a
+              (click)="gEvent(i.title)"
+              [routerLink]="processSearchSuggestionURL(i.title, i.productId)"
+              *ngIf="i.productId !== 0 && iupc !== 0; else noProductFound"
+              [innerHTML]="printSearchResult(i.title)">
+            </a>
+            <ng-template #noProductFound>
+              <span>No Product Found</span>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div
+        *ngIf="mobile"
+        class="mobile-actions">
+        <img  src="assets/svg/search/mic.svg" alt="mic" aria-hidden="true" (click)="VS.openVoiceRecognition()" />
+        <img  src="assets/svg/search/barcode.svg" alt="barcode" aria-hidden="true" (click)="BS.openScanner()" />
+      </div>
+      <ng-container *ngIf="!this.mobile">
+        <div *ngIf="isTypeUPC === false; else barcodeBlock" class="filter">
+          <span (click)="dropdown()"><img  src="assets/svg/search.svg" alt="Grceri - Search" /> <i class="fa fa-angle-down"></i></span>
+          <ul *ngIf="showDropdown">
+            <li [ngClass]="{'active': sIndex === x || first}"
+            (click)="dropdownSelect($event.target.value, x, 'All Groceries')"
+            value="">All Groceries</li>
+            <li [class.active]="sIndex === x"
+            (click)="dropdownSelect(i.id, x, i.name)"
+            *ngFor='let i of lists; let x = index'
+            value="{{i.id}}">{{i.name}}</li>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-template #barcodeBlock>
+        <div class="filter" #barcodeBlock><i class="fa fa-barcode" aria-hidden="true"></i></div>
+      </ng-template>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<ng-template #editavatar>
+  <form #editavatarform="ngForm" id="EDIT_AVATAR" [formGroup]="userSettingsService.form"
+  (ngSubmit)="userSettingsService.editUserAccount(editavatarform)">
+    <div class="modal-header">
+      <h1>Edit Avatar</h1>
+      <img src="../../../../../assets/svg/close.svg" (click)="MS.close()" />
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <input type="text" formControlName="avatar">
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" name="button" [disabled]="!userSettingsService.form.valid || userSettingsService.loading">Save</button>
+  </form>
+</ng-template>

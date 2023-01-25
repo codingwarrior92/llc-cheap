@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <ng-container *ngIf="count == null">
+      <li class="breadcrumb-item">home</li>
+    </ng-container>
+
+    <ng-container *ngIf="count != null">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Home</a>
+      </li>
+    </ng-container>
+
+    <ng-container *ngFor="let breadLink of breadcrumbList">
+      <li class="breadcrumb-item">
+        <a
+          *ngIf="location.path().split('/')[1] !== breadLink; else current"
+          [routerLink]="breadcrumbList[2]"
+        >
+          {{ breadLink }}</a
+        >
+        <ng-template #current>{{ breadLink }}</ng-template>
+      </li>
+    </ng-container>
+  </ol>
+</nav>

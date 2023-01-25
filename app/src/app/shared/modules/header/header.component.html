@@ -1,9 +1,20 @@
-<header class="container">
-  <img
-    class="logo"
-    alt="LLC.Cheap"
-    src="./assets/favicon/android-chrome-192x192.png"
-  />
+<header class="container" [class.regular]="url.path() !== '/'">
+  <ng-container *ngIf="url.path() !== '/'; else regular">
+    <a routerLink="/">
+      <img
+        class="logo"
+        alt="LLC.Cheap"
+        src="./assets/favicon/android-chrome-192x192.png"
+      />
+    </a>
+  </ng-container>
+  <ng-template #regular>
+    <img
+      class="logo"
+      alt="LLC.Cheap"
+      src="./assets/favicon/android-chrome-192x192.png"
+    />
+  </ng-template>
   <nav>
     <ul>
       <li>

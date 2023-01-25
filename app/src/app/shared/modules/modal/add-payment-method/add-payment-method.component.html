@@ -1,0 +1,51 @@
+<ng-template #addpaymentmethod>
+  
+  <div class="modal-header">
+    <h1>Add a billing method</h1>
+    <img src="../../../../../assets/svg/close.svg" (click)="MS.close()" />
+  </div>
+  <div id="ADD_PAYMENT_METHOD" class="modal-body">
+    <form [formGroup]="addCard">
+      <credit-card #creditCard [profile]="profile" (creditCardValidate)="getCreditCardValidationInformation($event)">
+      </credit-card>
+
+      <div class="modal-body-padding">
+        <div class="form-group" *ngIf="checkBothUserFieldsEmpty(paymentService.addressLine1, paymentService.addressLine2)">
+          <strong>Address</strong>
+          <input class="no-margin" type="text" *ngIf="!paymentService.addressLine1" formControlName="addressLine1">
+          <input type="text" *ngIf="!paymentService.addressLine2" formControlName="addressLine2">
+        </div>
+
+        <div class="form-group" *ngIf="checkBothUserFieldsEmpty(paymentService.city, paymentService.state)">
+          <div class="row">
+            <div class="col-xs-6" *ngIf="!paymentService.city">
+              <strong>City</strong>
+              <input type="text" class="form-control" formControlName="city">
+            </div>
+            <div class="col-xs-6" *ngIf="!paymentService.state">
+              <strong>State</strong>
+              <input type="text" class="form-control" formControlName="state">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="!paymentService.zip">
+          <div class="row">
+            <div class="col-xs-6">
+              <strong>Zip Code</strong>
+              <input type="text" class="form-control" formControlName="zip">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" name="button" [disabled]="!addCard.valid || !cardValidated || loading"
+        (click)="setPaymentMethod(creditCard)">
+        <img *ngIf="loading; else notloading" class="btn-loading"  src="assets/svg/three-dots.svg" />
+        <ng-template #notloading>
+          Continue
+        </ng-template>
+      </button>
+    </form>
+  </div>
+</ng-template>

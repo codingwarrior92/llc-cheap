@@ -1,0 +1,81 @@
+<ng-template #editpaymentmethod>
+  <ng-container *ngFor="let i of message">
+    <alert *ngIf="i" [type]="i.type" (onClosed)="_close(i)" [dismissOnTimeout]="8000" [dismissible]="true">
+      {{ i.value }}
+    </alert>
+  </ng-container>
+  <form id="EDIT_PAYMENT_METHOD"  [formGroup]="form">
+    <div class="modal-header">
+      <h1>Edit Method</h1>
+      <img src="../../../../../assets/svg/close.svg" (click)="MS.close()" />
+    </div>
+    <ng-container *ngIf="paymentMethod">
+      <div class="modal-body">
+        <div class="form-group">
+          <strong>Card Information</strong>
+          <input type="text" class="form-control" formControlName="cardInfo" readonly>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-6">
+              <strong>First Name</strong>
+              <input type="text" class="form-control" formControlName="firstName">
+            </div>
+            <div class="col-xs-6">
+              <strong>Last Name</strong>
+              <input type="text" class="form-control" formControlName="lastName">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <strong>Expires On</strong>
+          <div class="row">
+            <div class="col-xs-6">
+              <select class="form-control" formControlName="expiryMonth">
+                <option *ngFor="let month of months" [value]="month">{{month}}</option>
+              </select>
+            </div>
+            <div class="col-xs-6">
+              <select class="form-control" formControlName="expiryYear">
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <strong>Address</strong>
+          <input type="text" formControlName="addressLine1" class="no-margin">
+          <input type="text" formControlName="addressLine2">
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-6">
+              <strong>City</strong>
+              <input type="text" class="form-control" formControlName="city">
+            </div>
+            <div class="col-xs-6">
+              <strong>State</strong>
+              <input type="text" class="form-control" formControlName="state">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-6">
+              <strong>Zip Code</strong>
+              <input type="text" class="form-control" formControlName="zip">
+            </div>
+            <div class="col-xs-6">
+              <strong>Country</strong>
+              <select class="form-control" formControlName="country">
+                <option *ngFor="let country of countries" [value]="country.code">{{country.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button" [disabled]="!form.valid && formChanges"
+        (click)="updatePaymentMethod(creditCard)">Update</button>
+    </ng-container>
+  </form>
+</ng-template>

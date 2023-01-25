@@ -1,0 +1,35 @@
+<ng-template #create>
+  <form [formGroup]="form">
+    <div id="createlist" class="modal-header">
+      <h1>Create a New List</h1>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="MS.obj.title" class="modal-section">
+        <img [defaultImage]="load" [lazyLoad]="MS.obj.image" [alt]="MS.obj.title" />
+        <h2>{{MS.obj.title}}</h2>
+      </div>
+      <input autofocus formControlName="input" type="text" maxlength="50" placeholder="What is name of your list?" />
+      <p>
+        <span>
+          <input type="radio" formControlName="visible" value="Public" name="visible">
+          <label for="visible">Public</label>
+        </span>
+        <span>
+          <input type="radio" formControlName="visible" value="Non-Public" name="visible" [checked]="true">
+          <label for="visible">Non-Public</label>
+        </span>
+        <span>
+          <input type="radio" formControlName="visible" value="Share Only" name="visible">
+          <label for="visible">Share Only</label>
+        </span>
+      </p>
+      <p>A public list can be openly featured and alerts followers when you make updates. A non-public
+        list can still be visible to others if you share a link to it.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-footer-cancel" (click)="MS.close()">Cancel</button>
+      <button class="modal-footer-btn btn-primary" type="submit" [disabled]="!form.valid || saving"
+        (click)="submitListCreation(form)">Create</button>
+    </div>
+  </form>
+</ng-template>

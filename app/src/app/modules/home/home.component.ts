@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 // SERVICES
-import { LegalIncService } from 'src/app/shared/services/legalinc.service';
-import { GeocodingService } from 'src/app/shared/services/geocoding.service';
+import { LegalIncService } from 'src/app/shared/services/external/legalinc.service';
+import { GeocodingService } from 'src/app/shared/services/external/geocoding.service';
 
 // SOCIAL
 import { Meta, Title } from '@angular/platform-browser';

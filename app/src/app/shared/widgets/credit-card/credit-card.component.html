@@ -1,0 +1,64 @@
+<div class="credit__card-info">
+  All credit card info is stored securily offsite.
+</div>
+
+<form [formGroup]="billing" class="credit__card" #form>
+  <div class="error feedback-block" role="alert" *ngIf="error">{{ error }}</div>
+
+  <div id="express"></div>
+
+  <div class="form-group">
+    <div class="credit__card-flex">
+      <strong>Card number</strong>
+
+      <div class="credit__card-cards">
+        <img src="../../../../assets/svg/credit-card/ae.svg" alt="American Express" />
+        <img src="../../../../assets/svg/credit-card/v.svg" alt="Visa" />
+        <img src="../../../../assets/svg/credit-card/d.svg" alt="Discover" />
+        <img src="../../../../assets/svg/credit-card/m.svg" alt="Mastercard" />
+        <img src="../../../../assets/svg/credit-card/dc.svg" alt="Diners Club" />
+      </div>
+    </div>
+    <div class="form-control credit__card-cc credit__card-input">
+      <img class="credit__card-cc-back" src="../../../../assets/svg/credit-card/bl.svg" alt="CC Number" />
+      <div #cardNumberElement></div>
+
+      <img class="credit__card-cc-secure" src="../../../../assets/svg/credit-card/shield.svg" alt="Securely Stored" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col col-xs-6">
+        <strong>First Name</strong>
+        <input type="text" class="form-control credit__card-input" name="text" formControlName="firstName" />
+      </div>
+      <div class="col col-xs-6">
+        <strong>Last Name</strong>
+        <input type="text" class="form-control credit__card-input" name="text" formControlName="lastName" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col col-xs-6">
+        <div class="form-group">
+          <strong>Expiry Date</strong>
+          <div #cardExpiryElement class="form-control credit__card-input"></div>
+        </div>
+      </div>
+      <div class="col col-xs-6">
+        <div class="form-group">
+          <strong>Security Code <i containerClass="back__cc" [tooltip]="backCC"
+              class="fa fa-question-circle"></i></strong>
+          <div #cardCVCElement class="form-control credit__card-input"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<ng-template #backCC>
+  <img src="../../../../assets/svg/credit-card/b.svg" alt="CC Code" />
+</ng-template>

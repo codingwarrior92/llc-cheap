@@ -1,0 +1,255 @@
+<ng-template #planlist>
+  <div id="PLAN_LIST" class="modal-header">
+    <h1>Edit Plan</h1>
+    <button [disabled]="disablePlanUpdate()" (click)="editUserPlan()" class="btn btn-primary">
+      <img *ngIf="loading; else notloading" class="btn-loading"  src="assets/svg/three-dots.svg" />
+        <ng-template #notloading>
+          Update
+        </ng-template>
+    </button>
+    <img class="visible-xs" src="../../../../../assets/svg/close.svg" (click)="_modalService.close()" />
+  </div>
+  <form [formGroup]="planGroup">
+    <input type="hidden" class="btn" formControlName="plan" value="free">
+    <div class="modal-body">
+      <table cellpadding="0" cellspacing="0" class="container__table">
+        <tbody>
+          <tr class="container__table__no-border table-hide">
+            <td></td>
+            <td class="container__table__no-border__price">
+              <h3 class="container__table__no-border__price-title">Free</h3>
+              <h3 class="container__table__no-border__price-price"><span>$</span>0</h3>
+            </td>
+            <td class="container__table__no-border__price">
+              <h3 class="container__table__no-border__price-title">Basic</h3>
+              <h3 class="container__table__no-border__price-price"><span>$</span>0.99</h3>
+              <span class="container__table__no-border__price-desc">billed monthly</span>
+            </td>
+            <td class="container__table__no-border__price">
+              <h3 class="container__table__no-border__price-title">Elite</h3>
+              <h3 class="container__table__no-border__price-price"><span>$</span>9.99</h3>
+              <span class="container__table__no-border__price-desc">billed monthly</span>
+            </td>
+          </tr>
+          <tr class="container__table__no-border table-hide">
+            <td></td>
+            <td data-label="Free">
+              <div class="container-section" [class.active]="planGroup.get('plan').value === 'free'"
+                (click)="handlePlanChange('free')">
+                <label for="free">Select Plan</label>
+              </div>
+            </td>
+            <td data-label="Basic">
+              <div class="container-section" [class.active]="planGroup.get('plan').value === planObject.planId"
+                *ngFor="let planObject of basicMonthlyPlan" (click)="handlePlanChange(planObject.planId)">
+                <label for="basic-yr">Select Plan</label>
+              </div>
+            </td>
+            <td data-label="Elite">
+              <div class="container-section" [class.active]="planGroup.get('plan').value === planObject.planId"
+                *ngFor="let planObject of eliteMonthlyPlan" (click)="handlePlanChange(planObject.planId)">
+                <label for="basic-yr">Select Plan</label>
+              </div>
+            </td>
+          </tr>
+          <tr class="container__table__no-border table-hide">
+            <td></td>
+            <td class="container__table-valign-top">
+              <div class="container__table-sep"></div>
+              <p>For individuals wanting to use the service but wouldn't make a lot of online food purchases.</p>
+            </td>
+            <td class="container__table-valign-top">
+              <div class="container__table-sep"></div>
+              <p>For individuals using this service to save on multiple food purchases based on moderate online
+                shopping.</p>
+            </td>
+            <td class="container__table-valign-top">
+              <div class="container__table-sep"></div>
+              <p>For individuals to take advantage of every online purchase based on heavy online shopping.</p>
+            </td>
+          </tr>
+          <!-- <tr class="container__table-bottom-padding container__table__no-border">
+            <td></td>
+            <td><a [routerLink]="['/pricing/free']">Learn more</a></td>
+            <td><a [routerLink]="['/pricing/basic']">Learn more</a></td>
+            <td><a [routerLink]="['/pricing/elite']">Learn more</a></td>
+          </tr> -->
+          <tr class="container__table-feature">
+            <td colspan="4" scope="col">Search & Intelligence</td>
+          </tr>
+          <tr>
+            <td class="title">History
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-o"></i>
+                <div class="container__table__tooltip-content">
+                  Grceri saves all your products for you, but you can only see and search the most recent 20 Products
+                  on the Free plan.
+                </div>
+              </span>
+            </td>
+            <td data-label="Free">Last 20 Products you've searched for.</td>
+            <td data-label="Basic">Unlimited</td>
+            <td data-label="Elite">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="title">UPC, ISNB, Barcode
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Have a barcode, or any categorized code listed by USDA to search for a product online.
+                </div>
+              </span>
+            </td>
+            <td data-label="Free"><img src="assets/svg/check.svg" alt="check" /></td>
+            <td data-label="Basic"><img src="assets/svg/check.svg" alt="check" /></td>
+            <td data-label="Elite"><img src="assets/svg/check.svg" alt="check" /></td>
+          </tr>
+          <!-- <tr>
+            <td>Product Recommendations
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  We are constantly advising alternative products based on your shopping search, lists, and saves.
+                </div>
+              </span>
+            </td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr> -->
+          <tr class="container__table-feature">
+            <td colspan="4" scope="col">Information Allowance</td>
+          </tr>
+          <tr>
+            <td class="title">Shopping Lists</td>
+            <td data-label="Free">1</td>
+            <td data-label="Basic">5</td>
+            <td data-label="Elite">50</td>
+          </tr>
+          <tr>
+            <td class="title">Watchlists
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Items you've saved to your product lists to track, and get automatic updated pricing in one
+                  place.
+                </div>
+              </span>
+            </td>
+            <td data-label="Free">10</td>
+            <td data-label="Basic">500</td>
+            <td data-label="Elite">5,000</td>
+          </tr>
+          <!-- <tr>
+            <td>Nutritional Information</td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr> -->
+          <!-- <tr>
+            <td>Product Comparison</td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr> -->
+          <tr>
+            <td class="title">Automated Pricing</td>
+            <td data-label="Free"><img src="assets/svg/check.svg" alt="check" /></td>
+            <td data-label="Basic"><img src="assets/svg/check.svg" alt="check" /></td>
+            <td data-label="Elite"><img src="assets/svg/check.svg" alt="check" /></td>
+          </tr>
+          <!-- <tr class="container__table-feature">
+            <td colspan="4">User Insights</td>
+          </tr>
+          <tr>
+            <td>Food Analytics
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Chart analysis of recommended daily intake and any incongruences from your product lists.
+                </div>
+              </span>
+            </td>
+            <td></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr>
+          <tr>
+            <td>Diet & Analysis
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Different diet categories we give you analysis charts that analyze your product lists.
+                </div>
+              </span>
+            </td>
+            <td></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr>
+          <tr>
+            <td>Smart Notifications
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Based on your product lists, saves, and history we give you email notifications on related products.
+                </div>
+              </span>
+            </td>
+            <td></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr>
+          <tr>
+            <td>Diet Congruence
+              <span class="container__table__tooltip">
+                <i class="fa fa-question-circle"></i>
+                <div class="container__table__tooltip-content">
+                  Based on your dietary needs and restrictions, would approve or deny any product you view.
+                </div>
+              </span>
+            </td>
+            <td></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+            <td><img  src="assets/svg/check.svg" alt="check" /></td>
+          </tr> -->
+          <!-- <tr class="container__table-feature">
+            <td colspan="4">Other benefits</td>
+          </tr>
+          <tr>
+            <td>User Data</td>
+            <td>1 MB total</td>
+            <td>500 MB total</td>
+            <td>2 GB total</td>
+          </tr> -->
+          <!-- <tr>
+            <td>Support</td>
+            <td>Standard support</td>
+            <td>Priority support</td>
+            <td>24/7 support with four-hour response time </td>
+          </tr> -->
+          <!-- <tr>
+            <td></td>
+            <td>
+              <button (click)="GS.event('link', 'Pricing - Free', 'click', 0)" class="btn" [routerLink]="['/sign-up']">
+                Continue
+              </button>
+            </td>
+            <td>
+              <button (click)="GS.event('link', 'Pricing - Basic', 'click', 0)" class="btn btn-primary"
+                [routerLink]="['/sign-up/basic']">
+                Buy Basic
+              </button>
+            </td>
+            <td>
+              <button (click)="GS.event('link', 'Pricing - Elite', 'click', 0)" class="btn btn-primary"
+                [routerLink]="['/sign-up/Elite']">
+                Buy Elite
+              </button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </form>
+</ng-template>

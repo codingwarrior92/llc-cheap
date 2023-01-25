@@ -1,0 +1,35 @@
+ol {
+  display: flex;
+  list-style: none;
+  justify-content: flex-start;
+  gap: 0 4px;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    text-transform: capitalize;
+    font-family: "Roboto";
+    color: #777;
+    font-size: 15px;
+    &:after {
+      content: "|";
+      margin: 0 10px;
+      color: #333;
+      font-weight: lighter;
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+
+    a {
+      font-size: 16px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@import "../../../../assets/css/abstracts/_mixins.scss";
+@import "../../../../assets/css/abstracts/_variables.scss";
+
+.credit__card {
+  padding: 30px 30px 0;
+
+  .feedback-block {
+    @include font-size(15px);
+    @include border-radius(4px);
+    padding: 20px;
+    background-color: #ccebf3;
+    color: #484848;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+  
+    &.success {
+      background-color: #d4ece6;
+    }
+  
+    &.error {
+      background-color: #f8d0c8;
+    }
+  
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  strong {
+    @include font-size(18px);
+    font-family: 'AB', sans-serif;
+    margin-bottom: 10px;
+    color: #222;
+    display: block;
+
+    
+    i {
+      @include font-size(16px);
+      margin-left: 5px;
+      color: $green;
+    }
+  }
+
+  &-flex,
+  &-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-flex {
+    margin-bottom: 10px;
+
+    strong {
+      margin: 0px;
+    }
+  }
+
+  &-cards {
+    margin-left: auto;
+
+    img {
+      width: 34px;
+      margin: 0 0 0 4px;
+    }
+  }
+
+  &-input {
+    @include font-size(18px);
+    @include border-radius(0);
+    border: none;
+    border-bottom: 1px solid #e0e0e0;;
+    box-shadow: none;
+    height: 40px;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  &-cc {
+    position: relative;
+    padding-left: 40px;
+    padding-right: 30px;
+
+    &-back,
+    &-secure {
+      position: absolute;
+    }
+
+    &-back {
+      @include opacity(.5);
+      left: 0;
+      top: 10px;
+      width: 31px;
+    }
+
+    .credit__card-input {
+      padding-left: 50px;
+      padding-right: 20px;
+    }
+
+    .StripeElement {
+      position: relative;
+      top: 2px;
+    }
+
+    &-secure {
+      @include opacity(.8);
+      filter: grayscale(1);
+      right: 0px;
+      top: 9px;
+      width: 22px;
+    }
+  }
+
+  &-info {
+    @include font-size(17px);
+    min-height: 42px;
+    background-color: #ebf7ec;
+    padding: 10px;
+    text-align: center;
+  }
+}

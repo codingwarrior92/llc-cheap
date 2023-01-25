@@ -1,0 +1,14 @@
+<ng-template #phonepasscode>
+  <form [formGroup]="form">
+    <!-- accessing element by element in modal service -->
+    <div id="phonePasscodeModal" class="modal-header">
+    </div>
+    <div class="modal-body">
+      <label for="">Enter Passcode</label>
+      <input type="text" formControlName="passcode">
+    </div>
+    <div class="modal-footer">
+      <button type="submit" [disabled]="!form.valid" name="button">Verify</button>
+    </div>
+  </form>
+</ng-template>

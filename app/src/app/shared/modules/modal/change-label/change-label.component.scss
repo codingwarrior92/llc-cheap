@@ -1,0 +1,138 @@
+@import "../../../../../assets/css/abstracts/_variables.scss";
+@import "../../../../../assets/css/abstracts/_mixins.scss";
+
+.change__label__options__popup {
+  @include animation(slide-in-bottom ease-in .2s);
+  max-width: 400px;
+  top: 15%;
+  left: 50%;
+  margin-left: -200px;
+
+  @media screen and (max-width: $screen-xs) {
+    max-width: inherit;
+    margin: 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+
+    .modal-content {
+      @include border-radius(12px 12px 0 0);
+      padding: 15px 0 0 0;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+
+      &:before {
+        @include border-radius(5px);
+        border-top: 1px solid #ccc;
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 4px;
+        background: #eee;
+        top: 5px;
+        left: 50%;
+        margin-left: -15px;
+      }
+
+
+      .modal-header {
+        display: none;
+      }
+
+      .modal-body {
+        padding: 15px;
+      }
+
+      .modal-footer {
+        padding: 0 0 15px;
+      }
+    }
+
+
+  }
+
+  .modal-header {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+
+    h1 {
+      @include font-size(24px);
+      margin: 0px;
+    }
+
+    img {
+      width: 14px;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+
+  .modal-body {
+    padding: 30px;
+
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-bottom: 1px solid #ddd;
+
+      input {
+        @include font-size(18px);
+        color: #3c4043;
+        padding: 8px 12px 8px 0;
+        border: none;
+      }
+
+      img {
+        @include opacity(.7);
+        width: 11px;
+      }
+    }
+
+    >ul {
+      margin: 25px 0 0;
+      max-height: 200px;
+      overflow-y: scroll;
+
+      li {
+        padding: 0 0 14px 0;
+
+        label {
+          @include font-size(18px);
+          display: flex;
+          align-items: center;
+          font-family: 'AL', sans-serif;
+          font-weight: 400;
+          padding: 0px;
+        }
+
+        input {
+          margin: 0 8px 0 0;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    border: none;
+    padding: 0 15px 30px;
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      margin: 0 15px;
+      font-family: 'AL', sans-serif;
+      height: 40px;
+      line-height: 40px;
+      justify-content: center;
+      font-weight: normal;
+    }
+  }
+
+}

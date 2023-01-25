@@ -1,0 +1,12 @@
+<ng-template #confirmation>
+  <!-- accessing element by id in modal service -->
+  <div id="CANCEL_SUBSCRIPTION">
+    <div class="modal-body">
+      {{text}}
+    </div>
+    <div class="modal-footer">
+      <button type="submit" (click)="confirmAction()" class="btn btn-primary">Yes</button>
+      <button type="button" (click)="cancelAction()" class="btn">Cancel</button>
+    </div>
+  </div>
+</ng-template>

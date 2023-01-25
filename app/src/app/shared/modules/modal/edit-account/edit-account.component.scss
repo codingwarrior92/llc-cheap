@@ -1,0 +1,101 @@
+@import "../../../../../assets/css/abstracts/_variables.scss";
+@import "../../../../../assets/css/abstracts/_mixins.scss";
+
+.edit__account__popup {
+  @include animation(slide-in-bottom ease-in .2s);
+  max-width: 400px;
+  top: 15%;
+  left: 50%;
+  margin-left: -200px;
+
+  .modal-content {
+    padding-bottom: 1px;
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    max-width: inherit;
+    margin: 0px;
+    left: 0px;
+
+    .modal-content {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 70px;
+    }
+
+    button {
+      width: -webkit-fill-available !important;
+      padding: 0;
+      margin: 0 30px !important;
+      position: fixed;
+    }
+  }
+
+  .modal-header {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-bottom: 1px solid #e0e0e0;
+
+    h1 {
+      @include font-size(24px);
+      margin: 0px;
+    }
+
+    img {
+      width: 14px;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+
+  .modal-body {
+    padding: 30px 30px 0px 30px;
+  }
+
+  input,
+  select {
+    margin-bottom: 20px;
+  }
+
+  input.no-margin {
+    margin: 0px;
+  }
+
+  select {
+    @include font-size(18px);
+    @include box-shadow(none);
+    height: 45px;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid #d0d0d0;
+    border-radius: 0px;
+    font-family: 'AL', sans-serif;
+  }
+
+  button {
+    width: 120px;
+    font-family: 'AM', sans-serif;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+    font-weight: normal;
+  }
+
+  strong {
+    @include font-size(18px);
+    font-family: 'AB', sans-serif;
+    margin-bottom: 10px;
+    color: #222;
+    display: block;
+  }
+}

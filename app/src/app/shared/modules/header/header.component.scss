@@ -10,10 +10,12 @@ header {
   z-index: 2;
 
   .logo {
-    @include opacity(0.8);
     height: 50px;
     width: 50px;
-    cursor: default !important;
+
+    &:hover {
+      @include opacity(0.8);
+    }
   }
 
   nav {
@@ -35,10 +37,15 @@ header {
         letter-spacing: 0.5px;
 
         > a {
+          @include opacity(1);
           display: block;
           color: #fff;
           text-decoration: none;
           margin-bottom: 15px;
+
+          &:hover {
+            @include opacity(0.8);
+          }
         }
 
         .dropdown,
@@ -128,6 +135,10 @@ header {
                 color: #fff;
                 letter-spacing: 0px;
                 text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
               }
 
               &.hr {
@@ -178,6 +189,21 @@ header {
 
     &:hover {
       background: rgba(58, 57, 68, 0.26);
+    }
+  }
+
+  &.regular {
+    nav ul > li > a {
+      color: #333;
+    }
+    .login {
+      @include opacity(0.8);
+      background: #333;
+      color: #fff;
+
+      &:hover {
+        @include opacity(1);
+      }
     }
   }
 }
