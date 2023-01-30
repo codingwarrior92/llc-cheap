@@ -14,19 +14,16 @@ export class AuthGuardService implements CanActivate {
 
   constructor(@Inject(PLATFORM_ID) private platform: any, private AS: AuthService, private R: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
-    let customRedirect = route.children;
+  canActivate(route: ActivatedRouteSnapshot): Observable<boolean> | any {
+    let customRedirect = route.routeConfig?.data;
     let isUserLoggedIn = this.AS.isAuthenticated();
 
-    return new Promise((resolve, reject) => {
-      if (isPlatformBrowser(this.platform)) {
-        if (isUserLoggedIn) {
-          console.log(customRedirect);
-        }
-
-        return resolve(isUserLoggedIn);
+    if (isUserLoggedIn) {
+      if (customRedirect) {
+        this.R.navigate(['/account/order/' + customRedirect['type'] + "/" + customRedirect['order']]);
+        return isUserLoggedIn;
       }
-    })
-
+    }
+    return true;
   }
 }

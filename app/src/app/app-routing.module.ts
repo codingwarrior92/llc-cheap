@@ -70,10 +70,11 @@ import { FormsComponent } from './shared/modules/forms/forms.component';
 
 // SERVICES
 import { AuthGuardService, LoggedInService } from './shared/services';
+import { AuthAccountService } from './shared/services/guard/auth-account.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
+  // { path: '**', component: NotFoundComponent },
   { path: 'login', component: LoginComponent, canActivate: [LoggedInService] },
   { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [LoggedInService] },
   {
@@ -400,7 +401,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'account', component: DashboardComponent, canActivate: [AuthGuardService],
+    path: 'account', component: DashboardComponent, canActivate: [AuthAccountService],
     children: [
       { path: '', component: MainDashboardComponent },
       {

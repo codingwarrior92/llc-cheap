@@ -4,11 +4,14 @@ import { isPlatformBrowser } from '@angular/common';
 // ROUTER
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
+// RXJS
+
 // AUTH
 import { AuthService } from '../api/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class LoggedInService implements CanActivate {
+export class AuthAccountService implements CanActivate {
 
   constructor(
     @Inject(PLATFORM_ID) private platform: any,
@@ -23,7 +26,7 @@ export class LoggedInService implements CanActivate {
       }
 
       if (isPlatformBrowser(this.platform)) {
-        window.location.href = '/';
+        window.location.href = '/login';
         return reject(false);
       }
 
