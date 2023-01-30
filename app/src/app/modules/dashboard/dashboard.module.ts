@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
-import { DashboardFooterModule } from './footer/footer.module';
-import { DashboardHeaderModule } from './header/header.module';
-import { DashboardNavModule } from './nav/nav.module';
 
-
+// MODULES
+import { DashboardFooterModule, DashboardHeaderModule, DashboardNavModule } from './shared';
+import { CompaniesModule, ComplianceModule, DocumentsModule, OrdersModule, SettingsModule, SubscriptionsModule } from './modules';
 
 @NgModule({
   declarations: [
+    DashboardComponent
+  ],
+  exports: [
     DashboardComponent
   ],
   imports: [
@@ -17,7 +19,13 @@ import { DashboardNavModule } from './nav/nav.module';
     RouterModule,
     DashboardFooterModule,
     DashboardHeaderModule,
-    DashboardNavModule
+    DashboardNavModule,
+    CompaniesModule,
+    ComplianceModule,
+    DocumentsModule,
+    OrdersModule,
+    SettingsModule,
+    SubscriptionsModule
   ]
 })
 export class DashboardModule { }

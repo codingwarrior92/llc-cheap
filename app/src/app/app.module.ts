@@ -12,14 +12,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFirePerformanceModule, PerformanceMonitoringService } from '@angular/fire/compat/performance';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // MODULES
 import { HomeModule } from './modules';
-import { HeaderModule } from './shared/modules/header/header.module';
-import { FooterModule } from './shared/modules/footer/footer.module';
 import { BusinessModule } from './modules/business/business.module';
-import { PersonalModule } from './modules/personal/personal.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { PersonalModule } from './modules/personal/personal.module';
+import { HeaderModule, FooterModule } from './shared/modules';
+import { AuthGuardService, LoggedInService, AuthService, SessionStorage, LocalStorage } from './shared/services';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,18 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     DashboardModule,
     NgxStripeModule.forRoot(environment.stripe),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFirePerformanceModule
   ],
   providers: [
-    PerformanceMonitoringService
+    PerformanceMonitoringService,
+    AuthGuardService,
+    LoggedInService,
+    AuthService,
+    SessionStorage,
+    LocalStorage
   ],
   bootstrap: [AppComponent]
 })

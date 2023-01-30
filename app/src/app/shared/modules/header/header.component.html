@@ -201,5 +201,8 @@
     </ul>
   </nav>
 
-  <a class="login" routerLink="login">Sign In</a>
+  <a *ngIf="!login(); else logged" class="login" routerLink="login">Sign In</a>
+  <ng-template #logged>
+    <a class="login" routerLink="dashboard">Dashboard</a>
+  </ng-template>
 </header>

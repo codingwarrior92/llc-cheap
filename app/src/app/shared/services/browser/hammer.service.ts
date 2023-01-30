@@ -10,7 +10,7 @@ import * as Hammer from 'hammerjs';
   providedIn: 'root'
 })
 export class HammerService {
-  htmlElement: HTMLElement;
+  htmlElement: HTMLElement | undefined;
 
   // RXJS
   status = new Subject;
@@ -29,14 +29,14 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swipedown', (e) => {
+        sd.on('swipedown', () => {
           return status.next({
             swipe: 'down',
             status: true
           });
         });
-        sd.on('swipeleft', (e) => {
-          history.pushState(null, null, location.href);
+        sd.on('swipeleft', () => {
+          history.pushState(null, location.href);
           return status.next({
             swipe: 'left',
             status: true
@@ -51,25 +51,25 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swipeleft', (e) => {
+        sd.on('swipeleft', () => {
           return status.next({
             swipe: 'left',
             status: true
           });
         });
-        sd.on('swipeup', (e) => {
+        sd.on('swipeup', () => {
           return status.next({
             swipe: 'up',
             status: true
           });
         });
-        sd.on('swipedown', (e) => {
+        sd.on('swipedown', () => {
           return status.next({
             swipe: 'down',
             status: true
           });
         });
-        sd.on('swiperight', (e) => {
+        sd.on('swiperight', () => {
           return status.next({
             swipe: 'right',
             status: true
@@ -85,7 +85,7 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swipeup', (e) => {
+        sd.on('swipeup', () => {
           return status.next({
             swipe: 'up',
             status: true
@@ -100,7 +100,7 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swipedown', (e) => {
+        sd.on('swipedown', () => {
           return status.next({
             swipe: 'down',
             status: true
@@ -115,7 +115,7 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swipeleft', (e) => {
+        sd.on('swipeleft', () => {
           return status.next({
             swipe: 'left',
             status: true
@@ -130,7 +130,7 @@ export class HammerService {
       if (htmlElement) {
         const sd = new Hammer(htmlElement);
         sd.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        sd.on('swiperight', (e) => {
+        sd.on('swiperight', () => {
           return status.next({
             swipe: 'right',
             status: true

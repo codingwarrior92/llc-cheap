@@ -5,10 +5,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 // RXJS
-import { Observable } from 'rxjs/Observable';
 
 // AUTH
 import { AuthService } from '../api/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LoggedInService implements CanActivate {
@@ -18,14 +18,19 @@ export class LoggedInService implements CanActivate {
     private AS: AuthService,
     public R: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-    if (!this.AS.isAuthenticated()) {
-      return true;
-    }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    return new Promise((resolve, reject) => {
 
-    if (isPlatformBrowser(this.platform)) {
-      window.location.href = '/';
-      return false;
-    }
+      if (!this.AS.isAuthenticated()) {
+        return resolve(true);
+      }
+
+      if (isPlatformBrowser(this.platform)) {
+        window.location.href = '/';
+        return reject(false);
+      }
+
+      return reject(false);
+    })
   }
 }

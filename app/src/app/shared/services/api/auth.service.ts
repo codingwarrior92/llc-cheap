@@ -1,35 +1,10 @@
-import { Injectable, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { environment } from '../../../../environments/environment';
-import { isPlatformBrowser } from '@angular/common';
-
-// JWT
-import * as jwt_decode from 'jwt-decode';
-
-// RXJS
-import { mergeMap } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
-import { throwError } from 'rxjs';
-
-// ROUTER
+import { Injectable, OnDestroy } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { LocalStorage, SessionStorage } from '..';
 import { Router } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
+import { of, Subscription, timer } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 
-// HTTP
-import { Http } from '@angular/http';
-
-// SUBSCRIPTION
-import { Subscription } from 'rxjs';
-
-// SERVICES
-import { LocalStorage } from '../local-storage/local-storage.service';
-import { SessionStorage } from '../session-storage/session-storage.service';
-
-// AUTH
-import * as auth0 from 'auth0-js';
-
-// ENVIRONMENT
-const api = `${environment.host}/api/`;
 
 @Injectable()
 export class AuthService implements OnDestroy {
@@ -37,110 +12,82 @@ export class AuthService implements OnDestroy {
   userProfile: any;
   refreshSubscription: any;
   private _subscriptions: any = new Subscription();
-  renew: boolean;
-  url = this.document.location.origin;
+  renew: boolean | undefined;
 
-  auth0 = new auth0.WebAuth({
-    clientID: '96b0aXJKxvJRK4gYKR0YuJnEnXN8cJsE',
-    domain: 'grceri-auth.auth0.com',
-    audience: `https://grceri-auth.auth0.com/userinfo`,
-    redirectUri: this.url + '/callback',
-    responseType: 'token id_token',
-    scope: 'openid profile user_metadata'
-  });
 
   constructor(
-    @Inject(PLATFORM_ID) private platform: any,
-    @Inject(DOCUMENT) private document: Document,
-    private LS: LocalStorage,
+    public afAuth: AngularFireAuth,
+    private _localStorage: LocalStorage,
     private _sessionStorage: SessionStorage,
-    private router: Router,
-    private sanitizer: DomSanitizer,
-    private http: Http) {
+    private router: Router) {
   }
 
   ngOnDestroy() {
     this._subscriptions.unsubscribe();
   }
 
-  public login(obj: any = {}) {
-    return this.http.post(`${api}users/login`, obj).map((res: any) => res).catch(this._errorHandler);
+
+  async resetPassword(email: string): Promise<void> {
+    try {
+      return this.afAuth.sendPasswordResetEmail(email);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  loginCallback(obj: any = {}) {
-    return this.http.post(`${api}users/callback`, obj).map((res: any) => res).catch(this._errorHandler);
+  async login(email: string, password: string): Promise<any> {
+    try {
+      const { user } = await this.afAuth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      this.handleUserAuthentication(user, 'email');
+      return user;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  public signup(obj: any = {}) {
-    return this.http.post(`${api}users/register`, obj).map((res: any) => res).catch(this._errorHandler);
-  }
 
-  public checkSession(obj: any = {}) {
-    return this.http.post(`${api}user/session`, obj).map((res: any) => res).catch(this._errorHandler);
-  }
-
-  public resetPassword(email: string) {
-    let a = new Promise((resolve, reject) => {
-      this.auth0.changePassword({
-        connection: 'mssql',
-        email
-      }, function (err, resp) {
-        if (err) {
-          reject(err.message);
-        } else {
-          resolve(resp);
-        }
-      });
-    })
-
-    return a;
-  }
-
-  processSocialLoginCallback(token: string, loginType: string) {
-    let tokenObject: any = {
-      jwt_token: token
-    };
-
-    this._subscriptions.add(this.loginCallback(tokenObject).subscribe((res) => {
-      res = JSON.parse(res._body);
-      res.jwt_token = token;
-
-      if (res.success) {
-        this.handleUserAuthentication(res, loginType);
-      }
-    }));
-  }
+  // public handleAuthentication(): void {
+  //   this.auth0.parseHash((err: { error: any; }, authResult: { accessToken: any; idToken: any; }) => {
+  //     if (authResult && authResult.accessToken && authResult.idToken) {
+  //       this.setSession(authResult);
+  //     } else if (err) {
+  //       this.router.navigate(['/login']);
+  //       console.log(err);
+  //       alert(`Error: ${err.error}. Check the console for further details.`);
+  //     }
+  //   });
+  // }
 
   handleUserAuthentication(user: any, loginType: string): void {
     if (user && user.user_id && user.session_id && user.expires_at) {
       this.setSession(user);
 
-      this.LS.set('login_type', loginType);
+      this._localStorage.set('login_type', loginType);
     } else {
       this.router.navigate(['/login']);
       alert(`Error: Check the console for further details.`);
     }
   }
 
-  private setSession(user, renew?): void {
+  private setSession(authResult: { accessToken: any; idToken: any; expiresIn?: any; }, renew?: undefined): void {
     // Set the time that the access token will expire at
-    if (user.user_id) { this.LS.set('userId', user.user_id); }
-    if (user.jwt_token) { this.LS.set('jwt_token', user.jwt_token); }
-    if (user.session_id) { this.LS.set('session_id', user.session_id); }
-    if (user.expires_at) { this.LS.set('expires_at', Date.parse(user.expires_at)); }
+    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
+
+    this._localStorage.set('access_token', authResult.accessToken);
+    this._localStorage.set('id_token', authResult.idToken);
+    this._localStorage.set('expires_at', expiresAt);
 
     if (renew) {
       this.scheduleRenewal();
     }
 
-    if (isPlatformBrowser(this.platform)) {
-      if (window.localStorage.getItem('authRedirect') === null) {
-        (window as any).location.href = '/';
-      } else {
-        (window as any).location.href = window.localStorage.getItem('authRedirect');
-      }
-    }
+    const r = this._localStorage.get('authRedirect');
+    const navArr = r === null ? '/user' : r;
 
+    this.router.navigate([navArr]);
     this._clearRedirect();
   }
 
@@ -148,44 +95,41 @@ export class AuthService implements OnDestroy {
     if (!this.isAuthenticated()) { return; }
     this.unscheduleRenewal();
 
-    if (isPlatformBrowser(this.platform)) {
-      const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
-      const expiresIn$ = Observable.of(expiresAt).pipe(
-        mergeMap(
-          // tslint:disable-next-line:no-shadowed-variable
-          expiresAt => {
-            const now = Date.now();
-            // Use timer to track delay until expiration
-            // to run the refresh at the proper time
-            return Observable.timer(Math.max(1, expiresAt - now));
-          }
-        )
-      );
+    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at')!);
 
-      // Once the delay time from above is
-      // reached, get a new JWT and schedule
-      // additional refreshes
-      this.refreshSub = expiresIn$.subscribe(
-        () => {
-          this.renewToken();
-          this.scheduleRenewal();
+    const expiresIn$ = of(expiresAt).pipe(
+      mergeMap(
+        // tslint:disable-next-line:no-shadowed-variable
+        expiresAt => {
+          const now = Date.now();
+          // Use timer to track delay until expiration
+          // to run the refresh at the proper time
+          return timer(Math.max(1, expiresAt - now));
         }
-      );
-    };
+      )
+    );
+
+    // Once the delay time from above is
+    // reached, get a new JWT and schedule
+    // additional refreshes
+    this.refreshSub = expiresIn$.subscribe(
+      () => {
+        this.renewToken();
+        this.scheduleRenewal();
+      }
+    );
   }
 
   private _clearRedirect() {
     // Remove redirect from localStorage
-    return this.LS.remove('authRedirect');
+    return this._localStorage.remove('authRedirect');
   }
 
   private _clearOldNonces() {
-    if (isPlatformBrowser(this.platform)) {
-      Object.keys(localStorage).forEach(key => {
-        if (!key.startsWith('com.auth0.auth')) { return; }
-        this.LS.remove(key);
-      });
-    }
+    Object.keys(localStorage).forEach(key => {
+      if (!key.startsWith('com.auth0.auth')) return;
+      this._localStorage.remove(key);
+    });
   }
 
   public unscheduleRenewal() {
@@ -195,31 +139,19 @@ export class AuthService implements OnDestroy {
   }
 
   public renewToken() {
-    let jwt_token: string = this.LS.get('jwt_token');
-    let token = { jwt_token };
-
-    this._subscriptions.add(this.checkSession(token).subscribe((res) => {
-      if (res && res._body) {
-        let user = JSON.parse(res._body);
-
-        if (user.success) {
-          user.jwt_token = user.token;
-          delete user.token;
-
-          this.setSession(user);
-        }
-      }
-    }));
+    this.afAuth.authState.subscribe((user: any) => {
+      return this.setSession(user);
+    });
   }
 
 
   public logout(): void {
     // Remove tokens and expiry time from localStorage
-    this.LS.remove('userId');
-    this.LS.remove('session_id');
-    this.LS.remove('expires_at');
-    this.LS.remove('jwt_token');
-    this.LS.remove('login_type');
+    this._localStorage.remove('userId');
+    this._localStorage.remove('session_id');
+    this._localStorage.remove('expires_at');
+    this._localStorage.remove('jwt_token');
+    this._localStorage.remove('login_type');
     this._sessionStorage.remove('password_verification');
 
     this._clearOldNonces();
@@ -232,16 +164,8 @@ export class AuthService implements OnDestroy {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    if (isPlatformBrowser(this.platform)) {
-      const expiresAt = localStorage.getItem('expires_at') ? JSON.parse(localStorage.getItem('expires_at')) : new Date().getTime();
-      return new Date().getTime() < expiresAt;
-    }
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at')!);
+    return new Date().getTime() < expiresAt;
   }
 
-  private _errorHandler(error: Response) {
-    if (!environment.production) {
-      console.error(error);
-    }
-    return throwError(error || 'Server Error');
-  }
 }

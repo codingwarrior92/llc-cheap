@@ -6,6 +6,8 @@ import { IntellectualPropertyModule } from './intellectual-property/intellectual
 import { BusinessFormationModule } from './business-formation/business-formation.module';
 import { BusinessOperationsModule } from './business-operations/business-operations.module';
 import { BreadcrumbModule } from 'src/app/shared/widgets/breadcrumb/breadcrumb.module';
+import { RouterModule } from '@angular/router';
+import { BusinessMainModule } from './business-main/business-main.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BreadcrumbModule } from 'src/app/shared/widgets/breadcrumb/breadcrumb.m
     BusinessFormationModule,
     BusinessOperationsModule,
     IntellectualPropertyModule,
-    BreadcrumbModule
+    BusinessMainModule,
+    BreadcrumbModule,
+    RouterModule
   ]
 })
 export class BusinessModule { }

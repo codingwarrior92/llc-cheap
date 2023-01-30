@@ -10,10 +10,4 @@ import { RouterModule } from '@angular/router';
   exports: [HeaderComponent],
   declarations: [HeaderComponent],
 })
-export class HeaderModule {
-  /**
-   * Creates an instance of HeaderModule.
-   * @memberof HeaderModule
-   */
-  constructor() { }
-}
+export class HeaderModule { }
