@@ -16,5 +16,6 @@ export class AppComponent {
     this._meta.addTag({ name: 'generator', content: "html2" });
     this._meta.addTag({ name: 'ROBOTS', content: "index, follow" });
     this._meta.addTag({ name: 'robots', content: "noodp, noydir" });
+    console.log("pushing something to master")
   }
 }
