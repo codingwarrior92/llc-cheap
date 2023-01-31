@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+
+  aside {
+    ul {
+      display: none;
+      position: absolute;
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+
+  .search {
+    position: relative;
+    padding: 0 10px;
+    i {
+      font-size: 13px;
+    }
+    input {
+      padding: 10px 15px;
+      border: none;
+      font-size: 14px;
+    }
+  }
+}

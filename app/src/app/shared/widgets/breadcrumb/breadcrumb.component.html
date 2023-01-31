@@ -10,15 +10,18 @@
       </li>
     </ng-container>
 
-    <ng-container *ngFor="let breadLink of breadcrumbList">
+    <ng-container *ngFor="let breadLink of breadcrumbList; let x = index">
       <li class="breadcrumb-item">
         <a
-          *ngIf="location.path().split('/')[1] !== breadLink; else current"
-          [routerLink]="breadcrumbList[2]"
+          *ngIf="
+            breadLink !== breadcrumbList[breadcrumbList.length - 1];
+            else current
+          "
+          [routerLink]="['/', breadcrumbList[x]]"
         >
-          {{ breadLink }}</a
+          {{ breadLink.split("-").join(" ") }}</a
         >
-        <ng-template #current>{{ breadLink }}</ng-template>
+        <ng-template #current>{{ breadLink.split("-").join(" ") }}</ng-template>
       </li>
     </ng-container>
   </ol>

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 // MODULES
 import { DashboardFooterModule, DashboardHeaderModule, DashboardNavModule } from './shared';
 import { CompaniesModule, ComplianceModule, DocumentsModule, OrdersModule, SettingsModule, SubscriptionsModule } from './modules';
+import { AuthAccountService } from 'src/app/shared/services/guard/auth-account.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,9 @@ import { CompaniesModule, ComplianceModule, DocumentsModule, OrdersModule, Setti
     OrdersModule,
     SettingsModule,
     SubscriptionsModule
+  ],
+  providers: [
+    AuthAccountService
   ]
 })
 export class DashboardModule { }

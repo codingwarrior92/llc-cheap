@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  background: #fafafa;
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+
+    .content {
+      margin: 0 20px;
+    }
+  }
+}

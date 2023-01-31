@@ -1,1 +1,26 @@
-<p>header works!</p>
+<div class="search">
+  <i class="bi bi-search"></i>
+  <input placeholder="Search Business..." />
+</div>
+
+<aside class="arrange middle">
+  <button class="profile-content" *ngIf="profile" dropdownToggle>
+    <div class="account-name">
+      <span> {{ user.name }} </span>
+    </div>
+    <span class="sr-only">Toggle Dropdown</span>
+    <i class="fa fa-angle-down"></i>
+  </button>
+  <nav class="arrange_unit middle" role="menu" dropdown>
+    <ul *ngIf="business">
+      <li>Swith to:</li>
+    </ul>
+    <ul>
+      <li>+ Start a new business</li>
+      <li>Account Settings</li>
+      <li>Resources</li>
+      <li>Support</li>
+      <li (click)="authService.logout()">Sign Out</li>
+    </ul>
+  </nav>
+</aside>
