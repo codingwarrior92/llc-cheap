@@ -300,6 +300,13 @@
   }
 }
 
+// Box shadows
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
 // Margins
 @include list-loop(".mt-", "margin-top");
 @include list-loop(".mr-", "margin-right");

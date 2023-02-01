@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">
+<nav *ngIf="breadcrumbList" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <ng-container *ngIf="count == null">
       <li class="breadcrumb-item">home</li>
@@ -13,26 +13,40 @@
     <ng-container *ngFor="let breadLink of breadcrumbList; let x = index">
       <li class="breadcrumb-item">
         <ng-container
-          *ngIf="breadcrumbList[x].includes('business-'); else regular"
+          *ngIf="
+            breadcrumbList[x].includes('business-') ===
+              breadcrumbList[breadcrumbList.length - 1];
+            else regular
+          "
         >
-          <a [routerLink]="['/business/', breadcrumbList[x]]">{{
-            breadLink.split("-").join(" ")
-          }}</a>
+          {{ breadLink.split("-").join(" ") }}
         </ng-container>
         <ng-template #regular>
           <a
             *ngIf="
-              breadLink !== breadcrumbList[breadcrumbList.length - 1];
+              breadcrumbList[x].includes('business') ===
+                breadcrumbList[breadcrumbList.length - 1];
               else current
             "
-            [routerLink]="['/', breadcrumbList[x]]"
+            [routerLink]="['/business/' + breadcrumbList[x]]"
           >
             {{ breadLink.split("-").join(" ") }}</a
           >
 
-          <ng-template #current>{{
-            breadLink.split("-").join(" ")
-          }}</ng-template>
+          <ng-template #current>
+            <a
+              *ngIf="
+                breadLink != breadcrumbList[breadcrumbList.length - 1];
+                else last
+              "
+              [routerLink]="['/business/' + breadcrumbList[x]]"
+            >
+              {{ breadLink.split("-").join(" ") }}
+            </a>
+            <ng-template #last>{{
+              breadLink.split("-").join(" ")
+            }}</ng-template>
+          </ng-template>
         </ng-template>
       </li>
     </ng-container>

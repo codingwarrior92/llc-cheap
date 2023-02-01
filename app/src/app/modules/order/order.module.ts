@@ -4,6 +4,7 @@ import { OrderComponent } from './order.component';
 import { OrderRoutingModule } from './order-routing.modules';
 import { FormsModule } from 'src/app/shared/modules';
 import { SummaryModule } from "../../shared/modules/forms/summary/summary.module";
+import { ProgressModule } from 'src/app/shared/widgets';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SummaryModule } from "../../shared/modules/forms/summary/summary.module
     CommonModule,
     FormsModule,
     OrderRoutingModule,
-    SummaryModule
+    SummaryModule,
+    ProgressModule
   ]
 })
 export class OrderModule { }

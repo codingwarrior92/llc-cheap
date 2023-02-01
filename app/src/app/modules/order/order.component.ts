@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, RouterEvent, NavigationEnd, Router, RoutesRecognized } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 
 @Component({
   selector: 'app-order',
@@ -11,16 +11,18 @@ import { filter } from 'rxjs';
 export class OrderComponent implements OnInit {
   type: string = '';
   order: string = '';
+  previous: any;
 
-  constructor(private _title: Title, private _activatedRoute: ActivatedRoute) {
+  constructor(private _title: Title, public router: Router, public activatedRoute: ActivatedRoute) {
     this.getTitle();
   }
 
   ngOnInit(): void {
+    this._previousRoute();
   }
 
   getTitle() {
-    this._activatedRoute.data.subscribe((res) => {
+    this.activatedRoute.data.subscribe((res) => {
       this.type = this._capitalizeString(res['type'].split('-').join(' '));
       this.order = res['order'].toUpperCase();
 
@@ -35,5 +37,9 @@ export class OrderComponent implements OnInit {
       words[i] = words[i][0].toUpperCase() + words[i].substr(1);
     }
     return words.join(' ');
+  }
+
+  private _previousRoute() {
+    this.previous = this.router.url.split('/').filter((x) => x !== 'order').join('/');
   }
 }

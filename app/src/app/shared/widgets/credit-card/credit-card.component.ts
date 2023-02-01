@@ -28,7 +28,7 @@ export class CreditCardComponent implements OnInit, OnChanges, AfterViewInit, On
 	email!: string;
 	@Input('password')
 	password!: string;
-	// @Input() profile: IProfile;
+	@Input() profile: any;
 	@Output() creditCardValidate = new EventEmitter<any>();
 
 	// STRIPE
@@ -155,7 +155,7 @@ export class CreditCardComponent implements OnInit, OnChanges, AfterViewInit, On
 		// this.expressbtn();
 	}
 
-	private _updatedCardInformation() {
+	private _updatedCardInformation(): false | undefined {
 		if (!this.cardNumber || !this.cardExpiry || !this.cardCvc) {
 			return false;
 		}
@@ -177,6 +177,8 @@ export class CreditCardComponent implements OnInit, OnChanges, AfterViewInit, On
 			this.billing.get('cardCVCHidden')!.setValue(isValid);
 			this._checkValidCard();
 		});
+
+		return false;
 	}
 
 	// private _validateCardInformation(): ValidatorFn {

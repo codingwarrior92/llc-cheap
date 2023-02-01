@@ -1,43 +1,42 @@
-@import "../../../../assets/css/abstracts/_mixins.scss";
-@import "../../../../assets/css/abstracts/_variables.scss";
+@use "../../../../assets/scss/_variables.scss" as vars;
+@use "../../../../assets/scss/_mixins.scss" as mixins;
 
 .credit__card {
   padding: 30px 30px 0;
 
   .feedback-block {
-    @include font-size(15px);
-    @include border-radius(4px);
+    font-size: 15px;
+    @include mixins.border-radius(4px);
     padding: 20px;
     background-color: #ccebf3;
     color: #484848;
     overflow: hidden;
     margin: 0 0 20px 0;
-  
+
     &.success {
       background-color: #d4ece6;
     }
-  
+
     &.error {
       background-color: #f8d0c8;
     }
-  
+
     i {
       margin-right: 10px;
     }
   }
 
   strong {
-    @include font-size(18px);
-    font-family: 'AB', sans-serif;
+    font-size: 18px;
+    font-family: "AB", sans-serif;
     margin-bottom: 10px;
     color: #222;
     display: block;
 
-    
     i {
-      @include font-size(16px);
+      font-size: 16px;
       margin-left: 5px;
-      color: $green;
+      color: green;
     }
   }
 
@@ -66,10 +65,10 @@
   }
 
   &-input {
-    @include font-size(18px);
-    @include border-radius(0);
+    font-size: 18px;
+    @include mixins.border-radius(0);
     border: none;
-    border-bottom: 1px solid #e0e0e0;;
+    border-bottom: 1px solid #e0e0e0;
     box-shadow: none;
     height: 40px;
     padding: 10px 0px;
@@ -88,7 +87,7 @@
     }
 
     &-back {
-      @include opacity(.5);
+      @include mixins.opacity(0.5);
       left: 0;
       top: 10px;
       width: 31px;
@@ -105,7 +104,7 @@
     }
 
     &-secure {
-      @include opacity(.8);
+      @include mixins.opacity(0.8);
       filter: grayscale(1);
       right: 0px;
       top: 9px;
@@ -114,7 +113,7 @@
   }
 
   &-info {
-    @include font-size(17px);
+    font-size: 17px;
     min-height: 42px;
     background-color: #ebf7ec;
     padding: 10px;

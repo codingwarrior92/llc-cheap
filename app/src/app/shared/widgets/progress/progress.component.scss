@@ -1,0 +1,42 @@
+@use "../../../../assets/scss/_variables.scss" as vars;
+@use "../../../../assets/scss/_mixins.scss" as mixins;
+
+:host {
+  @include mixins.clearfix;
+  position: absolute;
+  display: block;
+  width: 100%;
+
+  .progress__bar {
+    &--count {
+      height: 10px;
+      width: 100%;
+      background-color: #eee;
+      margin-bottom: 10px;
+
+      &-current {
+        @include mixins.flexbox;
+        @include mixins.justify-content(flex-start);
+        height: 10px;
+
+        &.grey {
+          background-color: #aaa;
+        }
+
+        &.blue {
+          background-color: #90e0ff;
+        }
+
+        &.green {
+          background-color: #a8f09a;
+        }
+      }
+    }
+
+    &--display {
+      @include mixins.flexbox;
+      @include mixins.justify-content(flex-end);
+      margin-right: 20px;
+    }
+  }
+}

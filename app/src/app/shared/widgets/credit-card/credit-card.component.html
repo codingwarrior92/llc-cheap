@@ -12,18 +12,32 @@
       <strong>Card number</strong>
 
       <div class="credit__card-cards">
-        <img src="../../../../assets/svg/credit-card/ae.svg" alt="American Express" />
+        <img
+          src="../../../../assets/svg/credit-card/ae.svg"
+          alt="American Express"
+        />
         <img src="../../../../assets/svg/credit-card/v.svg" alt="Visa" />
         <img src="../../../../assets/svg/credit-card/d.svg" alt="Discover" />
         <img src="../../../../assets/svg/credit-card/m.svg" alt="Mastercard" />
-        <img src="../../../../assets/svg/credit-card/dc.svg" alt="Diners Club" />
+        <img
+          src="../../../../assets/svg/credit-card/dc.svg"
+          alt="Diners Club"
+        />
       </div>
     </div>
     <div class="form-control credit__card-cc credit__card-input">
-      <img class="credit__card-cc-back" src="../../../../assets/svg/credit-card/bl.svg" alt="CC Number" />
+      <img
+        class="credit__card-cc-back"
+        src="../../../../assets/svg/credit-card/bl.svg"
+        alt="CC Number"
+      />
       <div #cardNumberElement></div>
 
-      <img class="credit__card-cc-secure" src="../../../../assets/svg/credit-card/shield.svg" alt="Securely Stored" />
+      <img
+        class="credit__card-cc-secure"
+        src="../../../../assets/svg/credit-card/shield.svg"
+        alt="Securely Stored"
+      />
     </div>
   </div>
 
@@ -31,11 +45,21 @@
     <div class="row">
       <div class="col col-xs-6">
         <strong>First Name</strong>
-        <input type="text" class="form-control credit__card-input" name="text" formControlName="firstName" />
+        <input
+          type="text"
+          class="form-control credit__card-input"
+          name="text"
+          formControlName="firstName"
+        />
       </div>
       <div class="col col-xs-6">
         <strong>Last Name</strong>
-        <input type="text" class="form-control credit__card-input" name="text" formControlName="lastName" />
+        <input
+          type="text"
+          class="form-control credit__card-input"
+          name="text"
+          formControlName="lastName"
+        />
       </div>
     </div>
   </div>
@@ -50,8 +74,10 @@
       </div>
       <div class="col col-xs-6">
         <div class="form-group">
-          <strong>Security Code <i containerClass="back__cc" [tooltip]="backCC"
-              class="fa fa-question-circle"></i></strong>
+          <strong
+            >Security Code
+            <i containerClass="back__cc" class="fa fa-question-circle"></i
+          ></strong>
           <div #cardCVCElement class="form-control credit__card-input"></div>
         </div>
       </div>

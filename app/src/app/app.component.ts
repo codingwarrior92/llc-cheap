@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @HostBinding('class.order') order: boolean = false;;
 
   constructor(private _meta: Meta, public location: Location) {
@@ -17,7 +17,9 @@ export class AppComponent {
     this._meta.addTag({ name: 'generator', content: "html2" });
     this._meta.addTag({ name: 'ROBOTS', content: "index, follow" });
     this._meta.addTag({ name: 'robots', content: "noodp, noydir" });
+  }
 
+  ngOnInit() {
     this.isOrder();
   }
 

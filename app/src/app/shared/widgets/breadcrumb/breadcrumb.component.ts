@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -13,17 +13,20 @@ export class BreadcrumbComponent implements OnInit {
   routeLinks: number | undefined;
   count: number | undefined;
 
-  constructor(public location: Location, router: Router) {
-    router.events.subscribe((val) => {
-      if (location.path() !== '') {
-        this.route = location.path();
-        this.breadcrumbList = this.route.split('/').filter((x) => x !== '');
-        this.count = this.breadcrumbList.length;
-      } else {
-        this.route = 'Home';
-      }
-    });
+  constructor(public location: Location, public router: Router) {
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.fireBreadcrumb();
+  }
+
+  fireBreadcrumb() {
+    if (this.location.path() !== '') {
+      this.route = this.location.path();
+      this.breadcrumbList = this.route.split('/').filter((x) => x !== '');
+      this.count = this.breadcrumbList.length;
+    } else {
+      this.route = 'Home';
+    }
+  }
 }

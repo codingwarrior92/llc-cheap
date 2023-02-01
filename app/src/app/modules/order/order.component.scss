@@ -1,52 +1,143 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
 :host {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: #f3f3f3;
+
+  .breadcrumb {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+
+    li {
+      list-style: none;
+    }
+  }
+
   header {
-    margin: 40px 0;
+    padding: 40px 0;
+
     div {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 0 20px;
-      img {
-        width: 40px;
+      font-family: "Roboto";
+      font-size: 12px;
+
+      .img {
+        margin: 0px auto;
+        text-align: center;
+        img {
+          width: 40px;
+          filter: invert(1);
+
+          &:hover {
+            filter: invert(0);
+            transition: all 0.25s ease-in;
+          }
+        }
       }
 
-      h1 {
-        font-size: 22px;
-        margin: 0px;
-        font-family: "Roboto";
-        letter-spacing: 0.1px;
+      span {
+        color: #777;
+        font-weight: bold;
+        margin-right: 0px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: flex-end;
+        i {
+          font-size: 20px;
+        }
+      }
+
+      .back {
+        display: flex;
+        gap: 5px;
+        text-decoration: none;
+        align-items: center;
+        font-weight: bold;
+        color: #333;
+
+        i {
+          font-size: 22px;
+        }
+      }
+
+      a,
+      span {
+        width: 200px;
+        text-transform: uppercase;
       }
     }
   }
 
+  h1 {
+    font-size: 24px;
+    margin: 60px 0;
+    font-family: "Roboto";
+    letter-spacing: 0.1px;
+    text-align: center;
+  }
+
   .main {
     position: relative;
+    margin-top: 15px;
+    display: flex;
+    gap: 40px;
+
+    &-content,
+    aside {
+      @include box-shadow(0px 14px 22px -18px rgba(0, 0, 0, 0.2));
+      @include border-radius(4px);
+      position: relative;
+      background: #fff;
+    }
 
     &-content {
-      position: relative;
-      background: #eee;
-      padding: 40px 0;
-
-      h2 {
-        font-size: 28px;
-        font-family: "Open Sans";
-      }
-
-      &:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        left: -100%;
-        top: 0px;
-        bottom: 0px;
-        background: #eee;
-      }
-    }
-    aside {
+      width: 65%;
       padding: 40px;
     }
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35%;
+      overflow: hidden;
+
+      button {
+        width: 100%;
+        border: none;
+        padding: 10px;
+        background: #aaa;
+        font-size: 12px;
+        font-family: "Roboto";
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+        color: #fff;
+
+        &:hover {
+          background: rgb(0, 102, 255);
+        }
+      }
+
+      app-summary {
+        display: block;
+        padding: 40px;
+      }
+    }
+  }
+
+  .existing {
+    font-size: 13px;
+    margin: 0px;
   }
 }
 
@@ -54,5 +145,16 @@ footer {
   padding: 80px 0 40px;
   p {
     font-size: 14px;
+  }
+}
+
+p {
+  font-family: "Roboto";
+  font-weight: lighter;
+  color: #555;
+  a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
   }
 }

@@ -1,22 +1,32 @@
+<app-progress></app-progress>
 <header>
   <div class="container">
-    <img src="./assets/favicon/android-chrome-192x192.png" />
-
-    <h1>{{ type }} - {{ order }} Services</h1>
+    <a [routerLink]="previous" class="back"
+      ><i class="bi bi-arrow-left-short"></i> Back</a
+    >
+    <a routerLink="/" class="img"
+      ><img src="./assets/favicon/android-chrome-192x192.png"
+    /></a>
+    <span>Secure Checkout <i class="bi bi-shield-lock"></i></span>
   </div>
 </header>
 
-<div class="main container">
-  <div class="row">
-    <div class="col-md-8 main-content">
-      <h2>Let's get started...</h2>
-      <p>
-        Did you start your business with us? Sign in to select your business.
-      </p>
+<h1>{{ type }} - {{ order }} Services</h1>
+
+<div class="container">
+  <p class="existing">
+    Did you start your business with us?
+    <a routerLink="/login" [queryParams]="activatedRoute.params"
+      >Sign in to select your business</a
+    >.
+  </p>
+  <div class="main">
+    <div class="main-content">
       <app-forms></app-forms>
     </div>
-    <aside class="col-md-4">
+    <aside>
       <app-summary></app-summary>
+      <button>Next</button>
     </aside>
   </div>
 </div>
@@ -24,12 +34,13 @@
   <p>© llc.cheap. All rights reserved.</p>
   <p>
     Disclaimer: Communications between you and llc.cheap are protected by our
-    Privacy Policy but not by the attorney-client privilege or as work product.
-    llc.cheap provides access to independent attorneys and self-help services at
-    your specific direction. We are not a law firm or a substitute for an
-    attorney or law firm. We cannot provide any kind of advice, explanation,
-    opinion, or recommendation about possible legal rights, remedies, defenses,
-    options, selection of forms or strategies. Your access to the website is
-    subject to our Terms of Use.
+    <a routerLink="/privacy-policy">Privacy Policy</a> but not by the
+    attorney-client privilege or as work product. llc.cheap provides access to
+    independent attorneys and self-help services at your specific direction. We
+    are not a law firm or a substitute for an attorney or law firm. We cannot
+    provide any kind of advice, explanation, opinion, or recommendation about
+    possible legal rights, remedies, defenses, options, selection of forms or
+    strategies. Your access to the website is subject to our
+    <a routerLink="terms-of-use">Terms of Use</a>.
   </p>
 </footer>

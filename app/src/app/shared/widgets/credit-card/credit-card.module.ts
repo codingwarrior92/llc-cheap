@@ -6,10 +6,8 @@ import { RouterModule } from '@angular/router';
 import { CreditCardComponent } from './credit-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// import { NgxStripeModule } from 'ngx-stripe';
+import { NgxStripeModule } from 'ngx-stripe';
 
-// BOOTSTRAP
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { environment } from '../../../../environments/environment';
 
@@ -20,8 +18,7 @@ import { environment } from '../../../../environments/environment';
 		RouterModule,
 		FormsModule,
 		ReactiveFormsModule,
-		TooltipModule.forRoot(),
-		// NgxStripeModule.forRoot(environment.stripeKey)
+		NgxStripeModule.forRoot(environment.stripe)
 	],
 	declarations: [
 		CreditCardComponent,

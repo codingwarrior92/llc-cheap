@@ -1,0 +1,9 @@
+<div class="progress__bar">
+  <div class="progress__bar--count">
+    <div [ngClass]="getClass()" class="progress__bar--count-current"></div>
+  </div>
+
+  <span class="progress__bar--display"
+    >{{ data.current }} / {{ data.count }}</span
+  >
+</div>
