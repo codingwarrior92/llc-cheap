@@ -1,18 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 // COMPONENTS
-import { NotFoundComponent } from './modules/404/notfound.component';
 import { ForgotPasswordComponent } from './modules/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './modules/auth/login/login.component';
-import { BusinessFormationComponent } from './modules/business/business-formation/business-formation.component';
-import { DbaComponent } from './modules/business/business-formation/dba/dba.component';
-import { EinFederalTaxIdentificationComponent } from './modules/business/business-formation/ein-federal-tax-identification/ein-federal-tax-identification.component';
-import { IncComponent } from './modules/business/business-formation/inc/inc.component';
-import { LlcComponent } from './modules/business/business-formation/llc/llc.component';
-import { NonprofitComponent } from './modules/business/business-formation/nonprofit/nonprofit.component';
-import { SoleProprietorshipComponent } from './modules/business/business-formation/sole-proprietorship/sole-proprietorship.component';
-import { StateTaxIdComponent } from './modules/business/business-formation/state-tax-id/state-tax-id.component';
 import { BusinessMainComponent } from './modules/business/business-main/business-main.component';
 import { AnnualReportComponent } from './modules/business/business-operations/annual-report/annual-report.component';
 import { BusinessAdvisoryPlanComponent } from './modules/business/business-operations/business-advisory-plan/business-advisory-plan.component';
@@ -90,316 +81,118 @@ const routes: Routes = [
     path: 'business', component: BusinessComponent, children: [
       { path: '', pathMatch: 'full', component: BusinessMainComponent },
       {
-        path: 'business-formation', component: BusinessFormationComponent, children: [
-          {
-            path: 'dba', component: DbaComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-formation', order: 'dba' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'ein-federal-tax-identification', component: EinFederalTaxIdentificationComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'ein-retrieval', order: 'ein' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'inc', component: IncComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-formation', order: 'inc' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'llc', component: LlcComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-formation', order: 'llc' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'non-profit', component: NonprofitComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-formation', order: 'non-profit' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'sole-proprietorship', component: SoleProprietorshipComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-formation', order: 'sole-proprietorship' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'state-tax-id', component: StateTaxIdComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'ein-retrieval', order: 'id' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          }
-        ]
+        path: 'business-formation',
+        loadChildren: () => import('./modules/business/business-formation/business-formation.module').then(m => m.BusinessFormationModule)
       },
       {
-        path: 'business-operations', component: BusinessOperationsComponent, children: [
-          {
-            path: 'annual-report', component: AnnualReportComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'annual-report' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'business-advisory-plan', component: BusinessAdvisoryPlanComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'business-advisory-plan' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'certificate-good-standing', component: CertificateGoodStandingComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'certificate-good-standing' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'compliance-calender', component: ComplianceCalendarComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'compliance-calendar' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'corporate-amendment', component: CorporateAmendmentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'corporate-amendment' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'corporate-name-change', component: CorporateNameChangeComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'corporate-name-change' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'foreign-qualification', component: ForeignQualificationComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'foreign-qualification' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'minutes-manager', component: MinutesManagerComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'minutes-manager' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'registered-agent', component: RegisteredAgentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { type: 'business-operations', order: 'registered-agent' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-        ]
+        path: 'business-operations',
+        loadChildren: () => import('./modules/business/business-operations/business-operations.module').then(m => m.BusinessOperationsModule)
       },
       {
-        path: 'intellectual-property', component: IntellectualPropertyComponent, children: [
-          {
-            path: 'copyright-registration', component: CopyrightRegistrationComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'copyright-registration' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'provisional-patent', component: ProvisionalPatentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'provisional-patent' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'trademark-monitoring', component: ProvisionalPatentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'trademark-monitoring' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'trademark-registration', component: TrademarkRegistrationComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'trademark-registration' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'trademark-search', component: TrademarkSearchComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'trademark-search' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'utility-patent', component: UtilityPatentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'intellectual-property', 'order': 'utility-patent' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          }
-        ]
+        path: 'intellectual-property',
+        loadChildren: () => import('./modules/business/intellectual-property/intellectual-property.module').then(m => m.IntellectualPropertyModule)
       }
     ]
   },
-  {
-    path: 'personal', component: PersonalComponent, children: [
-      {
-        path: 'estate-planning', component: EstatePlanningComponent,
-        children: [
-          {
-            path: 'last-will-testiment', component: LastWillTestimentComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'estate-planning', 'order': 'last-will-testiment' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'living-trust', component: LivingTrustComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'estate-planning', 'order': 'living-trust' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'living-will', component: LivingWillComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'estate-planning', 'order': 'living-will' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          },
-          {
-            path: 'power-of-attorney', component: PowerAttorneyComponent, children: [
-              {
-                path: 'order', component: FormsComponent,
-                data: { 'type': 'estate-planning', 'order': 'power-of-attorney' },
-                canActivate: [AuthGuardService]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        path: 'marriage-or-divorce', component: MarriageDivorceComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'marriage-or-divorce' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      },
-      {
-        path: 'real-estate', component: RealEstateComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'real-estate' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      },
-      {
-        path: 'financial-power-of-attorey', component: FinancialPoaComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'financial-power-of-attorey' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      },
-      {
-        path: 'name-change', component: NameChangeComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'name-change' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      },
-      {
-        path: 'property-deed-transfer', component: PropertyDeedTransferComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'property-deed-transfer' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      },
-      {
-        path: 'residential-lease', component: ResidentialLeaseComponent, children: [
-          {
-            path: 'order', component: FormsComponent,
-            data: { 'type': 'personal', 'order': 'residential-lease' },
-            canActivate: [AuthGuardService]
-          }
-        ]
-      }
-    ]
-  },
+  // {
+  //   path: 'personal', component: PersonalComponent, children: [
+  //     {
+  //       path: 'estate-planning', component: EstatePlanningComponent,
+  //       children: [
+  //         {
+  //           path: 'last-will-testiment', component: LastWillTestimentComponent, children: [
+  //             {
+  //               path: 'order', component: FormsComponent,
+  //               data: { 'type': 'estate-planning', 'order': 'last-will-testiment' },
+  //               canActivate: [AuthGuardService]
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'living-trust', component: LivingTrustComponent, children: [
+  //             {
+  //               path: 'order', component: FormsComponent,
+  //               data: { 'type': 'estate-planning', 'order': 'living-trust' },
+  //               canActivate: [AuthGuardService]
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'living-will', component: LivingWillComponent, children: [
+  //             {
+  //               path: 'order', component: FormsComponent,
+  //               data: { 'type': 'estate-planning', 'order': 'living-will' },
+  //               canActivate: [AuthGuardService]
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'power-of-attorney', component: PowerAttorneyComponent, children: [
+  //             {
+  //               path: 'order', component: FormsComponent,
+  //               data: { 'type': 'estate-planning', 'order': 'power-of-attorney' },
+  //               canActivate: [AuthGuardService]
+  //             }
+  //           ]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'marriage-or-divorce', component: MarriageDivorceComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'marriage-or-divorce' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'real-estate', component: RealEstateComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'real-estate' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'financial-power-of-attorey', component: FinancialPoaComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'financial-power-of-attorey' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'name-change', component: NameChangeComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'name-change' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'property-deed-transfer', component: PropertyDeedTransferComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'property-deed-transfer' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'residential-lease', component: ResidentialLeaseComponent, children: [
+  //         {
+  //           path: 'order', component: FormsComponent,
+  //           data: { 'type': 'personal', 'order': 'residential-lease' },
+  //           canActivate: [AuthGuardService]
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // },
   {
     path: 'account', component: DashboardComponent, canActivate: [AuthAccountService],
     children: [
@@ -445,7 +238,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

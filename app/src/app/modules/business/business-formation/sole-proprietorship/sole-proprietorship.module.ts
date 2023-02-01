@@ -8,6 +8,9 @@ import { SoleProprietorshipComponent } from './sole-proprietorship.component';
   declarations: [
     SoleProprietorshipComponent
   ],
+  exports: [
+    SoleProprietorshipComponent
+  ],
   imports: [
     CommonModule
   ]

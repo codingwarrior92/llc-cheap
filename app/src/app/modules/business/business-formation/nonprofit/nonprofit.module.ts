@@ -8,6 +8,9 @@ import { NonprofitComponent } from './nonprofit.component';
   declarations: [
     NonprofitComponent
   ],
+  exports: [
+    NonprofitComponent
+  ],
   imports: [
     CommonModule
   ]

@@ -8,6 +8,9 @@ import { LlcComponent } from './llc.component';
   declarations: [
     LlcComponent
   ],
+  exports: [
+    LlcComponent
+  ],
   imports: [
     CommonModule
   ]

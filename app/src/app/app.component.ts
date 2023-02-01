@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @HostBinding('class.order') order: boolean = false;;
 
   constructor(private _meta: Meta, public location: Location) {
     this._meta.addTag({ name: 'REVISIT-AFTER', content: "1 DAYS" });
@@ -16,6 +17,11 @@ export class AppComponent {
     this._meta.addTag({ name: 'generator', content: "html2" });
     this._meta.addTag({ name: 'ROBOTS', content: "index, follow" });
     this._meta.addTag({ name: 'robots', content: "noodp, noydir" });
-    console.log("pushing something to master")
+
+    this.isOrder();
+  }
+
+  isOrder(): void {
+    this.order = this.location.path().includes('order');
   }
 }

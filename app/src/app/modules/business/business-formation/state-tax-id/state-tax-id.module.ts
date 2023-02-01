@@ -8,6 +8,9 @@ import { StateTaxIdComponent } from './state-tax-id.component';
   declarations: [
     StateTaxIdComponent
   ],
+  exports: [
+    StateTaxIdComponent
+  ],
   imports: [
     CommonModule
   ]

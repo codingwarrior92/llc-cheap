@@ -8,6 +8,9 @@ import { IncComponent } from './inc.component';
   declarations: [
     IncComponent
   ],
+  exports: [
+    IncComponent
+  ],
   imports: [
     CommonModule
   ]

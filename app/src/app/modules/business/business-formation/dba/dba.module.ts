@@ -8,6 +8,9 @@ import { DbaComponent } from './dba.component';
   declarations: [
     DbaComponent
   ],
+  exports: [
+    DbaComponent
+  ],
   imports: [
     CommonModule
   ]

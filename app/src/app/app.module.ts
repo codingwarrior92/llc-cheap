@@ -18,9 +18,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HomeModule } from './modules';
 import { BusinessModule } from './modules/business/business.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
-import { PersonalModule } from './modules/personal/personal.module';
+
 import { HeaderModule, FooterModule } from './shared/modules';
 import { AuthGuardService, LoggedInService, AuthService, SessionStorage, LocalStorage } from './shared/services';
+import { OrderModule } from './modules/order/order.module';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { AuthGuardService, LoggedInService, AuthService, SessionStorage, LocalSt
     FooterModule,
     HomeModule,
     BusinessModule,
-    PersonalModule,
     DashboardModule,
+    OrderModule,
     NgxStripeModule.forRoot(environment.stripe),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

@@ -1,6 +1,7 @@
 <ng-container
   *ngIf="
-    !location.path().includes('/account') &&
+    !location.path().includes('/order') &&
+      !location.path().includes('/account') &&
       location.path() !== '/login' &&
       location.path() !== '/register' &&
       location.path() !== '/forgot-password';

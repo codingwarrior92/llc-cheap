@@ -8,12 +8,16 @@ import { LlcModule } from './llc/llc.module';
 import { NonprofitModule } from './nonprofit/nonprofit.module';
 import { SoleProprietorshipModule } from './sole-proprietorship/sole-proprietorship.module';
 import { StateTaxIdModule } from './state-tax-id/state-tax-id.module';
+import { BusinessFormationRoutingModule } from './business-formation-routing.module';
 
 
 
 @NgModule({
   declarations: [
     BusinessFormationComponent,
+  ],
+  exports: [
+    BusinessFormationComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { StateTaxIdModule } from './state-tax-id/state-tax-id.module';
     LlcModule,
     NonprofitModule,
     SoleProprietorshipModule,
-    StateTaxIdModule
+    StateTaxIdModule,
+    BusinessFormationRoutingModule
   ]
 })
 export class BusinessFormationModule { }

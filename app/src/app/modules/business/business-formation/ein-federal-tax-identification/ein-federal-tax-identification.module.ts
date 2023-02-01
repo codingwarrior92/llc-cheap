@@ -8,6 +8,9 @@ import { EinFederalTaxIdentificationComponent } from './ein-federal-tax-identifi
   declarations: [
     EinFederalTaxIdentificationComponent
   ],
+  exports: [
+    EinFederalTaxIdentificationComponent
+  ],
   imports: [
     CommonModule
   ]

@@ -8,6 +8,9 @@ import { SummaryComponent } from './summary.component';
   declarations: [
     SummaryComponent
   ],
+  exports: [
+    SummaryComponent
+  ],
   imports: [
     CommonModule
   ]

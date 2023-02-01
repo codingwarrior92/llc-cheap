@@ -9,6 +9,7 @@ import { MinutesManagerModule } from './minutes-manager/minutes-manager.module';
 import { RegisteredAgentModule } from './registered-agent/registered-agent.module';
 import { ComplianceCalendarModule } from './compliance-calendar/compliance-calendar.module';
 import { CorporateAmendmentModule } from './corporate-amendment/corporate-amendment.module';
+import { BusinessOperationsRoutingModule } from './business-operations-routing.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CorporateAmendmentModule } from './corporate-amendment/corporate-amendm
     ForeignQualificationModule,
     MinutesManagerModule,
     RegisteredAgentModule,
-    CorporateAmendmentModule
+    CorporateAmendmentModule,
+    BusinessOperationsRoutingModule
   ]
 })
 export class BusinessOperationsModule { }

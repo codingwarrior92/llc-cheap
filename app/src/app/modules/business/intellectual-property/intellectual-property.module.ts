@@ -9,6 +9,7 @@ import { TrademarkMonitoringModule } from './trademark-monitoring/trademark-moni
 import { TrademarkRegistrationModule } from './trademark-registration/trademark-registration.module';
 import { TrademarkSearchModule } from './trademark-search/trademark-search.module';
 import { UtilityPatentModule } from './utility-patent/utility-patent.module';
+import { IntellectualPropertyRoutingModule } from './intellectual-property-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UtilityPatentModule } from './utility-patent/utility-patent.module';
     TrademarkMonitoringModule,
     TrademarkRegistrationModule,
     TrademarkSearchModule,
-    UtilityPatentModule
+    UtilityPatentModule,
+    IntellectualPropertyRoutingModule
   ]
 })
 export class IntellectualPropertyModule { }

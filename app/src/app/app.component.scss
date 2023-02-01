@@ -1,0 +1,13 @@
+@import "../assets/scss/variables";
+@import "../assets/scss/mixins";
+
+:host {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include flex-direction(column);
+  min-height: 100vh;
+
+  &.order {
+    min-height: auto;
+  }
+}
