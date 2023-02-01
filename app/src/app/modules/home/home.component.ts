@@ -11,6 +11,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { lastValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { stateList } from 'src/app/shared/other/constants';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,63 +24,7 @@ export class HomeComponent {
     select: new FormControl('', [Validators.required]),
   });
 
-  stateList = [
-    { appr: "AK", name: "Alaska" },
-    { appr: "AL", name: "Alabama" },
-    { appr: "AR", name: "Arkansas" },
-    { appr: "AS", name: "American Samoa" },
-    { appr: "AZ", name: "Arizona" },
-    { appr: "CA", name: "California" },
-    { appr: "CO", name: "Colorado" },
-    { appr: "CT", name: "Connecticut" },
-    { appr: "DC", name: "District of Columbia" },
-    { appr: "DE", name: "Delaware" },
-    { appr: "FL", name: "Florida" },
-    { appr: "GA", name: "Georgia" },
-    { appr: "GU", name: "Guam" },
-    { appr: "HI", name: "Hawaii" },
-    { appr: "IA", name: "Iowa" },
-    { appr: "ID", name: "Idaho" },
-    { appr: "IL", name: "Illinois" },
-    { appr: "IN", name: "Indiana" },
-    { appr: "KS", name: "Kansas" },
-    { appr: "KY", name: "Kentucky" },
-    { appr: "LA", name: "Louisiana" },
-    { appr: "MA", name: "Massachusetts" },
-    { appr: "MD", name: "Maryland" },
-    { appr: "ME", name: "Maine" },
-    { appr: "MI", name: "Michigan" },
-    { appr: "MN", name: "Minnesota" },
-    { appr: "MO", name: "Missouri" },
-    { appr: "MS", name: "Mississippi" },
-    { appr: "MT", name: "Montana" },
-    { appr: "NC", name: "North Carolina" },
-    { appr: "ND", name: "North Dakota" },
-    { appr: "NE", name: "Nebraska" },
-    { appr: "NH", name: "New Hampshire" },
-    { appr: "NJ", name: "New Jersey" },
-    { appr: "NM", name: "New Mexico" },
-    { appr: "NV", name: "Nevada" },
-    { appr: "NY", name: "New York" },
-    { appr: "OH", name: "Ohio" },
-    { appr: "OK", name: "Oklahoma" },
-    { appr: "OR", name: "Oregon" },
-    { appr: "PA", name: "Pennsylvania" },
-    { appr: "PR", name: "Puerto Rico" },
-    { appr: "RI", name: "Rhode Island" },
-    { appr: "SC", name: "South Carolina" },
-    { appr: "SD", name: "South Dakota" },
-    { appr: "TN", name: "Tennessee" },
-    { appr: "TX", name: "Texas" },
-    { appr: "UT", name: "Utah" },
-    { appr: "VA", name: "Virginia" },
-    { appr: "VI", name: "Virgin Islands" },
-    { appr: "VT", name: "Vermont" },
-    { appr: "WA", name: "Washington" },
-    { appr: "WI", name: "Wisconsin" },
-    { appr: "WV", name: "West Virginia" },
-    { appr: "WY", name: "Wyoming" }
-  ]
+  stateList = stateList;
 
   constructor(private _legalService: LegalIncService, private _meta: Meta, private _title: Title, private _geolocation: GeocodingService) {
     this._title.setTitle("LLC Cheap - Grow or start your business today!");
