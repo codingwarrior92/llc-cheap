@@ -307,6 +307,20 @@
   box-shadow: $shadow;
 }
 
+@mixin filter($any) {
+  -o-filter: $any;
+  -ms-filter: $any;
+  -moz-filter: $any;
+  -webkit-filter: $any;
+}
+
+@mixin transition($any) {
+  -webkit-transition: $any;
+  -moz-transition: $any;
+  -o-transition: $any;
+  transition: $any;
+}
+
 // Margins
 @include list-loop(".mt-", "margin-top");
 @include list-loop(".mr-", "margin-right");

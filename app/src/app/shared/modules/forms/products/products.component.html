@@ -1,1 +1,15 @@
-<p>products works!</p>
+<app-compliance *ngIf="data['type'] === 'Compliance'"></app-compliance>
+<app-company-formation *ngIf="data['type'] === 'Business Formation'">
+</app-company-formation>
+<app-corporate-supplies *ngIf="data['type'] === 'Corporate Supplies'">
+</app-corporate-supplies>
+<app-document-retrieval *ngIf="data['type'] === 'Document Retrieval'">
+</app-document-retrieval>
+<app-additional-services *ngIf="data['type'] === 'Additional Services'">
+</app-additional-services>
+<app-corporate-filings *ngIf="data['type'] === 'Corporate Filings'">
+</app-corporate-filings>
+<app-registered-agent *ngIf="data['type'] === 'Registered Agent'">
+</app-registered-agent>
+<app-ucc-search-filing *ngIf="data['type'] === 'UCC Search Filing'">
+</app-ucc-search-filing>

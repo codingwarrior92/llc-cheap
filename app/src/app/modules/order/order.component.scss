@@ -33,12 +33,12 @@
         margin: 0px auto;
         text-align: center;
         img {
+          @include filter(invert(1));
           width: 40px;
-          filter: invert(1);
 
           &:hover {
-            filter: invert(0);
-            transition: all 0.25s ease-in;
+            @include filter(invert(0));
+            @include transition(all 0.25s ease-in);
           }
         }
       }
@@ -109,9 +109,11 @@
       flex-direction: column;
       justify-content: space-between;
       width: 35%;
+      height: min-content;
       overflow: hidden;
 
       button {
+        @include transition(all 0.25s ease-in);
         width: 100%;
         border: none;
         padding: 10px;

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SummaryComponent } from './summary.component';
 
-
-
 @NgModule({
   declarations: [
     SummaryComponent
@@ -12,7 +10,7 @@ import { SummaryComponent } from './summary.component';
     SummaryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class SummaryModule { }

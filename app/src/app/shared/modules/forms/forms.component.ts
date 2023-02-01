@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-forms',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
+  @Input() data: any;
 
   constructor() { }
 

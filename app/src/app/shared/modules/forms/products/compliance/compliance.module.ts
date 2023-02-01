@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EinRetrievalComponent } from './ein-retrieval.component';
 
-
+import { ComplianceComponent } from './compliance.component';
 
 @NgModule({
   declarations: [
-    EinRetrievalComponent
+    ComplianceComponent
+  ],
+  exports: [
+    ComplianceComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class EinRetrievalModule { }
+export class ComplianceModule { }

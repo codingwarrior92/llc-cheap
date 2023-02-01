@@ -11,7 +11,7 @@
   </div>
 </header>
 
-<h1>{{ type }} - {{ order }} Services</h1>
+<h1>{{ data.type }} - {{ data.order }} Services</h1>
 
 <div class="container">
   <p class="existing">
@@ -22,10 +22,10 @@
   </p>
   <div class="main">
     <div class="main-content">
-      <app-forms></app-forms>
+      <app-forms [data]="data"></app-forms>
     </div>
     <aside>
-      <app-summary></app-summary>
+      <app-summary [data]="data"></app-summary>
       <button>Next</button>
     </aside>
   </div>

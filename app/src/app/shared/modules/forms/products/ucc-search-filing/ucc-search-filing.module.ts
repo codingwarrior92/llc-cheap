@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UccSearchFilingComponent } from './ucc-search-filing.component';
 
-import { CompanyFormationComponent } from './company-formation.component';
+
 
 @NgModule({
   declarations: [
-    CompanyFormationComponent
+    UccSearchFilingComponent
   ],
   exports: [
-    CompanyFormationComponent
+    UccSearchFilingComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class CompanyFormationModule { }
+export class UccSearchFilingModule { }

@@ -9,8 +9,10 @@ import { filter, pairwise } from 'rxjs/operators';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  type: string = '';
-  order: string = '';
+  data = {
+    type: '',
+    order: ''
+  };
   previous: any;
 
   constructor(private _title: Title, public router: Router, public activatedRoute: ActivatedRoute) {
@@ -23,10 +25,10 @@ export class OrderComponent implements OnInit {
 
   getTitle() {
     this.activatedRoute.data.subscribe((res) => {
-      this.type = this._capitalizeString(res['type'].split('-').join(' '));
-      this.order = res['order'].toUpperCase();
+      this.data.type = this._capitalizeString(res['type'].split('-').join(' '));
+      this.data.order = res['order'].toUpperCase();
 
-      this._title.setTitle(`${this.type} of a ${this.order} - LLC Cheap`);
+      this._title.setTitle(`${this.data.type} of a ${this.data.order} - LLC Cheap`);
 
     })
   }

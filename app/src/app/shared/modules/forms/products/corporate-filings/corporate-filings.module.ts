@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CompanyFormationComponent } from './company-formation.component';
+import { CorporateFilingsComponent } from './corporate-filings.component';
 
 @NgModule({
   declarations: [
-    CompanyFormationComponent
+    CorporateFilingsComponent
   ],
   exports: [
-    CompanyFormationComponent
+    CorporateFilingsComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class CompanyFormationModule { }
+export class CorporateFilingsModule { }
