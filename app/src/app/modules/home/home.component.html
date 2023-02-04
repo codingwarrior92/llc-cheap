@@ -23,24 +23,22 @@
     </header>
     <div class="search-bar" [formGroup]="search">
       <input
-        formControlName="input"
+        formControlName="text"
         placeholder="Search your business name"
         type="text"
         class="main-input main-name"
       />
-
-      <select formControlName="select">
+      <select formControlName="entity" class="entities">
+        <option *ngFor="let i of typeList" [ngValue]="i.name">
+          {{ i.name }}
+        </option>
+      </select>
+      <select formControlName="state" class="state">
         <option *ngFor="let i of stateList" [ngValue]="i.appr">
           {{ i.name }}
         </option>
       </select>
-      <button
-        id="main-submit"
-        (click)="searchEntity()"
-        [disabled]="!search.valid"
-      >
-        Search
-      </button>
+      <button id="main-submit" [disabled]="!search.valid">Search</button>
     </div>
     <div class="splash__trust col-md-offset-1">
       <img src="./assets/svg/trustpilot.svg" alt="trust pilot" />

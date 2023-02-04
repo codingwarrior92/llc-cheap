@@ -64,7 +64,7 @@
     .main-input {
       background: #fff;
       height: 48px;
-      color: #a7b1ab;
+      color: #333;
       border: 1px solid #cccccc;
       margin-bottom: 0px;
       -webkit-appearance: none;
@@ -75,7 +75,7 @@
       text-align: left;
       font-size: 16px;
       font-weight: 500;
-      padding: 0px 0px 0px 57px;
+      padding: 0px 20px 0px 53px;
       font-size: 16px;
       border-right: 0px;
       background: #ffffff
@@ -101,7 +101,7 @@
       width: 141px;
       height: 50px;
       border: 0px;
-      padding: 0px 20px 0px;
+      padding: 0px 15px 0px;
       float: left;
 
       &:hover {
@@ -117,13 +117,12 @@
 
     select {
       display: inline-block;
-      width: 150px;
       height: 50px;
       font-size: 16px;
       border: 1px solid #cccccc;
-      padding: 0px 20px;
+      padding: 0px 30px 0 20px;
       position: relative;
-      width: 200px;
+      width: 150px;
       border-right: 0px;
       background: #ffffff;
       cursor: pointer;
@@ -131,7 +130,7 @@
       -webkit-appearance: none;
       apperance: none;
       background: #ffffff
-        url(http://seodesigns.com/projects/TD/images/main-bullet.png) 150px 22px
+        url(http://seodesigns.com/projects/TD/images/main-bullet.png) 130px 22px
         no-repeat;
       background-size: 7px 7px;
 
@@ -140,11 +139,18 @@
         color: #4a4a4a;
         padding: 6px 0px;
         display: block;
-        padding: 5px 0 16px 5px;
 
         &:hover {
           background: #f8f8f8;
         }
+      }
+
+      &.entities {
+        width: 125px;
+        background: #ffffff
+          url(http://seodesigns.com/projects/TD/images/main-bullet.png) 105px
+          22px no-repeat;
+        background-size: 7px 7px;
       }
     }
   }

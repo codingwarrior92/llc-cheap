@@ -11,7 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { lastValueFrom } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { stateList } from 'src/app/shared/other/constants';
+import { stateList, entities } from 'src/app/shared/other/constants';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +20,13 @@ import { stateList } from 'src/app/shared/other/constants';
 })
 export class HomeComponent {
   search = new FormGroup({
-    input: new FormControl('', [Validators.required]),
-    select: new FormControl('', [Validators.required]),
+    text: new FormControl('', [Validators.required]),
+    entity: new FormControl('LLC', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
   });
 
   stateList = stateList;
+  typeList = entities;
 
   constructor(private _legalService: LegalIncService, private _meta: Meta, private _title: Title, private _geolocation: GeocodingService) {
     this._title.setTitle("LLC Cheap - Grow or start your business today!");
@@ -46,10 +48,6 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getUserLocation();
-
-    this._legalService.authToken().subscribe((res) => {
-      console.log(res);
-    })
   }
 
   getUserLocation() {
@@ -62,7 +60,7 @@ export class HomeComponent {
           this.stateList.filter(y => {
             a.filter((x: string) => {
               if (y.appr === x) {
-                this.search.controls.select.setValue(y.appr);
+                this.search.controls.state.setValue(y.appr);
               }
             });
           });
@@ -72,9 +70,4 @@ export class HomeComponent {
   }
 
 
-  searchEntity() {
-    this._legalService.getBusinessName(this.search.controls.input.value, this.search.controls.select.value).subscribe((res) => {
-      console.log(res);
-    })
-  }
 }

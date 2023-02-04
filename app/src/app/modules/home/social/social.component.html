@@ -1,6 +1,6 @@
 <div class="container">
   <h3>Your in great company, join us!</h3>
-  <div class="social" *ngIf="social.reviews">
+  <div class="social" *ngIf="social?.reviews">
     <div class="social__box" *ngFor="let a of social?.reviews">
       <span [class]="'social__box-img social__box-img-' + a.image"></span>
 

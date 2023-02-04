@@ -23,30 +23,13 @@ export class LegalIncService {
   constructor(private _http: HttpClient) {
   }
 
-  authToken() {
-    const URL = environment.legalinc.api + 'oauth/access_token';
-
-    const body = {
-      "grant_type": "password",
-      "client_id": 1,
-      "client_secret": "MvfgueLiOycMcp",
-      "username": "accounts@llc.cheap",
-      "password": "10261988)_P"
-    }
-
-    return this._http.post<Response>(URL, body).pipe(
-      map(this._extractData),
-      catchError((res: any) => this._handleError(res)),
-    );
-  }
-
   /**
    * @param {string} playlistId
    * @return {*}  {Observable<Survey>}
    * @memberof SurveyService
    */
-  getBusinessName(term: string | null, state: string | null): Observable<any> {
-    const URL = environment.legalinc.api + 'name-check?entityName=' + term + '&entityState=' + state;
+  getBusinessName(term: string | null, entity: string | null, state: string | null): Observable<any> {
+    const URL = environment.legalinc.api + 'name-check?entityName=' + term + '&entityType=' + entity + '&entityState=' + state;
 
     return this._http.get<Response>(URL, this.options).pipe(
       map(this._extractData),
