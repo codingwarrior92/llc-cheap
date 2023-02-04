@@ -14,10 +14,10 @@ export class BreadcrumbComponent implements OnInit {
   count: number | undefined;
 
   constructor(public location: Location, public router: Router) {
+    this.fireBreadcrumb();
   }
 
   ngOnInit() {
-    this.fireBreadcrumb();
   }
 
   fireBreadcrumb() {

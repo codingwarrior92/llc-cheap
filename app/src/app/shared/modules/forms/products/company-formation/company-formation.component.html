@@ -1,1 +1,36 @@
-<p>company-formation works!</p>
+<form [formGroup]="company">
+  <h3>Formation</h3>
+  <div class="form-group row">
+    <div class="col-sm-6">
+      <label class="label-heading">Entity Type *</label>
+      <select formControlName="entities">
+        <option *ngFor="let i of entities" [ngValue]="i.name">
+          {{ i.name }}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-6">
+      <label class="label-heading">State *</label>
+      <select formControlName="states">
+        <option *ngFor="let i of states" [ngValue]="i.name">
+          {{ i.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr class="line-seperator" />
+  <h3>Product Selection</h3>
+  <label class="label-heading">Select Products:</label>
+  <div class="product-details-wrapper" *ngFor="let i of products">
+    <div class="product-description">
+      <input type="checkbox" class="checkbox" [id]="i.id" />
+      <label class="label" [for]="i.id">{{ i.name }} </label>
+      <i class="bi bi-info-circle-fill">
+        <span class="tooltip-text"> {{ i.desc }}</span>
+      </i>
+    </div>
+    <div class="product-price">{{ i.price }}</div>
+  </div>
+
+  <h3 class="mt-40 mb-20">Processing Time</h3>
+</form>

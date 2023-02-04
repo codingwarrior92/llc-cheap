@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
     this._meta.addTag({ name: 'generator', content: "html2" });
     this._meta.addTag({ name: 'ROBOTS', content: "index, follow" });
     this._meta.addTag({ name: 'robots', content: "noodp, noydir" });
+    this.isOrder();
   }
 
   ngOnInit() {
-    this.isOrder();
   }
 
   isOrder(): void {

@@ -1,6 +1,6 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError, Observable, throwError } from 'rxjs';
+import { EventEmitter, Injectable, } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders, } from '@angular/common/http';
+import { map, catchError, Observable, throwError, } from 'rxjs';
 
 // INTERFACE
 import { environment } from 'src/environments/environment';
@@ -10,6 +10,8 @@ export class LegalIncService {
   accessToken = '';
   expiresIn = 0;
   refreshToken = '';
+  headers = new HttpHeaders({ 'authorization': this.accessToken });
+  options = { headers: this.headers };
 
   data: EventEmitter<any> = new EventEmitter();
 
@@ -46,16 +48,24 @@ export class LegalIncService {
   getBusinessName(term: string | null, state: string | null): Observable<any> {
     const URL = environment.legalinc.api + 'name-check?entityName=' + term + '&entityState=' + state;
 
-    const options = {
-      headers: {
-        'Authorization': 'Bearer #' + this.accessToken
-      }
-    };
-
-    return this._http.get<Response>(URL, options).pipe(
+    return this._http.get<Response>(URL, this.options).pipe(
       map(this._extractData),
       catchError((res: any) => this._handleError(res)),
     );
+  }
+
+  nameCheck(name: string, state: string, type: string): void {
+    let eName = name;
+    let eType = type;
+    let eState = state;
+
+    this._http.get(environment.legalinc.api + '/api/v2/entity/check', this.options).subscribe((res) => {
+
+    });
+  }
+
+  getToken(): Observable<any> | null {
+    return null;
   }
 
   /**

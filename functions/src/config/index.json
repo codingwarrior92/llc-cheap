@@ -1,0 +1,29 @@
+{
+  "legalinc": {
+    "credentials": {
+      "grant_type": "password",
+      "client_id": 1,
+      "client_secret": "MvfgueLiOycMcp",
+      "username": "accounts@llc.cheap",
+      "password": "10261988)_P"
+    },
+    "key": {
+      "secret": "MvfgueLiOycMcp",
+      "api": "https://orders-uat.legalinc.com/api/v2/"
+    }
+  },
+  "firebase": {
+    "projectId": "llc-cheap",
+    "appId": "1:561277295382:web:81091d50c8ebd37cc6ce37",
+    "storageBucket": "llc-cheap.appspot.com",
+    "apiKey": "AIzaSyDEFJj06w8xsN_VonyXvCywRI7H2YdVGrM",
+    "authDomain": "llc-cheap.firebaseapp.com",
+    "messagingSenderId": "561277295382",
+    "measurementId": "G-0GFLNFTX74"
+  },
+  "stripe": "pk_test_51MNOFpLE6JgchawPahk5ehVPkjixlIMajhDW7e1HDfcl1K88BktfF4OnIjIzWY6iWFp3YETpSp3coAWZhycebSIH00t5cxZkGr",
+  "google": {
+    "api": "https://maps.googleapis.com/maps/api/",
+    "key": "AIzaSyApXEkj7l2hEM4oo_59v-kpTEZI8jg03SE"
+  }
+}

@@ -184,16 +184,16 @@ export let entities = [
 ]
 
 export let productSelection = [
-  { name: 'Preparation of Articles', price: '$60.00' },
-  { name: 'Registered Agent Subscription', price: '$199.00 / year' },
-  { name: 'Automated Report Filings Subscription', price: '$129.00 / year' },
-  { name: 'Membership Certificates', price: '$49.00' },
-  { name: 'Employer Identification Number / TAX ID', price: '$59.00' },
-  { name: 'LLC Kit & Seal Package', price: '$79.00' },
-  { name: 'S-Corp Election', price: '$39.00' },
-  { name: 'Certificate of Good Standing', price: '$45.00' },
-  { name: 'Business License Report', price: '$119.00' },
-  { name: 'Operating Agreement', price: '$39.00' },
+  { id: 1, name: 'Preparation of Articles', price: '$60.00', desc: 'Our team of experts will prepare required state & entity specific forms necessary to form an entity with the Secretary of State.' },
+  { id: 2, name: 'Registered Agent Subscription', price: '$199.00 / year', desc: "Satisfies compliance rules to have a physical address in the state of incorporation for accepting service of process & offical state notices. LegalInc's service includes electronic record keeping & Compliance notifications." },
+  { id: 3, name: 'Automated Report Filings Subscription', price: '$129.00 / year', desc: "This subscription will auto file all your compliance reports with the state" },
+  { id: 4, name: 'Membership Certificates', price: '$49.00', desc: "This subscription will auto file all your compliance reports with the state" },
+  { id: 5, name: 'Employer Identification Number / TAX ID', price: '$59.00', desc: "This subscription will auto file all your compliance reports with the state" },
+  { id: 6, name: 'LLC Kit & Seal Package', price: '$79.00', desc: "A corporate kit is a binder that serves to hold official hard copy records. Includes high quality vinyl binder, 20 customized certificates, and a heavy-duty embosser for putting a distinctive seal on official documents." },
+  { id: 7, name: 'S-Corp Election', price: '$39.00', desc: "Preparation of IRS S-Election form with complete step-by-step instructions on finalizing the filing." },
+  { id: 8, name: 'Certificate of Good Standing', price: '$45.00', desc: "Preparation of IRS S-Election form with complete step-by-step instructions on finalizing the filing." },
+  { id: 9, name: 'Business License Report', price: '$119.00', desc: "Preparation of IRS S-Election form with complete step-by-step instructions on finalizing the filing." },
+  { id: 10, name: 'Operating Agreement', price: '$39.00', desc: "Operating Agreement is key document used by limited liability companies (LLCs) to outline the business' financial and functional decisions including rules, regulations and provisions" },
 ]
 
 export let businessPurpose = [

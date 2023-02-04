@@ -1,5 +1,8 @@
 <app-compliance *ngIf="data['type'] === 'Compliance'"></app-compliance>
-<app-company-formation *ngIf="data['type'] === 'Business Formation'">
+<app-company-formation
+  (form)="fieldData($event)"
+  *ngIf="data['type'] === 'Business Formation'"
+>
 </app-company-formation>
 <app-corporate-supplies *ngIf="data['type'] === 'Corporate Supplies'">
 </app-corporate-supplies>
