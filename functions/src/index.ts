@@ -3,16 +3,14 @@ import * as functions from "firebase-functions";
 import * as cors from "cors";
 import * as firebaseAccountCredentials from "./config/index.json";
 
+// FUNCTIONS
+import { getAuthorizationToken } from './legalinc/authorization/getAuthorizationToken';
 
-import * as getAuthorizationToken from './legalinc/authorization/getAuthorizationToken';
+const serviceAccount = firebaseAccountCredentials.firebase.service_accounts as admin.ServiceAccount;
 
-admin.initializeApp(functions.config().firebase);
-
-const serviceAccount = firebaseAccountCredentials.firebase as admin.ServiceAccount;
-
-admin.initializeApp(
-  { credential: admin.credential.cert(serviceAccount) }
-);
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 export const firestore = admin.firestore()
 

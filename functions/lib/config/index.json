@@ -1,0 +1,42 @@
+{
+    "legalinc": {
+        "credentials": {
+            "grant_type": "password",
+            "client_id": 1,
+            "client_secret": "MvfgueLiOycMcp",
+            "username": "accounts@llc.cheap",
+            "password": "10261988)_P"
+        },
+        "key": {
+            "secret": "MvfgueLiOycMcp",
+            "api": "https://orders.legalinc.com/api/v1/"
+        }
+    },
+    "firebase": {
+        "projectId": "llc-cheap",
+        "appId": "1:561277295382:web:81091d50c8ebd37cc6ce37",
+        "storageBucket": "llc-cheap.appspot.com",
+        "apiKey": "AIzaSyDEFJj06w8xsN_VonyXvCywRI7H2YdVGrM",
+        "authDomain": "llc-cheap.firebaseapp.com",
+        "messagingSenderId": "561277295382",
+        "measurementId": "G-0GFLNFTX74",
+        "clientEmail": "christopher.eugene.rodriguez@gmail.com",
+        "service_accounts": {
+            "type": "service_account",
+            "project_id": "llc-cheap",
+            "private_key_id": "a7839b039b03550bff798cc7b257a2b80ffb7494",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkEd0yBigCNcU3\nR1BripXS6rMa1ZjFx1vMyVuxaC4/es59MDe9vFWPZqbTfuuoohLwJu9SHl2gxnhW\ny9XDWBR77INr+TlvsGWaNjvDJ0U7FEQiVj5x9fpTrqnbhQwkLRWJV8ZLX7DTZuX7\nrsUUIVUOiMXVyPMh6U22r4i8sPZvGNC1EuSJDFycNS+i9ciLsgCUDLBadztVDATx\noE9Xp59ZJS9lzZtiR2sMgzcDlp5P5vVWgWv7CENnIW2jggydy7oldZfZTQz9Ck4i\ngzeb2aFKPfk5mEzG6048XprIvo/oqajLqg4NrRm+QKGKw+TGGABx7DKI3YZ75B9X\nEljd8LfVAgMBAAECgf8QBa6UNAW0MYwQ2eYAmogHEORsum8w4UcVuJQ7vvDFQjjo\nAM1wufOhDWU9QifBUBKJYUP9wPljuf4Ge+FkMjXN5ErxQGVbgt5pMOKlLDCWlGQS\n9lkix+KqSWRNC7Ej10NDJk83DSE3g9Txvx9/18F2qeSn+/fCWAY+0OWJh76JGrsd\n7/JzletCZ9w3InKmHs411caUR5F1U5ZLaHVMax/gmIRRRZhLGJx3hk0GJJi7I28v\nO2W9cjTfJfO6AJxzPL2ZlCsEi2Sm6B21I8lNim7bYvngPpmV2nq7AkkgqrArqS9J\n0zCsv5RiUzrpuDtIEsHGtjzU29BnQF0pJfRxO2ECgYEA3kn0RZ8EkSISYGzlWIpZ\nvedJq1iyZ4PwgoNgy6nmTkAh3HRqvDC/wisQHIJp7lOusxqJcLvGP4cJ8Dir5bNL\nt5BetNbDHdI6x/E7TlJg7nxCuiaMM/lrhDzcONGL/4JQa0A5nJAjzg09agNTw9jf\nVYeNUHKoTNw2QEjaNxDQxa0CgYEAvPOjFdAYeyTkJQLq7Ro/IJG47EjiCbN3NGQO\n2JqJyPLqzrYcFtiIox1/uLoR2jxfhpuLn1+Ue4BMfrL7p2buslRg8WGkckZ1vVef\nA3lScUq1RqAl8ZWoFfBExvevVKA24eeABfkLz3SMSZIxNWT61WqwqVKpfp8CLMFL\nbax978kCgYBTPeKJx9jP+LBlB6KDG5wrr1c5IUf917zTQxuWaRNjrkR/5+CohKDq\nt3GbG4NLym6bh458dvTwiUNBgBdvN0tdfGTa16nNmxKEGWQaGmNOK55ZU2IhfH+0\nz42wgVgp4MT4xN5OMPQXj4G2F3Tg3HAV+WMEA0vfLH/sZtvAzz0/KQKBgQCJa+jA\nhIhJh5smD+ksaFphJZqIvrkmtQ+NWvgxMLPlIkcD8A6dzv4RI/MwNqOlRSN0kswJ\nLUqgR79apnHAXmxb5mJbK9ieBAC9pGxR6nq7Sspsgy0VdvK4gfaDfsBVm/BOfD/w\nGCEu0GT3XQvM+ZQ0g1PY0fXT0XGTe0GQklNFgQKBgQDCAblA/e8UrRD1aU59MtyI\nnVOLAcDqe2Z/CX0WI3GcU81wN6a1nHSr/J1rLSV3cQuXPN31oZeopB5aQ+9Ljk9D\nKzDG1dm/aEErFGJ+lNBhOJ2ojWg0NUkwunZgvWk1jNrk9FNVb9LsW3ZeP6agmibd\nm+mE1zY8V78YAfLmAhaAag==\n-----END PRIVATE KEY-----\n",
+            "client_email": "firebase-adminsdk-jcvhr@llc-cheap.iam.gserviceaccount.com",
+            "client_id": "107203982646649820854",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jcvhr%40llc-cheap.iam.gserviceaccount.com"
+        }
+    },
+    "stripe": "pk_test_51MNOFpLE6JgchawPahk5ehVPkjixlIMajhDW7e1HDfcl1K88BktfF4OnIjIzWY6iWFp3YETpSp3coAWZhycebSIH00t5cxZkGr",
+    "google": {
+        "api": "https://maps.googleapis.com/maps/api/",
+        "key": "AIzaSyApXEkj7l2hEM4oo_59v-kpTEZI8jg03SE"
+    }
+}
