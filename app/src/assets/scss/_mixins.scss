@@ -252,28 +252,12 @@
   }
 }
 
-@mixin transform($posX, $posY) {
-  @if $posY != "" {
-    -webkit-transform: translate($posX, $posY);
-    -moz-transform: translate($posX, $posY);
-    -ms-transform: translate($posX, $posY);
-    -o-transform: translate($posX, $posY);
-    transform: translate($posX, $posY);
-  } @else {
-    -webkit-transform: translateX($posX);
-    -moz-transform: translateX($posX);
-    -ms-transform: translateX($posX);
-    -o-transform: translateX($posX);
-    transform: translateX($posX);
-  }
-}
-
-@mixin transformX($pos) {
-  -webkit-transform: translateX($pos);
-  -moz-transform: translateX($pos);
-  -ms-transform: translateX($pos);
-  -o-transform: translateX($pos);
-  transform: translateX($pos);
+@mixin transform($pos) {
+  -webkit-transform: $pos;
+  -moz-transform: $pos;
+  -ms-transform: $pos;
+  -o-transform: $pos;
+  transform: $pos;
 }
 
 @mixin opacity($opacity) {
@@ -319,6 +303,12 @@
   -moz-transition: $any;
   -o-transition: $any;
   transition: $any;
+}
+
+@mixin noAppereance() {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  apperance: none;
 }
 
 // Margins

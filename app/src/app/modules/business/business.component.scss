@@ -1,5 +1,8 @@
+@use "../../../assets/scss/_variables.scss" as vars;
+@use "../../../assets/scss/_mixins.scss" as mixins;
+
 :host {
-  display: flex;
+  @include mixins.flexbox();
   position: relative;
   margin-bottom: auto;
 }

@@ -18,17 +18,17 @@
   }
 
   footer {
+    @include flexbox();
     padding: 0 0 4px 0;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: "Roboto";
 
     img {
+      @include transition(all 0.25s ease-in);
       width: 55px;
       position: absolute;
       top: -20px;
-      transition: all 0.25s ease-in;
 
       &:hover {
         top: -40px;
@@ -42,7 +42,7 @@
     }
 
     ul {
-      display: flex;
+      @include flexbox();
       margin-left: auto;
       gap: 0 30px;
       li {

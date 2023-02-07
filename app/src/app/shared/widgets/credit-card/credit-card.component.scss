@@ -42,7 +42,7 @@
 
   &-flex,
   &-cards {
-    display: flex;
+    @include mixins.flexbox();
     justify-content: space-between;
     align-items: center;
   }

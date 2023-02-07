@@ -1,3 +1,6 @@
+@import "../../../../assets/scss/variables";
+@import "../../../../assets/scss/mixins";
+
 :host {
   position: relative;
   display: block;
@@ -23,10 +26,10 @@
   .legal-blurbs {
     position: relative;
     &__first {
+      @include flexbox();
       position: absolute;
       right: 100px;
       top: -160px;
-      display: flex;
       flex-direction: column;
       width: 350px;
 
@@ -43,11 +46,11 @@
     }
 
     &__second {
+      @include flexbox();
+      @include flex-direction(column);
       position: relative;
       left: 20px;
       top: 200px;
-      display: flex;
-      flex-direction: column;
       width: 450px;
 
       .blurb-flex {
@@ -67,10 +70,10 @@
     }
 
     &__third {
+      @include flexbox();
       position: relative;
       float: right;
       top: 0px;
-      display: flex;
       flex-direction: column;
       width: 350px;
       left: -200px;
@@ -104,9 +107,9 @@
     }
 
     .blurb-flex {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flexbox();
+      @include justify-content(center);
+      @include flex-direction(column);
       gap: 1.5rem;
       background: #fff;
       padding: 40px;

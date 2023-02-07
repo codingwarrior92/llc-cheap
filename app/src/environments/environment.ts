@@ -21,7 +21,8 @@ export const environment = {
   legalinc: {
     secret: 'MvfgueLiOycMcp',
     api: 'https://orders-uat.legalinc.com/api/v2/'
-  }
+  },
+  localApi: 'http://127.0.0.1:5001/llc-cheap/us-central1/'
 };
 
 /*

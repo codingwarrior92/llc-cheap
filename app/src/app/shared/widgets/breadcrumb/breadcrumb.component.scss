@@ -1,7 +1,10 @@
+@use "../../../../assets/scss/_variables.scss" as vars;
+@use "../../../../assets/scss/_mixins.scss" as mixins;
+
 ol {
-  display: flex;
+  @include mixins.flexbox();
+  @include mixins.justify-content(flex-start);
   list-style: none;
-  justify-content: flex-start;
   gap: 0 4px;
   align-items: center;
   margin: 0px;

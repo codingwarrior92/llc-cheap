@@ -4,6 +4,7 @@
     <div class="col-sm-6">
       <label class="label-heading">Entity Type *</label>
       <select formControlName="entities">
+        <option value="" disabled selected>Select your option</option>
         <option *ngFor="let i of entities" [ngValue]="i.name">
           {{ i.name }}
         </option>
@@ -12,6 +13,7 @@
     <div class="col-sm-6">
       <label class="label-heading">State *</label>
       <select formControlName="states">
+        <option value="" disabled selected>Select your option</option>
         <option *ngFor="let i of states" [ngValue]="i.name">
           {{ i.name }}
         </option>

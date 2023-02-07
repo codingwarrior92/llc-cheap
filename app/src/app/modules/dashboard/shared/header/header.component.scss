@@ -1,6 +1,9 @@
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/mixins";
+
 :host {
-  display: flex;
-  justify-content: space-between;
+  @include flexbox();
+  @include justify-content(space-between);
   background: #fff;
   border-bottom: 1px solid #ddd;
   padding: 10px 20px;

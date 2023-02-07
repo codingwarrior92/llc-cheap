@@ -1,13 +1,16 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
 :host {
-  display: flex;
+  @include flexbox();
   min-height: 100vh;
   background: #fafafa;
 
   .content-container {
-    display: flex;
-    flex-direction: column;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
     width: 100%;
-    justify-content: space-between;
 
     .content {
       margin: 0 20px;

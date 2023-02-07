@@ -1,3 +1,6 @@
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/mixins";
+
 :host {
   --black-color: #11101d;
   --black-hover-color: #292644;
@@ -5,35 +8,35 @@
   --sky-color: #e4e9f7;
   --light-black: #1d1b31;
 
+  @include transition(all 0.5s ease);
   min-height: 100vh;
   width: 50px;
   background: var(--black-color);
   padding: 0 14px;
   z-index: 99;
-  transition: all 0.5s ease;
   position: relative;
   img {
+    @include flexbox();
+    @include transition(all 0.5s ease);
+    @include align-items(center);
+    @include filter(invert(1));
     margin: 20px auto 40px;
-    display: flex;
     height: 34px;
     width: 34px;
-    align-items: center;
     pointer-events: none;
-    transition: all 0.5s ease;
-    filter: invert(1);
   }
   &.active {
     width: 240px;
 
     img {
-      opacity: 1;
+      @include opacity(1);
       pointer-events: none;
     }
 
     ul li {
       .links_name {
-        transition: 0s;
-        opacity: 1;
+        @include opacity(1);
+        @include transition(0s);
         pointer-events: auto;
       }
       .tooltip {
@@ -56,12 +59,12 @@
 
       a {
         color: var(--white-color);
-        display: flex;
-        align-items: center;
+        @include flexbox();
+        @include transition(all 0.5s ease);
+        @include align-items(center);
+        @include border-radius(12px);
         text-decoration: none;
-        border-radius: 12px;
         white-space: nowrap;
-        transition: all 0.4s ease;
 
         &:hover {
           color: var(--black-color);
@@ -69,38 +72,39 @@
         }
 
         i {
+          @include border-radius(12px);
           font-size: 18px;
           font-weight: 400;
           height: 50px;
           min-width: 50px;
-          border-radius: 12px;
           line-height: 50px;
           text-align: center;
         }
 
         .links_name {
+          @include transition(all 0.3s ease);
+          @include opacity(0);
           font-size: 15px;
           font-weight: 400;
-          opacity: 0;
           pointer-events: none;
-          transition: all 0.3s ease;
         }
       }
 
       .tooltip {
+        @include box-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+        @include transform(translate(-50%, -50%));
+        @include transition(0s);
+        @include opacity(0);
+        @include border-radius(6px);
         position: absolute;
         left: 125px;
         top: 0;
-        transform: translate(-50%, -50%);
         border-radius: 6px;
         height: 35px;
         width: 120px;
         background: var(--white-color);
         line-height: 35px;
         text-align: center;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        transition: 0s;
-        opacity: 0;
         font-size: 14px;
         pointer-events: none;
         display: block;
@@ -142,27 +146,27 @@
     font-size: 12px;
   }
   #log_out {
+    @include transition(all 0.4s ease);
+    @include transform(translateX(-50%));
+    @include border-radius(12px);
     position: absolute;
     bottom: 5px;
     left: 50%;
-    transform: translateX(-50%);
     min-width: 50px;
     line-height: 50px;
     font-size: 20px;
-    border-radius: 12px;
     text-align: center;
-    transition: all 0.4s ease;
   }
   .active .content .user {
     background: var(--light-black);
   }
   .content .user .user_details {
-    display: flex;
-    align-items: center;
-    opacity: 0;
+    @include flexbox();
+    @include transition(all 0.4s ease);
+    @include opacity(0);
+    @include align-items(center);
     pointer-events: none;
     white-space: nowrap;
-    transition: all 0.4s ease;
   }
   .active .user .user_details {
     opacity: 1;
@@ -176,10 +180,10 @@
     width: 100%;
   }
   .content .user {
+    @include transition(all 0.4s ease);
     position: relative;
     padding: 10px 6px;
     height: 60px;
     background: none;
-    transition: all 0.4s ease;
   }
 }

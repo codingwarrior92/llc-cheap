@@ -1,3 +1,6 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
 .splash {
   z-index: 0;
   position: relative;
@@ -35,7 +38,7 @@
             animation: scrollUp 20s infinite;
 
             li {
-              display: flex;
+              @include flexbox();
               align-items: center;
               height: 100px;
               justify-content: flex-start;
@@ -54,23 +57,22 @@
     }
   }
   .search-bar {
-    display: flex;
+    @include flexbox();
     align-items: center;
     justify-content: space-between;
     z-index: 1;
     position: relative;
     margin-top: 40px;
+    font-family: "Roboto";
 
     .main-input {
+      @include border-radius(30px 0 0 30px);
+      @include noAppereance();
       background: #fff;
       height: 48px;
-      color: #333;
+      color: #444;
       border: 1px solid #cccccc;
       margin-bottom: 0px;
-      -webkit-appearance: none;
-      border-radius: 30px 0px 0px 30px;
-      -moz-border-radius: 30px 0px 0px 30px;
-      -webkit-border-radius: 30px 0px 0px 30px;
       display: inline-block;
       text-align: left;
       font-size: 16px;
@@ -78,44 +80,38 @@
       padding: 0px 20px 0px 53px;
       font-size: 16px;
       border-right: 0px;
-      background: #ffffff
-        url("http://seodesigns.com/projects/TD/images/search.png") 18px 15px
+      background: #ffffff url("^./assets/svg/magnifying-glass.svg") 20px 15px
         no-repeat;
       background-size: 18px 18px;
       width: 75%;
     }
 
     #main-submit {
+      @include border-radius(0 30px 30px 0);
       background: #3cb13c;
       color: #fff;
       display: inline-block;
-      font-size: 19px;
-      font-weight: 500;
+      font-size: 18px;
+      font-family: "Roboto";
       text-align: center;
       cursor: pointer;
       margin-bottom: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px 30px 30px 0px;
-      -moz-border-radius: 0px 30px 30px 0px;
-      -webkit-border-radius: 0px 30px 30px 0px;
-      width: 141px;
       height: 50px;
       border: 0px;
-      padding: 0px 15px 0px;
-      float: left;
+      padding: 0px 18px 0px;
 
       &:hover {
         background: #00a221;
-        color: #fff !important;
-        -webkit-appearance: none;
       }
 
       &[disabled] {
-        opacity: 0.6;
+        @include opacity(0.6);
+        pointer-events: none;
       }
     }
 
     select {
+      @include noAppereance();
       display: inline-block;
       height: 50px;
       font-size: 16px;
@@ -126,18 +122,12 @@
       border-right: 0px;
       background: #ffffff;
       cursor: pointer;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      apperance: none;
-      background: #ffffff
-        url(http://seodesigns.com/projects/TD/images/main-bullet.png) 130px 22px
-        no-repeat;
-      background-size: 7px 7px;
+      background: #ffffff url("^./assets/svg/caret.svg") 92% 18px no-repeat;
+      background-size: 12px 12px;
 
       option {
         font-size: 15px;
         color: #4a4a4a;
-        padding: 6px 0px;
         display: block;
 
         &:hover {
@@ -147,10 +137,6 @@
 
       &.entities {
         width: 125px;
-        background: #ffffff
-          url(http://seodesigns.com/projects/TD/images/main-bullet.png) 105px
-          22px no-repeat;
-        background-size: 7px 7px;
       }
     }
   }
@@ -162,6 +148,11 @@
     z-index: 1;
 
     .website {
+      @include box-shadow(
+        inset 0 1px 1px 0 hsl(0deg 0% 100% / 10%),
+        0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%)
+      );
       border-radius: 8px;
       position: absolute;
       top: -20px;
@@ -177,9 +168,7 @@
         rgba(246, 249, 252, 0.3) 50%,
         #f6f9fc 60%
       );
-      box-shadow: inset 0 1px 1px 0 hsl(0deg 0% 100% / 10%),
-        0 50px 100px -20px rgb(50 50 93 / 25%),
-        0 30px 60px -30px rgb(0 0 0 / 30%);
+
       font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.2px;
@@ -196,7 +185,7 @@
     }
   }
   &__trust {
-    display: flex;
+    @include flexbox();
     flex-direction: row-reverse;
     column-gap: 1.5rem;
     row-gap: 0.75rem;
@@ -204,17 +193,17 @@
     justify-content: flex-end;
 
     ol {
-      display: flex;
+      @include flexbox();
       list-style: none;
       gap: 5px;
       margin: 0px;
       padding: 0px;
 
       li {
+        @include flexbox();
         background: #dcdce6;
         position: relative;
         padding: 3px 4px 4px;
-        display: flex;
 
         &:before {
           content: "";

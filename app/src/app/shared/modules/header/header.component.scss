@@ -3,7 +3,7 @@
 
 header {
   padding: 15px 0;
-  display: flex;
+  @include flexbox();
   align-items: center;
   justify-content: space-around;
   position: relative;
@@ -104,7 +104,7 @@ header {
           }
 
           &-row {
-            display: flex;
+            @include flexbox();
             justify-content: space-evenly;
             gap: 30px 0;
           }

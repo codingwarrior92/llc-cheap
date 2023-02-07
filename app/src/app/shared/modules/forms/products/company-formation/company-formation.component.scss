@@ -1,3 +1,6 @@
+@import "../../../../../../assets/scss/variables";
+@import "../../../../../../assets/scss/mixins";
+
 .label-heading {
   font-style: normal;
   font-family: "Roboto";
@@ -27,11 +30,28 @@ h3 {
   letter-spacing: 0.2px;
 }
 
+.form-group {
+  margin: 0 -6px;
+
+  select {
+    @include noAppereance();
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    background: #ffffff url("^./assets/svg/caret.svg") 92% 18px no-repeat;
+    background-size: 12px 12px;
+
+    option {
+      padding: 4px 0;
+    }
+  }
+}
+
 .product-details {
   &-wrapper {
+    @include flexbox();
+    @include align-items(center);
     position: relative;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     border-top: 1px solid #ddd;
     padding: 6px 0;
@@ -39,8 +59,8 @@ h3 {
     font-family: "Roboto";
 
     .product-description {
-      display: flex;
-      align-items: center;
+      @include flexbox();
+      @include align-items(center);
       gap: 10px;
 
       i {

@@ -2,7 +2,7 @@
 @import "../../../assets/scss/mixins";
 
 :host {
-  display: flex;
+  @include flexbox();
   min-height: 100vh;
   flex-direction: column;
   background: #f3f3f3;
@@ -10,7 +10,7 @@
   .breadcrumb {
     margin: 0px;
     padding: 0px;
-    display: flex;
+    @include flexbox();
     align-items: center;
 
     li {
@@ -22,7 +22,7 @@
     padding: 40px 0;
 
     div {
-      display: flex;
+      @include flexbox();
       align-items: center;
       justify-content: space-between;
       gap: 0 20px;
@@ -47,7 +47,7 @@
         color: #777;
         font-weight: bold;
         margin-right: 0px;
-        display: flex;
+        @include flexbox();
         align-items: center;
         gap: 10px;
         justify-content: flex-end;
@@ -57,7 +57,7 @@
       }
 
       .back {
-        display: flex;
+        @include flexbox();
         gap: 5px;
         text-decoration: none;
         align-items: center;
@@ -88,7 +88,7 @@
   .main {
     position: relative;
     margin-top: 15px;
-    display: flex;
+    @include flexbox();
     gap: 40px;
 
     &-content,
@@ -105,7 +105,7 @@
     }
 
     aside {
-      display: flex;
+      @include flexbox();
       flex-direction: column;
       justify-content: space-between;
       width: 35%;

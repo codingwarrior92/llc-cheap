@@ -1,3 +1,6 @@
+@import "../../../../assets/scss/variables";
+@import "../../../../assets/scss/mixins";
+
 :host {
   position: relative;
   background: #eaf8fd;
@@ -6,7 +9,7 @@
   z-index: 1;
 
   .resources-background {
-    transform: skewY(4deg);
+    @include transform(skewY(4deg));
     position: absolute;
     width: 100%;
     height: 750px;
@@ -72,19 +75,19 @@
     }
 
     &-list {
+      @include flexbox();
       padding: 0px;
       margin: 0px;
-      display: flex;
       gap: 25px;
       flex-wrap: wrap;
       flex: 1 0 30%;
 
       a {
+        @include border-radius(16px);
         font-family: "Roboto";
         background: #fff;
         padding: 10px 30px;
         font-weight: 700;
-        border-radius: 25px;
         font-size: 16px;
         text-decoration: none;
         color: #333;
