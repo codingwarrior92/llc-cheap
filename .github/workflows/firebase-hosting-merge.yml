@@ -10,20 +10,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      
       - name: npm install
-      - run: npm install
+        run: npm install
 
       - name: npm test
-      - run: npm test --if-present
+        run: npm test --if-present
 
       - name: npm lint
-      - run: npm lint --if-present
+        run: npm lint --if-present
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: npm build
-      - run: npm run build
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
