@@ -33,4 +33,4 @@ jobs:
           projectId: llc-cheap
         env:
           FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
-          PROJECT_PATH: "${{GITHUB_WORKSPACE}}"
+          PROJECT_PATH: ${{ github.workspace }}
