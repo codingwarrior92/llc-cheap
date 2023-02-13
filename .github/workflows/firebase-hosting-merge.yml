@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
       
       - name: npm install
-        run: npm install
+        run: npm --prefix app install
 
 #       - name: npm test
 #         run: npm test --if-present
