@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && npm run build:ssr",
+    "build": "ng build -c production",
     "build:ssr": "ng run llc:server && npm run webpack:ssr",
     "webpack:ssr": "webpack --config webpack.server.config.js",
     "serve:ssr": "node dist/llc-webpack/server.js",
