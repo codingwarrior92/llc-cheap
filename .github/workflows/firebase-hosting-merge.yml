@@ -10,25 +10,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: npm install
-      - run: npm install
-
-      - name: npm test
-      - run: npm test --if-present
-
-      - name: npm lint
-      - run: npm lint --if-present
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: npm build
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          channelId: live
-          projectId: llc-cheap
-        env:
-          FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
-          PROJECT_PATH: "${{GITHUB_WORKSPACE}}"
+          persist-credentials: false
+          fetch-depth: 0
+      
+      - name: npm install
+        run: | 
+          npm --prefix app install
+          npm --prefix functions install
+
+#       - name: npm test
+#         run: npm test --if-present
+
+#       - name: npm lint
+#         run: npm lint --if-present
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: npm build
+#         run: npm run build
+#       - uses: FirebaseExtended/action-hosting-deploy@v0
+#         with:
+#           repoToken: "${{ secrets.GITHUB_TOKEN }}"
+#           channelId: live
+#           projectId: llc-cheap
+#         env:
+#           FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
+#           PROJECT_PATH: ${{ github.workspace }}
