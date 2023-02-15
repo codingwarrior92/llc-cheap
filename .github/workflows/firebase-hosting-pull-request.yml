@@ -2,15 +2,14 @@
 # https://github.com/firebase/firebase-tools
 # And then updated the actions
 
-name: Deploy to Firebase Hosting on merge
-on:
-  push:
-    branches:
-      - master  
-      - feature/**   
-
+name: Deploy to Firebase Hosting on PR
+on:  
+  pull_request:
+    branches:    
+      - master
 jobs:
-  build-deploy:
+  build_and_preview:
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,14 +23,6 @@ jobs:
           npm --prefix app --legacy-peer-deps install
           npm --prefix functions --legacy-peer-deps install
 
-      - name: npm test
-        run: |
-          npm --prefix functions test --if-present || true
-
-      - name: npm lint
-        run: |
-          npm --prefix functions run lint --if-present || true
-
       - name: npm build
         run: |
           npm --prefix app run build
@@ -41,8 +32,5 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          channelId: live
           projectId: llc-cheap
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
