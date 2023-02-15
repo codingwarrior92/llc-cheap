@@ -2,12 +2,12 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-"on":
+on:
   push:
     branches:
-      - master
+      - master  
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,25 +17,30 @@ jobs:
           fetch-depth: 0
       
       - name: npm install
-        run: | 
-          npm --prefix app install
-          npm --prefix functions install
+        run: |
+          npm --prefix app --legacy-peer-deps install
+          npm --prefix functions --legacy-peer-deps install
 
-#       - name: npm test
-#         run: npm test --if-present
+      - name: npm test
+        run: |
+          npm --prefix functions test --if-present || true
 
-#       - name: npm lint
-#         run: npm lint --if-present
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: npm build
-#         run: npm run build
-#       - uses: FirebaseExtended/action-hosting-deploy@v0
-#         with:
-#           repoToken: "${{ secrets.GITHUB_TOKEN }}"
-#           channelId: live
-#           projectId: llc-cheap
-#         env:
-#           FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
-#           PROJECT_PATH: ${{ github.workspace }}
+      - name: npm lint
+        run: |
+          npm --prefix functions run lint --if-present || true
+
+      - name: npm build
+        run: |
+          npm --prefix app run build
+          npm --prefix functions run build
+
+      - name: Deploy
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          channelId: live
+          projectId: llc-cheap
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
+        env:
+          FIREBASE_TOKEN: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_LLC_CHEAP }}"
+          PROJECT_PATH: "${{ github.workspace }}"
