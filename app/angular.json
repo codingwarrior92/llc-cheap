@@ -104,6 +104,43 @@
             "scripts": []
           }
         },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles"]
+             },
+            "externalDependencies": ["@firebase/firestore"]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "llc:build:development",
+              "serverTarget": "llc:server:development"
+            },
+            "production": {
+              "browserTarget": "llc:build:production",
+              "serverTarget": "llc:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
@@ -116,5 +153,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e5c00eaa-8ec4-4650-8ea3-c504b03f676d"
   }
 }

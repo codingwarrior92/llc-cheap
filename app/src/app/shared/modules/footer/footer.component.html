@@ -1,4 +1,4 @@
-<footer class="container">
+<footer class="container" *ngIf="isBrowser">
   <img (click)="scroll()" src="./assets/favicon/android-chrome-192x192.png" />
 
   <span>© LLC.CHEAP {{ date.getFullYear() }}</span>

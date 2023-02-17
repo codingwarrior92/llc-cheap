@@ -7,13 +7,34 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+import { createWindow } from 'domino'
+import 'localstorage-polyfill'
 
+global['localStorage'] = localStorage;
+const indexHtml = join(process.cwd(), 'dist/llc/index.html')
+const win = createWindow(indexHtml)
+// Polyfills
+;(global as any).window = win
+;(global as any).document = win.document
+;(global as any).navigator = win.navigator
+
+// import { applyDomino } from '@ntegral/ngx-universal-window';
+
+// const BROWSER_DIR = join(process.cwd(), 'dist/llc');
+// applyDomino(global, join(BROWSER_DIR, 'index.html'));
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/browser');
+  const distFolder = join(process.cwd(), 'dist/llc');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
-
+  const win = createWindow(indexHtml)
+  // Polyfills
+  ;(global as any).window = win
+  ;(global as any).document = win.document
+  ;(global as any).navigator = win.navigator
+  // const MockBrowser = require('mock-browser').mocks.MockBrowser;
+  // const mock = new MockBrowser();
+  // global['window'] = mock.getWindow();
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
@@ -41,7 +62,7 @@ export function app() {
 }
 
 function run() {
-  const port = process.env.PORT || 4000;
+  const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
   const server = app();

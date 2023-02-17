@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
@@ -8,15 +9,19 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   date = new Date();
+  isBrowser = false;
   /**
    * Creates an instance of FooterComponent.
    * @memberof FooterComponent
    */
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platform: any) {
+    this.isBrowser  = isPlatformBrowser(this.platform);
   }
 
   scroll() {
-    window.scroll(0, 0);
+    if (isPlatformBrowser(this.platform)) {
+      window.scroll(0, 0);
+    }
   }
 
 }

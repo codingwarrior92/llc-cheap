@@ -41,7 +41,6 @@ export class LegalIncService {
     let eName = name;
     let eType = type;
     let eState = state;
-
     this._http.get(environment.legalinc.api + '/api/v2/entity/check', this.options).subscribe((res) => {
 
     });

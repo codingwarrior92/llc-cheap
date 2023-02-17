@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const APP_NAME = 'YOUR_PROJECT_NAME'; // TODO: replace me!
+const APP_NAME = 'llc'; // TODO: replace me!
 
 module.exports = {
   entry: { server: './server.ts' },
@@ -9,6 +9,7 @@ module.exports = {
   mode: 'development',
   target: 'node',
   externals: [
+    { 'window': 'window' },
     /* Firebase has some troubles being webpacked when in
        in the Node environment, let's skip it.
        Note: you may need to exclude other dependencies depending
