@@ -37,6 +37,7 @@
                 "src/assets/icons",
                 "src/assets/img",
                 "src/assets/svg",
+                "src/assets/json",
                 "src/robots.txt",
                 "src/.htaccess"
               ],
@@ -48,10 +49,13 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "10kb",
+                  "maximumError": "12kb"
                 }
               ],
+              "optimization": true,
+              "buildOptimizer": true,
+              "aot": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -117,10 +121,11 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "media"
+              "outputHashing": "media",
+              "optimization": true
             },
             "development": {
-              "optimization": false,
+              "optimization": true,
               "sourceMap": true,
               "extractLicenses": false
             }
@@ -136,16 +141,59 @@
             },
             "production": {
               "browserTarget": "llc:build:production",
-              "serverTarget": "llc:server:production"
+              "serverTarget": "llc:server:production",
+              "prerender": {
+                "options": {
+                  "guessRoutes": false,
+                  "routes": [
+                    "/",
+                    "login",
+                    "forgot-password",
+                    "resources",
+                    "business",
+                    "account"
+                  ]
+                }
+              },
+              "optimization": true,
+              "buildOptimizer": true,
+              "aot": true
             }
           },
           "defaultConfiguration": "development"
         },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "guessRoutes": false,
+            "routes": [
+              "/",
+              "login",
+              "forgot-password",
+              "resources",
+              "business",
+              "account"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "llc:build:production",
+              "serverTarget": "llc:server:production",
+              "guessRoutes": false
+            },
+            "development": {
+              "browserTarget": "llc:build:development",
+              "serverTarget": "llc:server:development",
+              "guessRoutes": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "prerender": false,
-            "ssr": false,
+            "prerender": true,
+            "ssr": true,
             "browserTarget": "llc:build:production",
             "firebaseProject": "llc-cheap",
             "firebaseHostingSite": "llc-cheap"
@@ -155,6 +203,9 @@
     }
   },
   "cli": {
-    "analytics": "e5c00eaa-8ec4-4650-8ea3-c504b03f676d"
+    "analytics": "e5c00eaa-8ec4-4650-8ea3-c504b03f676d",
+    "cache": {
+      "environment": "all"
+    }
   }
 }

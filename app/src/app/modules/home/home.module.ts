@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CacheInterceptor } from 'src/app/shared/interceptor/cache.interceptor';
 
 // MODULES
 import { ServicesModule } from './services/services.module';
@@ -32,6 +33,7 @@ import { GeocodingService } from 'src/app/shared/services/external/geocoding.ser
     HomeComponent
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     LegalIncService,
     GeocodingService
   ]

@@ -8,7 +8,8 @@
     "dev:ssr": "ng run llc:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build && ng run llc:server",
-    "test": "ng test"
+    "test": "ng test",
+    "prerender": "ng run llc:prerender"
   },
   "private": true,
   "dependencies": {
